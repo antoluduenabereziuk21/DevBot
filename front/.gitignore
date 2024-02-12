@@ -1,0 +1,11 @@
+node_modules
+*_sessions
+.vscode
+/.idea
+db.json
+.env
+*.log
+*.png
+
+public/*
+!public/.gitkeep
