@@ -1,0 +1,4 @@
+module.exports = {
+    NODE_ENV: process.env.NODE_ENV || 'development',
+    API: process.env.API ,
+  }
