@@ -1,12 +1,11 @@
 {
-    "name": "base-bailey-memory",
+    "name": "dev-bot-whatsapp",
     "version": "1.0.0",
     "description": "",
-    "main": "app.js",
+    "main": "src/app.js",
     "scripts": {
-        "prestart": "npx eslint . --no-ignore",
         "pre-copy": "cd .. && npm run  copy.lib base-baileys-memory",
-        "start": "node app.js"
+        "start": "node src/app.js"
     },
     "keywords": [],
     "dependencies": {
@@ -15,10 +14,22 @@
         "@bot-whatsapp/database": "latest",
         "@bot-whatsapp/portal": "latest",
         "@bot-whatsapp/provider": "latest",
-        "@whiskeysockets/baileys": "6.5.0",
+        "@gilmour-plant/portal-qr": "file:packages/portalQR",
+        "@google/generative-ai": "^0.2.1",
+        "@whiskeysockets/baileys": "6.6.0",
         "axios": "^1.6.7",
+        "boxen": "^7.1.1",
         "cache-manager": "5.2.4",
+        "chalk": "^4.1.2",
+        "dayjs": "^1.11.10",
         "dotenv": "^16.4.1",
+        "ffmpeg-static": "^5.2.0",
+        "fluent-ffmpeg": "^2.1.2",
+        "jsonwebtoken": "^9.0.2",
+        "jwt-decode": "^4.0.0",
+        "link-preview-js": "^3.0.5",
+        "mime-types": "^2.1.35",
+        "resend": "^3.2.0",
         "wa-sticker-formatter": "4.4.4"
     },
     "devDependencies": {
