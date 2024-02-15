@@ -1,4 +1,4 @@
-package com.back.chatbot.controller.configuration;
+package com.back.chatbot.configuration;
 
 
 import io.swagger.v3.oas.models.OpenAPI;
