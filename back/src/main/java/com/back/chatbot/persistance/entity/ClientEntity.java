@@ -12,8 +12,7 @@ import org.hibernate.annotations.UuidGenerator;
 public class ClientEntity {
 
     @Id
-    @GeneratedValue(generator = "uuid")
-    @GenericGenerator(name = "uuid", strategy = "uuid2")
+    @UuidGenerator
     private String idClient;
 
     @Column(name = "name", nullable = false, length = 85)
