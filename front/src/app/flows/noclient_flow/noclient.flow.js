@@ -1,5 +1,5 @@
 const {addKeyword} = require('@bot-whatsapp/bot');
-const flowRegister = require('./flowRegister');
+const flowRegister = require('../register_flow/register.flow');
 
 module.exports = addKeyword('USUARIO_NO_REGISTRADO').
     addAnswer(['Selecciona la opcion de tu preferencia',

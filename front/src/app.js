@@ -4,10 +4,9 @@ const axios = require('axios').default;
 
 const QRPortalWeb = require('@bot-whatsapp/portal')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
-const MockAdapter = require('@bot-whatsapp/database/mock');
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const { flowClient, flowNoClient ,flowRegister} = require('./flows');
+const { flowClient, flowNoClient ,flowRegister} = require('./app/flows');
 //const {API_URL} = require('process.env')
 
 //const config = require('./config.js')
@@ -17,7 +16,7 @@ const API_URL = 'http://localhost:9698/v1/api/customers/'
 console.log(API_URL)
 
 
-const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
+const flowPrincipal = addKeyword(['hola', 'ole', 'alo'],{})
 
     .addAnswer('🙌 Hola bienvenido a este *Chatbot* 🤖 ' 
         , null
@@ -106,7 +105,7 @@ const flowPrincipal = addKeyword(['hola', 'ole', 'alo'])
     )
 
 const main = async () => {
-    const adapterDB = new MockAdapter()
+    const adapterDB = new JsonFileAdapter()
     const adapterFlow = createFlow(
         [flowPrincipal,
             flowClient,
