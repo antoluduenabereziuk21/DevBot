@@ -1,36 +1,30 @@
 package com.back.chatbot.persistance.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.Id;
+import com.back.chatbot.enums.OrderState;
+import jakarta.persistence.*;
 import lombok.Data;
-import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.UuidGenerator;
 
 import java.math.BigDecimal;
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @Data
 public class OrderEntity {
+
     @Id
     @UuidGenerator
-    private String id;
+    private String idOrder;
 
-    private BigDecimal quantity;
+    @Enumerated(value = EnumType.STRING)
+    private OrderState orderState;
 
-    private BigDecimal price;
+    @OneToMany(mappedBy = "orderEntity", cascade = CascadeType.PERSIST)
+    private List<ItemsOrderEntity> itemsProducts;
 
-    private String description;
+    private BigDecimal total;
 
-    private Boolean state;
 
-    private void State(){
-        this.state = true;
-    }
 
-    /*id
-    * cantidad
-    * precio
-    * descripcion
-    * estado*/
 }
