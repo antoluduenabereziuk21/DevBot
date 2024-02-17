@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5b136a4-2a29-4b53-9c95-2c79a77e5d3d" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/back/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+    <list default="true" id="b5b136a4-2a29-4b53-9c95-2c79a77e5d3d" name="Changes" comment="pushed github folder">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,6 +57,19 @@
       <option name="presentableId" value="Default" />
       <updated>1707762457891</updated>
     </task>
+    <task id="LOCAL-00001" summary="pushed github folder">
+      <option name="closed" value="true" />
+      <created>1708144437657</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1708144437657</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="pushed github folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="pushed github folder" />
   </component>
 </project>
