@@ -30,7 +30,7 @@ jobs:
       - name: Build and push docker hub
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: ./back
           dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PROJECT }}:latest
