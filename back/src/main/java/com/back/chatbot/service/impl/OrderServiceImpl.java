@@ -2,9 +2,7 @@ package com.back.chatbot.service.impl;
 
 
 import com.back.chatbot.controller.dto.request.OrderRequestDto;
-import com.back.chatbot.persistance.entity.ItemsOrderEntity;
 import com.back.chatbot.persistance.entity.OrderEntity;
-import com.back.chatbot.persistance.mapper.ItemsOrderMapper;
 import com.back.chatbot.persistance.mapper.OrderMapper;
 import com.back.chatbot.persistance.repository.IOrderRepository;
 import com.back.chatbot.service.IOrderService;

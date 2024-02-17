@@ -16,6 +16,8 @@ public class OrderEntity {
     @Id
     @UuidGenerator
     private String idOrder;
+    //id from WA for order
+    private String idOrderWA;
 
     @Enumerated(value = EnumType.STRING)
     private OrderState orderState;

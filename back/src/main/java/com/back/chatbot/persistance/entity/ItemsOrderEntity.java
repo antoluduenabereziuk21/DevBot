@@ -17,6 +17,10 @@ public class ItemsOrderEntity {
     @UuidGenerator
     private String idItem;
 
+    private String idItemWA;
+
+    private String name;
+
     private BigDecimal quantity;
 
     private BigDecimal price;
