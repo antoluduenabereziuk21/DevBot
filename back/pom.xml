@@ -111,6 +111,7 @@
 				</configuration>
 			</plugin>
 		</plugins>
+		<finalName>devbot-app</finalName>
 	</build>
 
 </project>
