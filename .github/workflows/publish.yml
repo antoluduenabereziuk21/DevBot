@@ -27,6 +27,9 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
 
+      - name: Copy .env file
+        run: cp .env back/
+
       - name: Build and push docker hub
         uses: docker/build-push-action@v5
         with:
