@@ -1,12 +1,10 @@
-const { createBot, createProvider, createFlow, addKeyword } = require('@bot-whatsapp/bot')
+const { createBot, createProvider, createFlow, addKeyword ,EVENTS} = require('@bot-whatsapp/bot')
 const axios = require('axios').default;
-
-
-const QRPortalWeb = require('@bot-whatsapp/portal')
+const QRPortalWeb = require('@gilmour-plant/portal-qr')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
 
-const { flowClient, flowNoClient ,flowRegister} = require('./app/flows');
+const { flowClient, flowNoClient ,flowRegister, catalogFlow} = require('./app/flows');
 //const {API_URL} = require('process.env')
 
 //const config = require('./config.js')
@@ -57,62 +55,21 @@ const flowPrincipal = addKeyword(['hola', 'ole', 'alo'],{})
                 }
             }
         }
-        
-        /*
-        , async (ctx, { flowDynamic, gotoFlow }) => {
-            try {
-                let phone = ctx.from;
-                console.log(ctx.from + " " + "nombre :" + ctx.pushName);
-
-                const resp = await axios(API_URL + `${phone}`);
-                console.log(resp.status);
-
-                if (resp !=null) {
-                    let name = resp.data.data.nombre;
-                    console.log(resp.data.message);
-                    await flowDynamic(`Hola!!! ${name}, Este es el menu del Dia 🙂 🍕 `);
-                    return gotoFlow(flowClient);
-                } else {
-                    // Puedes ajustar este mensaje según tus necesidades
-                    await flowDynamic('Hola!!!, te compartimos el menu del dia 🙂 🍕  ');
-                    return gotoFlow(flowNoClient);
-                }
-            } catch (error) {
-                console.error("Error al realizar la petición:", error);
-
-                // Manejo de error: Puedes personalizar este mensaje de acuerdo a tus necesidades
-                await flowDynamic('Ha ocurrido un error al procesar la solicitud.');
-            }
-        }*/
+    );
 
 
-        /*async(ctx,{flowDynamic,gotoFlow})=>{
-            let phone = ctx.from
-            console.log(ctx.from + " " + "name"+ctx.pushName)
-    
-            const resp = await axios(API_URL+`${phone}`)
-            console.log(resp.status)
-            if(resp.data.status == 200){
-                let name = resp.data.data.nombre
-                console.log(resp.data.message)
-                await flowDynamic(`Hola!!! ${name}, Este es el menu del Dia`)
-                return gotoFlow(flowClient)
-            }if(resp.data.data.status != 200){
-                await flowDynamic('Hola!!!, te compartimos el menu del dia')
-                return gotoFlow(flowNoClient)
-            }
-            }*/
-    )
 
-const main = async () => {
+    const main = async () => {
     const adapterDB = new JsonFileAdapter()
-    const adapterFlow = createFlow(
-        [flowPrincipal,
+
+    const flows = [flowPrincipal,
             flowClient,
             flowNoClient,
-            flowRegister
+            flowRegister,
+            catalogFlow
         ]
-    )
+
+    const adapterFlow = createFlow([...flows])
     const adapterProvider = createProvider(BaileysProvider)
 
     createBot({

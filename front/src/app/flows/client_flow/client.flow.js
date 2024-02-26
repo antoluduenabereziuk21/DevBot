@@ -2,7 +2,7 @@ const {addKeyword} = require('@bot-whatsapp/bot')
 const axios = require('axios').default;
 const API_URL = 'http://localhost:9698/v1/api/customers/'
 
-module.exports = addKeyword('USUARIO_REGISTRADO').
+module.exports = addKeyword('USUARIO_REGISTRADO',{}).
     addAnswer(['Selecciona la opcion de tu preferencia',
               'respondiendo con el numero correspodiente a cada producto',
               '*1* 🥙  Arepas',
