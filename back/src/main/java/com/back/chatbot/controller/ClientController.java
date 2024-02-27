@@ -27,7 +27,24 @@ public class ClientController {
 
         return ResponseEntity.status(HttpStatus.OK).body(clientService.getAllClients());
     }
-
+    @Operation(
+            description = "Find Client By Id",
+            summary = "SEARCH FOR AN CLIENT BY THEIR ID",
+            responses = {
+                    @ApiResponse(
+                            responseCode = "200",
+                            description = "Success",
+                            content = {
+                                    @Content(mediaType = "application/json",
+                                            schema = @Schema(implementation = String.class)) }
+                    ),
+                    @ApiResponse(
+                            responseCode = "404",
+                            description = "Not Found",
+                            content = @Content
+                    )
+            }
+    )
     @GetMapping("{idClient}")
     public ResponseEntity<?> getClientById(@PathVariable String idClient){
 
