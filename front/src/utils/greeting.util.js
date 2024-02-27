@@ -20,8 +20,10 @@ const randomGreeting = () => {
     const getLocalTime = () => {
         const systemTime = dayjs.utc();
         if (systemTime.isValid()) {
+            //CAMBIAR A TU REGION PARA QUE SALUDE CORRECTAMENTE
             return systemTime.tz('America/Lima');
         } else {
+            //CAMBIAR A TU REGION PARA QUE SALUDE CORRECTAMENTE
             return dayjs().tz('America/Lima');
         }
     };
@@ -41,6 +43,7 @@ const randomGreeting = () => {
     console.log(saludo);
     return saludo;
 };
+
 const greetingUtil = () =>{
     return [
         ` Soy *MaiviBot* ,soy un *bot de consulta* en desarrollo , por favor sea paciente conmigo 😅

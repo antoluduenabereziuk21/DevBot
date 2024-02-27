@@ -4,8 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="b5b136a4-2a29-4b53-9c95-2c79a77e5d3d" name="Changes" comment="pushed github folder">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="deleting folder .idea">
+      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -19,10 +20,10 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo">{
-  &quot;associatedIndex&quot;: 5
-}</component>
-  <component name="ProjectId" id="2cHJEOFNNxTgClymjn6HlE1cBgL" />
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 5
+}]]></component>
+  <component name="ProjectId" id="2cy3k2rUEONbZyoL5S0aumQFbQK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -36,6 +37,7 @@
     "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot"
   }
 }]]></component>
+
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$" />
@@ -51,19 +53,19 @@
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="b5b136a4-2a29-4b53-9c95-2c79a77e5d3d" name="Changes" comment="" />
-      <created>1707762457891</created>
+      <changelist id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="" />
+      <created>1709070131209</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1707762457891</updated>
+      <updated>1709070131209</updated>
     </task>
-    <task id="LOCAL-00001" summary="pushed github folder">
+    <task id="LOCAL-00001" summary="deleting folder .idea">
       <option name="closed" value="true" />
-      <created>1708144437657</created>
+      <created>1709070789278</created>
       <option name="number" value="00001" />
       <option name="presentableId" value="LOCAL-00001" />
       <option name="project" value="LOCAL" />
-      <updated>1708144437657</updated>
+      <updated>1709070789278</updated>
     </task>
     <task id="LOCAL-00002" summary="pushed github folder">
       <option name="closed" value="true" />
@@ -77,7 +79,7 @@
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="pushed github folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="pushed github folder" />
+    <MESSAGE value="deleting folder .idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="deleting folder .idea" />
   </component>
 </project>
