@@ -18,7 +18,7 @@ const QR_FILE = process.env.QR_FILE ?? "bot";
 const PUBLIC_URL =
   process.env.PUBLIC_URL ??
   process.env.RAILWAY_STATIC_URL ??
-  "http://149.50.136.146";
+  "http://localhost";
 
 const dir = [join(__dirname, "dist"), join(__dirname, "..", "dist")].find((i) =>
   existsSync(i)

@@ -1,0 +1,1 @@
+import{c as t,T as o,_ as e}from"./q-5d64b09a.js";const s=t(o(()=>e(()=>import("./q-0a9298b6.js"),["build/q-0a9298b6.js","build/q-5d64b09a.js"]),"s_zlMKmqylGLo")),_={title:"Zephyr Cygnus",meta:[{name:"description",content:"📊 Bot QR"}]};export{s as default,_ as head};

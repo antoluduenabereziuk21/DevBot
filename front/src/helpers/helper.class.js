@@ -41,6 +41,7 @@ class HelpersClass {
         await provider.vendor.sendPresenceUpdate("paused", $id);
     }
 
+
     /**
      * funcion para simular la escritura de un mensaje
      * @param provider
@@ -56,6 +57,16 @@ class HelpersClass {
 
         await provider.vendor.sendPresenceUpdate("composing", $id);
         await this.wait(delay2);
+    }
+
+    typing2= async(provider, options)=>{
+        const {delay1, ctx} = options;
+        const $id = ctx?.key?.remoteJid;
+
+        await provider.vendor.presenceSubscribe($id);
+        await this.wait(delay1);
+
+        await provider.vendor.sendPresenceUpdate("composing", $id);
     }
     /**
      * funcion para simular la grabacion de un mensaje de voz
