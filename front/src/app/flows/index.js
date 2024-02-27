@@ -5,6 +5,7 @@ const catalogFlow = require('./shopping_flow/shopping.flow');
 const {flowPrincipal, onFlow, offFlow} = require('../flows/welcome_flow/welcome.flow');
 const {logoutFlow, timeoutFlow, sessionExpiredFlow} = require('../flows/exit_flow/exit.flow');
 const {advisorFlow} = require('../flows/advisor_flow/advisor.flow');
+const {orderFlow} = require('../flows/order_flow/order.flow');
 
 const flows = [
     onFlow,
@@ -17,7 +18,8 @@ const flows = [
     logoutFlow,
     timeoutFlow,
     sessionExpiredFlow,
-    advisorFlow
+    advisorFlow,
+    orderFlow
 ]
 module.exports = {
     flows

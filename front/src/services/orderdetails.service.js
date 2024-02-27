@@ -3,10 +3,12 @@ const getOrderWA = async (orderId, orderToken, provider, ctx) => {
         const orderToken = ctx?.message?.orderMessage.token;
         const orderNumber = ctx?.message?.orderMessage.orderId;
         const customerJid = ctx?.key.remoteJid;
-        const status = ctx?.message?.orderMessage.status;
 
         let order = await provider.getOrder(orderId, orderToken);
+        console.log(order)
         const orderTotal = order.price.total / 1000;
+        const total1000= order.price.total;
+        const currency = order.price.currency;
         const orderData = order.products;
         
         let nextData = orderData
@@ -15,7 +17,7 @@ const getOrderWA = async (orderId, orderToken, provider, ctx) => {
 
         let orderConfirm = `*Order Number:* ${orderId}\n\n*Order Details:* \n${nextData} \n\n*Order Total:* *PEN= S/.${orderTotal}*`;
 
-        return { orderConfirm, orderToken, orderNumber, customerJid, nextData, orderTotal };
+        return { orderConfirm, orderToken, orderNumber, customerJid, nextData, orderTotal,currency , total1000};
     } catch (error) {
         return 'FAIL: obtener detalles orden';
     }
