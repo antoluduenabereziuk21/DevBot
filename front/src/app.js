@@ -1,11 +1,10 @@
-const { createBot, createProvider, createFlow, addKeyword ,EVENTS} = require('@bot-whatsapp/bot')
-const axios = require('axios').default;
+const { createBot, createProvider, createFlow} = require('@bot-whatsapp/bot')
 const QRPortalWeb = require('@gilmour-plant/portal-qr')
 const BaileysProvider = require('@bot-whatsapp/provider/baileys')
 const JsonFileAdapter = require('@bot-whatsapp/database/json')
-const {randomGreeting} = require('./utils/greeting.util')
 const { flowClient, flowNoClient ,flowRegister, catalogFlow, flowPrincipal} = require('./app/flows');
 const newInstance = require('../src/helpers/helper.class')
+require('dotenv').config()
 //const {API_URL} = require('process.env')
 
 //const config = require('./config.js')
