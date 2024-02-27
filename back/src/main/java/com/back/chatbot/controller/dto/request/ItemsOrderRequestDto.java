@@ -20,7 +20,7 @@ public class ItemsOrderRequestDto implements Serializable {
     @NotEmpty(message = "Debe Ingresar El Id Del Item ")
     @NotBlank(message = "no debe consistir solo en espacios en blanco")
     @Schema(description = "El Id Del Item", example = "a1sd54asd")
-    private String idItemWA;
+    private String idItemWA;//exe
 
     @NotEmpty(message = "Debe Ingresar El Nombre Del Producto")
     @NotBlank(message = "no debe consistir solo en espacios en blanco")
