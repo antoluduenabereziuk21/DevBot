@@ -25,7 +25,7 @@ public class OrderRequestDto {
 
     @NotEmpty(message = "Total De La Orden")
     @NotBlank(message = "no debe consistir solo en espacios en blanco")
-    @Schema(description = "Tola Orden", example = "45986.00")
+    @Schema(description = "Toltal Orden", example = "45986.00")
     private BigDecimal total;
 
     public OrderRequestDto(){
