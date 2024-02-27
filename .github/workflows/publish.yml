@@ -44,14 +44,14 @@ jobs:
     steps:
 
       - name: Docker Instance Stop and remove
-        run: docker rm -f devbot
+        run: sudo docker rm -f devbot
 
       - name: Docker pull image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
+        run: sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
 
       - name: Docker run image
         run: |
-          docker run -d \
+          sudo docker run -d \
           --restart always \
           --name devbot \
           -p9698:9698 \
