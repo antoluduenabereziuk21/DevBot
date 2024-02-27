@@ -93,30 +93,34 @@ class HelpersClass {
      */
     tryAgain = async (intents, ctxFn, options) => {
         const {ctx, state} = options;
-
         if (intents > 0) {
             let msgIntents = intents === 1 ? "Tienes 1 intento." : `Tienes ${intents} intentos.`;
-            await this.simulatingReadWrite(ctxFn.provider, {
-                delay1: 500,
-                delay2: 1000,
+            await this.typing(ctxFn.provider, {
+                delay1: this.randomMs(800, 500),
+                delay2: this.randomMs(2400, 1850),
                 ctx
             });
+            await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
             return ctxFn.fallBack({body: msgIntents});
         } else {
             if (!state[ctx?.from]) {
                 state[ctx?.from] = {};
             }
             state[ctx?.from] = {...state[ctx?.from], on: false};
-            await this.simulatingReadWrite(ctxFn.provider, {
-                delay1: 500,
-                delay2: 1150,
+            await this.typing(ctxFn.provider, {
+                delay1: this.randomMs(750,550),
+                delay2: this.randomMs(2450,1650),
                 ctx
             });
             await ctxFn.provider.vendor.sendMessage(ctx?.key?.remoteJid, {text: "❌ Su solicitud ha sido cancelada ❌ , escriba #empezar"}, {quoted: ctx});
+            await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
             return ctxFn.endFlow();
         }
     }
 
+    randomMs= (max,min)=>{
+        return Math.floor(Math.random() * (max - min + 1)) + min
+    }
 
     /**
      *

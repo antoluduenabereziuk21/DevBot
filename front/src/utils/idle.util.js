@@ -1,4 +1,4 @@
-const {timeoutFlow} = require("../app/exit_flow/exit.flow");
+const {timeoutFlow} = require('../app/flows/exit_flow/exit.flow');
 const chalk = require("chalk");
 let timers = {};
 

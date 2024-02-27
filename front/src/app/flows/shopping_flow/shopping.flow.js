@@ -2,9 +2,11 @@ const { addKeyword ,EVENTS} = require('@bot-whatsapp/bot')
 const {getOrderWA} = require('../../../services/orderdetails.service');
 const { setRandomDelay } = require('../../../utils/delay.util');
 const {postSlack} = require("../../../http/slack.http");
+const userstateMiddleware = require("../../../middlewares/userstate.middleware");
 
 let intents = 2;
 const catalogFlow = addKeyword(EVENTS.ORDER,{})
+    .addAction(userstateMiddleware)
     .addAction(async (ctx, { provider , flowDynamic, extensions}) => {
         try {
             let oId = ctx.message.orderMessage.orderId;
@@ -29,13 +31,26 @@ const catalogFlow = addKeyword(EVENTS.ORDER,{})
             await postSlack(e.message, "Error en el catalogFlow")
         }
     })
-    .addAction({capture:true}, async (ctx, {provider, flowDynamic, extensions}) => {
+    .addAction({capture:true}, async (ctx, {provider,fallBack,endFlow, flowDynamic, extensions,state}) => {
         const jid = ctx.key.remoteJid;
+        const myState= state.getMyState();
         const body= ctx.body.trim();
         const regExp = new RegExp(/^[1-2]$/);
+        await provider.vendor.readMessages([ctx.key]);
         if(!regExp.test(body)){
-
+            await extensions.utils.typing(provider, {
+                delay1: setRandomDelay(800, 560),
+                delay2: setRandomDelay(2100, 1750),
+                ctx
+            });
+            await flowDynamic([{body: "💢 Debe escribir una de las opciones válidas, por favor intente nuevamente."}]);
+            await extensions.utils.tryAgain(intents, {provider, fallBack,endFlow}, {ctx, state: myState});
+            intents--;
+            return
         }
+
+        console.log("body", body);
+
     })
 
 module.exports = catalogFlow;
