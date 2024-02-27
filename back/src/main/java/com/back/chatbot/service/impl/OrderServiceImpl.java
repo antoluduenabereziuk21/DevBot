@@ -2,6 +2,7 @@ package com.back.chatbot.service.impl;
 
 
 import com.back.chatbot.controller.dto.request.OrderRequestDto;
+import com.back.chatbot.enums.OrderState;
 import com.back.chatbot.persistance.entity.OrderEntity;
 import com.back.chatbot.persistance.mapper.OrderMapper;
 import com.back.chatbot.persistance.repository.IOrderRepository;
@@ -23,6 +24,7 @@ public class OrderServiceImpl implements IOrderService {
     public OrderRequestDto createOrder(OrderRequestDto orderRequestDto) {
 
         OrderEntity orderEntity = orderMapper.toOrderEntity(orderRequestDto);
+        orderEntity.setOrderState(OrderState.IN_PROGRESS);
         orderEntity.getItemsProducts().forEach(
                 itemsOrderEntity -> itemsOrderEntity.setOrderEntity(orderEntity)
         );
