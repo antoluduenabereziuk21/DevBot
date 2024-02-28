@@ -62,6 +62,8 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
     .addAction(userstateMiddleware)
     .addAction(async (ctx, {gotoFlow, globalState,extensions,provider}) => {
       idleStart(ctx, gotoFlow, globalState.getMyState().timer);
+
+      await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "✅"}});
       await extensions.utils.typing(provider, {
         delay1: setRandomDelay(800, 550),
         delay2: setRandomDelay(2100, 1750),
