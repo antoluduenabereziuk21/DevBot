@@ -4,8 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="deleting folder .idea">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added git ignore for resolve conflict with folder idea">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -53,11 +52,20 @@
       <option name="project" value="LOCAL" />
       <updated>1709070789278</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="added git ignore for resolve conflict with folder idea">
+      <option name="closed" value="true" />
+      <created>1709071069145</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1709071069145</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleting folder .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleting folder .idea" />
+    <MESSAGE value="added git ignore for resolve conflict with folder idea" />
+    <option name="LAST_COMMIT_MESSAGE" value="added git ignore for resolve conflict with folder idea" />
   </component>
 </project>
