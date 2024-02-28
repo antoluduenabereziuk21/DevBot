@@ -4,10 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="deleting folder .idea">
-      <change afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
-
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added config on pusblish.yml for deploy app Node">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,36 +18,23 @@
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 5
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 5
+}</component>
   <component name="ProjectId" id="2cy3k2rUEONbZyoL5S0aumQFbQK" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "antonioDevBot",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;antonio&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot&quot;
   }
-}]]></component>
-
-  <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$" />
-    </key>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="jdk-17.0.10-corretto-17.0.10-4caba194b151-ab7203c4" />
-      </set>
-    </attachedChunks>
-  </component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -67,19 +52,40 @@
       <option name="project" value="LOCAL" />
       <updated>1709070789278</updated>
     </task>
-    <task id="LOCAL-00002" summary="pushed github folder">
+    <task id="LOCAL-00002" summary="added git ignore for resolve conflict with folder idea">
       <option name="closed" value="true" />
-      <created>1708993515850</created>
+      <created>1709071069145</created>
       <option name="number" value="00002" />
       <option name="presentableId" value="LOCAL-00002" />
       <option name="project" value="LOCAL" />
-      <updated>1708993515850</updated>
+      <updated>1709071069145</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="added config on pusblish.yml for deploy app Node">
+      <option name="closed" value="true" />
+      <created>1709158215607</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1709158215607</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="deleting folder .idea" />
-    <option name="LAST_COMMIT_MESSAGE" value="deleting folder .idea" />
+    <MESSAGE value="added git ignore for resolve conflict with folder idea" />
+    <MESSAGE value="added config on pusblish.yml for deploy app Node" />
+    <option name="LAST_COMMIT_MESSAGE" value="added config on pusblish.yml for deploy app Node" />
   </component>
 </project>
