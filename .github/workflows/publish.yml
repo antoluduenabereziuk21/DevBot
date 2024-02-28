@@ -26,7 +26,7 @@ jobs:
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
-          node-version: '14'
+          node-version: '18'
 
       - name: Install Node.js dependencies
         run: npm install
@@ -84,6 +84,6 @@ jobs:
           docker run -d \
           --restart always \
           --name node-app \
-          -p 3000:3000 \  # Ajusta el puerto según la configuración de tu aplicación Node.js
+          -p 3000:3000 \ 
           ${{ secrets.DOCKERHUB_USERNAME }}/node-app:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
