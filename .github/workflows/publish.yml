@@ -29,7 +29,7 @@ jobs:
           node-version: '18'
 
       - name: Install Node.js dependencies
-        run: npm install
+        run: npm i
 
       - name: Build Node.js app
         run: npm run build  # Reemplaza con el script de construcción de tu aplicación Node.js
@@ -84,6 +84,13 @@ jobs:
           docker run -d \
           --restart always \
           --name node-app \
+          -e PHONE_NUMBER=51979838018 \
+          -e USE_PAIRING_CODE=true \
+          -e JWT_SECRET=${{secrets.JWT_SECRET}} \
+          -e SLACK_URL=${{secrets.SLACK_URL}} \
+          -e "EMAIL_TO=${{secrets.EMAIL_TO}}" \
+          -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
+          -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
           -p 3000:3000 \ 
           ${{ secrets.DOCKERHUB_USERNAME }}/node-app:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33

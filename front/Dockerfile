@@ -5,7 +5,7 @@ WORKDIR /app
 
 COPY package*.json ./
 RUN npm install
-
+COPY @bot-whatsapp /app/node_modules/@bot-whatsapp
 COPY . .
 RUN npm run build
 
