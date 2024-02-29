@@ -3,9 +3,9 @@ FROM node:18-bullseye as builder
 
 WORKDIR /app/front
 
-COPY package*.json ./
+COPY front/package*.json ./
 RUN npm install
-COPY @bot-whatsapp /app/node_modules/@bot-whatsapp
+COPY @bot-whatsapp /app/front/node_modules/@bot-whatsapp
 COPY . .
 RUN npm run build
 
