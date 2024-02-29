@@ -4,224 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="refactor publish.yml">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/core/core.class.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventAction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventContact.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventDocument.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventLocation.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventMedia.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventOrder.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventTemplate.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventVoiceNote.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/eventWelcome.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/events/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/flow.class.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/addAction.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/addAnswer.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/addChild.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/addKeyword.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/toCtx.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/toJson.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/toSerialize.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/rollup-cli.config.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/lib/bundle.bot.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/provider/provider.class.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/bin/cli.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/index.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/lib/cli/bundle.cli.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-json/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-memory/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mongo/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mysql/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-postgres/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-baileys-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-json/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-memory/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mongo/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mysql/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-postgres/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-meta-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-json/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-memory/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mongo/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mysql/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-postgres/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-twilio-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-json/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-memory/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mongo/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mysql/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-postgres/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-venom-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wppconnect-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-json/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-json/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-json/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-json/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-json/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-memory/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-memory/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-memory/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-memory/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-memory/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mongo/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mongo/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mongo/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mongo/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mongo/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mysql/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mysql/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mysql/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mysql/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-mysql/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-postgres/.eslintrc.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-postgres/Dockerfile" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-postgres/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-postgres/app.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/cli/starters/apps/base-wweb-postgres/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/lib/json/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/lib/mock/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/lib/mongo/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/lib/mysql/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/lib/postgres/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/database/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/404.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-62e1fe6c.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-71e64753.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-72f8ccfb.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-76dc688e.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-9955d354.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-a9ac0c30.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/build/q-f3fbab0f.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/favicon.svg" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/index.html" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/q-data.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/q-manifest.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/robots.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/service-worker.js" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/dist/sitemap.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/lib/portal.http.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/portal/package.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/LICENSE.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/baileys/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/meta/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/mock/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/twilio/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/venom/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/web-whatsapp/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/wppconnect/index.cjs" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/package.json" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/front/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/front/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/resend.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/resend.service.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -292,7 +77,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709158596424</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="refactor publish.yml">
+      <option name="closed" value="true" />
+      <created>1709169737357</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1709169737358</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -311,6 +104,7 @@
     <MESSAGE value="added git ignore for resolve conflict with folder idea" />
     <MESSAGE value="added config on pusblish.yml for deploy app Node" />
     <MESSAGE value="change version of Node for 18 on publish.yml" />
-    <option name="LAST_COMMIT_MESSAGE" value="change version of Node for 18 on publish.yml" />
+    <MESSAGE value="refactor publish.yml" />
+    <option name="LAST_COMMIT_MESSAGE" value="refactor publish.yml" />
   </component>
 </project>
