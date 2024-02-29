@@ -24,7 +24,7 @@ RUN npm install --only=production
 # Puerto de exposición (ajusta según sea necesario)
 EXPOSE 3000
 
-# Comando para ejecutar la aplicación
+# Comando para ejecutar la aplicación  asdasd
 CMD ["npm", "start"]
 
 
