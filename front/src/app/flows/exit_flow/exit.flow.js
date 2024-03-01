@@ -2,9 +2,13 @@ const {addKeyword, EVENTS} = require("@bot-whatsapp/bot");
 const {setRandomDelay} = require("../../../utils/delay.util");
 const chalk = require("chalk");
 const {postSlack} = require("../../../http/slack.http");
+const {idleStop} = require("../../../utils/idle.util");
 const REGEX_EXIT= '/❌Salir del Sistema/g';
 
 const logoutFlow = addKeyword(REGEX_EXIT,{regex: true})
+    .addAction(async (ctx) => {
+      idleStop(ctx);
+    })
     .addAction(async (ctx, {extensions,provider,flowDynamic, state,endFlow}) => {
         try {
             const from = ctx?.from;
