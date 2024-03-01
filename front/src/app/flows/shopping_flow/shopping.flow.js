@@ -2,6 +2,7 @@ const {addKeyword, EVENTS} = require('@bot-whatsapp/bot')
 const {getOrderWA} = require('../../../services/orderdetails.service');
 const {setRandomDelay} = require('../../../utils/delay.util');
 const {postSlack} = require("../../../http/slack.http");
+const {createOrder} = require("../../../http/order.http")
 const userstateMiddleware = require("../../../middlewares/userstate.middleware");
 const strategy = require("./strategy/strategy.class");
 const {idleStart, idleReset} = require("../../../utils/idle.util");
@@ -19,7 +20,8 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
             let oToken = ctx.message.orderMessage.token;
             const jid = ctx.key.remoteJid;
 
-            const {orderConfirm, currency, total1000} = await getOrderWA(oId, oToken, provider, ctx);
+            const {orderConfirm, currency, total1000,GLOBAL_ORDER} = await getOrderWA(oId, oToken, provider, ctx);
+            createOrder(GLOBAL_ORDER);
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(800, 500),
                 delay2: setRandomDelay(3000, 2500),
