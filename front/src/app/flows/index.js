@@ -3,6 +3,7 @@ const {flowPrincipal, onFlow, offFlow} = require('../flows/welcome_flow/welcome.
 const {logoutFlow, timeoutFlow, sessionExpiredFlow} = require('../flows/exit_flow/exit.flow');
 const {advisorFlow} = require('../flows/advisor_flow/advisor.flow');
 const {orderFlow} = require('../flows/order_flow/order.flow');
+const localpickupFlow = require('./localpickup_flow/localpickup.flow');
 
 const flows = [
     onFlow,
@@ -13,7 +14,8 @@ const flows = [
     timeoutFlow,
     sessionExpiredFlow,
     advisorFlow,
-    orderFlow
+    orderFlow,
+    localpickupFlow
 ]
 module.exports = {
     flows

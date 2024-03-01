@@ -58,26 +58,31 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
         extensions,
         state
     }) => {
-        idleReset(ctx, gotoFlow, globalState.getMyState().timer);
-        await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "⏳"}});
-        const myState = state.getMyState();
-        const body = ctx.body.trim();
-        const regExp = new RegExp(/^[1-2]$/);
-        await provider.vendor.readMessages([ctx.key]);
-        if (!regExp.test(body)) {
-            await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 560),
-                delay2: setRandomDelay(2100, 1750),
-                ctx
-            });
-            await flowDynamic([{body: "💢 Debe escribir una de las opciones válidas, por favor intente nuevamente."}]);
-            await extensions.utils.tryAgain(intents, {provider, fallBack, endFlow}, {ctx, state: myState});
-            intents--;
-            return
-        }
+        try{
+            idleReset(ctx, gotoFlow, globalState.getMyState().timer);
+            await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "⏳"}});
+            const myState = state.getMyState();
+            const body = ctx.body.trim();
+            const regExp = new RegExp(/^[1-2]$/);
+            await provider.vendor.readMessages([ctx.key]);
+            if (!regExp.test(body)) {
+                await extensions.utils.typing(provider, {
+                    delay1: setRandomDelay(800, 560),
+                    delay2: setRandomDelay(2100, 1750),
+                    ctx
+                });
+                await flowDynamic([{body: "💢 Debe escribir una de las opciones válidas, por favor intente nuevamente."}]);
+                await extensions.utils.tryAgain(intents, {provider, fallBack, endFlow}, {ctx, state: myState});
+                intents--;
+                return
+            }
 
-        const strategyMethod = strategy[`case_${body}`] || strategy.default;
-        await strategyMethod(ctx, {gotoFlow,provider});
-    })
+            const strategyMethod = strategy[`case_${body}`] || strategy.default;
+            await strategyMethod(ctx, {gotoFlow,provider});
+        }catch (e) {
+            console.log("Error en el catalogFlow", e);
+            await postSlack(e.message, "Error en el catalogFlow")
+        }
+    });
 
 module.exports = catalogFlow;
