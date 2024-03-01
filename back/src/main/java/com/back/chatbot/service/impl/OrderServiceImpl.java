@@ -22,12 +22,16 @@ public class OrderServiceImpl implements IOrderService {
 
     @Override
     public OrderRequestDto createOrder(OrderRequestDto orderRequestDto) {
-
+        System.out.println(orderRequestDto);
         OrderEntity orderEntity = orderMapper.toOrderEntity(orderRequestDto);
         orderEntity.setOrderState(OrderState.IN_PROGRESS);
         orderEntity.getItemsProducts().forEach(
                 itemsOrderEntity -> itemsOrderEntity.setOrderEntity(orderEntity)
+
         );
+//        orderEntity.getItemsProducts().forEach(
+//                itemsOrderEntity -> itemsOrderEntity.setIdItemWA()
+//        );
 
         return orderMapper.toOrderRequestDto(orderRepository.save(orderEntity));
 
