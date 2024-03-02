@@ -22,12 +22,8 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN_NODE }}
           
       - name: Listar contenido del directorio front
-        run: ls   
-  
-      - name: Listar contenido del directorio
-        run: ls -R /front
-      
-  
+        run: ls  
+
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
         with:
