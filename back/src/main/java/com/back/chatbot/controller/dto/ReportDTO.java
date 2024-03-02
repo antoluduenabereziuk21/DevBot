@@ -9,7 +9,5 @@ public class ReportDTO {
     private ByteArrayInputStream stream;
     private int length;
 
-
-
 }
 
