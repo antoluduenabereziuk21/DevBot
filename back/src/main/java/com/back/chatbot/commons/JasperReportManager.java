@@ -30,11 +30,11 @@ public class JasperReportManager {
 
         ByteArrayOutputStream stream = new ByteArrayOutputStream();
         ClassPathResource resource = new ClassPathResource(REPORT_FOLDER + File.separator + fileName + JASPER);
-
+        System.out.println("Ruta del archivo1 .jasper: " + resource.getURL().getPath());
         InputStream inputStream = resource.getInputStream();
         JasperPrint jasperPrint = JasperFillManager.fillReport(inputStream, params, con);
         JasperExportManager.exportReportToPdfStream(jasperPrint, stream);
-
+        JasperExportManager.exportReportToPdfFile(jasperPrint, "src/main/resources" + "/ReportePedido.pdf");
 //        JRPdfExporter exporter = new JRPdfExporter();
 //
 //        exporter.setExporterInput(new SimpleExporterInput(jasperPrint));

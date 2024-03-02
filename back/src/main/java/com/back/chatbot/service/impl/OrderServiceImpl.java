@@ -4,6 +4,7 @@ package com.back.chatbot.service.impl;
 import com.back.chatbot.controller.dto.request.OrderRequestDto;
 import com.back.chatbot.enums.OrderState;
 import com.back.chatbot.persistance.entity.OrderEntity;
+import com.back.chatbot.persistance.entity.ProductEntity;
 import com.back.chatbot.persistance.mapper.OrderMapper;
 import com.back.chatbot.persistance.repository.IOrderRepository;
 import com.back.chatbot.service.IOrderService;
@@ -49,5 +50,13 @@ public class OrderServiceImpl implements IOrderService {
         //itemsOrder.setOrderEntity(order);
 
        // return orderRepository.save(order);
+    }
+
+    @Override
+    public List<OrderRequestDto> getAllOrders() {
+
+        List<OrderRequestDto> orderList = orderMapper.toOrderRequestDtoList(orderRepository.findAll());
+
+        return orderList;
     }
 }
