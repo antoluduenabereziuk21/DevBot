@@ -22,14 +22,18 @@ jobs:
         with:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN_NODE }}
+          
+      - name: Listar contenido del directorio front
+        run: ls   
   
       - name: Listar contenido del directorio
-        run: ls -R ./front
+        run: ls -R /front
+      
   
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./front/Dockerfile  # Ajusta la ruta al directorio de tu aplicación Node.js
+          context: /front/Dockerfile  # Ajusta la ruta al directorio de tu aplicación Node.js
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
 
