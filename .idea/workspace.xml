@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="minimal changes">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="solo para hacer deploy app Spring">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/commons/JasperReportManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/commons/JasperReportManager.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/OrderController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/ReportController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/ReportController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/dto/ReportDTO.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/dto/ReportDTO.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/reports/OrderReport.jrxml" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/reports/OrderReport.jrxml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/reports/ReportePedido.jasper" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +174,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709176573683</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="solo para hacer deploy app Spring">
+      <option name="closed" value="true" />
+      <created>1709417499681</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709417499681</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -203,6 +203,7 @@
     <MESSAGE value="change version of Node for 18 on publish.yml" />
     <MESSAGE value="refactor publish.yml" />
     <MESSAGE value="refactor Dockerfile from front" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Dockerfile from front" />
+    <MESSAGE value="solo para hacer deploy app Spring" />
+    <option name="LAST_COMMIT_MESSAGE" value="solo para hacer deploy app Spring" />
   </component>
 </project>
