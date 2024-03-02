@@ -23,18 +23,11 @@ jobs:
           username: ${{ secrets.DOCKERHUB_USERNAME }}
           password: ${{ secrets.DOCKERHUB_TOKEN_NODE }}
 
-      - name: Build and push Spring Docker image
-        uses: docker/build-push-action@v5
-        with:
-          context: front/
-          dockerfile: Dockerfile
-          push: true
-          tags: ${{ secrets.DOCKERHUB_USERNAME }}/${{ secrets.DOCKERHUB_PROJECT_NODE }}:latest
 
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
         with:
-          context: front/  # Ajusta la ruta al directorio de tu aplicación Node.js
+          context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
           dockerfile: Dockerfile  # Ajusta si es necesario
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
