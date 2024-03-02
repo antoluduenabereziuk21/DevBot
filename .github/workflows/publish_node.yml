@@ -27,7 +27,8 @@ jobs:
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
         with:
-          context: /front/Dockerfile  # Ajusta la ruta al directorio de tu aplicación Node.js
+          context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
+          dockerfile: Dockerfile
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
 
