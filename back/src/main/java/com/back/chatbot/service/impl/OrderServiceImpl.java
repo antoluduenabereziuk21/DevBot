@@ -30,9 +30,13 @@ public class OrderServiceImpl implements IOrderService {
                 itemsOrderEntity -> itemsOrderEntity.setOrderEntity(orderEntity)
 
         );
-//        orderEntity.getItemsProducts().forEach(
-//                itemsOrderEntity -> itemsOrderEntity.setIdItemWA()
-//        );
+        /*
+        const orderSave = orderRepository.save(orderEntity)
+        const reportOrder = reportServiceImpl.getOrderReport(orderSave.id)
+
+        return
+
+       */
 
         return orderMapper.toOrderRequestDto(orderRepository.save(orderEntity));
 
