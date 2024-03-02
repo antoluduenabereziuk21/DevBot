@@ -13,4 +13,6 @@ public interface IReportService {
             throws JRException, IOException, SQLException;
 
     String exportReport(String reportFormat) throws FileNotFoundException, JRException;
+
+    String exportReport2(String idOrder) throws FileNotFoundException, JRException;
 }

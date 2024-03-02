@@ -2,7 +2,13 @@ package com.back.chatbot.service.impl;
 
 import com.back.chatbot.commons.JasperReportManager;
 import com.back.chatbot.controller.dto.ReportDTO;
+import com.back.chatbot.controller.dto.request.ItemsOrderRequestDto;
+import com.back.chatbot.controller.dto.request.OrderRequestDto;
+import com.back.chatbot.controller.dto.response.OrderResponseReport;
+import com.back.chatbot.persistance.entity.OrderEntity;
 import com.back.chatbot.persistance.entity.ProductEntity;
+import com.back.chatbot.persistance.mapper.OrderMapper;
+import com.back.chatbot.persistance.repository.IOrderRepository;
 import com.back.chatbot.persistance.repository.IProductRepository;
 import com.back.chatbot.service.IReportService;
 import net.sf.jasperreports.engine.*;
@@ -15,15 +21,16 @@ import org.springframework.util.ResourceUtils;
 import javax.sql.DataSource;
 import java.io.*;
 import java.sql.SQLException;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class ReportServiceImpl implements IReportService {
-
     @Autowired
     private IProductRepository productRepository;
+    @Autowired
+    private IOrderRepository orderRepository;
+    @Autowired
+    private OrderMapper orderMapper;
     @Autowired
     private JasperReportManager reportManager;
     @Autowired
@@ -59,6 +66,47 @@ public class ReportServiceImpl implements IReportService {
         JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
 
         Map<String, Object> parameters = new HashMap<>();
+        parameters.put("Autor","Exe");
+
+        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource1);
+
+        JasperExportManager.exportReportToPdfFile(jasperPrint, path +"miReporte.pdf");
+
+        return "Reporte Generado";
+    }
+
+    @Override
+    public String exportReport2(String idOrder) throws FileNotFoundException, JRException {
+        String path = "C:\\Users\\Exe\\Desktop\\Reportes\\";
+
+        OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow());
+
+        OrderResponseReport orderReport = new OrderResponseReport();
+
+        for (ItemsOrderRequestDto it: order.getItemsProducts()) {
+
+            String miDescri = it.getDescription();
+            orderReport.setDescription(miDescri);
+        }
+
+        orderReport.setIdOrderWA(order.getIdOrderWA());
+        orderReport.setTotal(order.getTotal());
+
+
+        //OrderEntity order = orderRepository.findById(idOrder).orElseThrow();
+
+        List<OrderResponseReport> list = new ArrayList<>();
+
+        list.add(orderReport);
+
+        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
+
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+
+        JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
+
+        Map<String, Object> parameters = new HashMap<>();
+
         parameters.put("Autor","Exe");
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource1);

@@ -55,4 +55,12 @@ public class OrderController {
         return ResponseEntity.status(HttpStatus.OK).body(orderList);
 
     }
+
+    @GetMapping("{idOrder}")
+    public ResponseEntity<?> getOrderById(@PathVariable String idOrder){
+
+        OrderRequestDto order = orderService.getOrderById(idOrder);
+
+        return ResponseEntity.status(HttpStatus.OK).body(order);
+    }
 }

@@ -36,4 +36,9 @@ public class ReportController {
     public String generateReport(@PathVariable String format) throws JRException, FileNotFoundException {
         return iReportService.exportReport(format);
     }
+
+    @GetMapping("/orderReport/{idOrder}")
+    public String generateOrderReport(@PathVariable String idOrder) throws JRException, FileNotFoundException {
+        return iReportService.exportReport2(idOrder);
+    }
 }

@@ -15,7 +15,6 @@ import java.util.List;
 
 @Service
 public class OrderServiceImpl implements IOrderService {
-
     @Autowired
     private IOrderRepository orderRepository;
     @Autowired
@@ -28,28 +27,9 @@ public class OrderServiceImpl implements IOrderService {
         orderEntity.setOrderState(OrderState.IN_PROGRESS);
         orderEntity.getItemsProducts().forEach(
                 itemsOrderEntity -> itemsOrderEntity.setOrderEntity(orderEntity)
-
         );
-//        orderEntity.getItemsProducts().forEach(
-//                itemsOrderEntity -> itemsOrderEntity.setIdItemWA()
-//        );
 
         return orderMapper.toOrderRequestDto(orderRepository.save(orderEntity));
-
-
-        //OrderEntity order = orderRepository.save(orderEntity);
-
-//        for (ItemsOrderEntity item: order.getItemsProducts()) {
-//
-//            item.setOrderEntity(order);
-//
-//        }
-
-        //ItemsOrderEntity itemsOrder = new ItemsOrderEntity();
-
-        //itemsOrder.setOrderEntity(order);
-
-       // return orderRepository.save(order);
     }
 
     @Override
@@ -58,5 +38,11 @@ public class OrderServiceImpl implements IOrderService {
         List<OrderRequestDto> orderList = orderMapper.toOrderRequestDtoList(orderRepository.findAll());
 
         return orderList;
+    }
+    @Override
+    public OrderRequestDto getOrderById(String idOrder) {
+
+        OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow());
+        return order;
     }
 }
