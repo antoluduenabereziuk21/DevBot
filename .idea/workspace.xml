@@ -5,8 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="solo para hacer deploy app Spring">
+      <change afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -182,7 +182,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709417499681</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="solo para hacer deploy app Spring">
+      <option name="closed" value="true" />
+      <created>1709418733480</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709418733480</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
