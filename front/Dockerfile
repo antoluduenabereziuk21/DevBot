@@ -1,7 +1,7 @@
 FROM node:18-bullseye as bot
 LABEL author=luis;exequiel;antonio
 WORKDIR /app
-COPY ./front/package*.json ./
+COPY package*.json ./
  #Instalar el paquete de zona horaria
 RUN apt-get update && apt-get install -y tzdata
  ## Configurar la zona horaria
