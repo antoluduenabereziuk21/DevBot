@@ -27,8 +27,7 @@ jobs:
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
         with:
-          context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
-          dockerfile: Dockerfile  # Ajusta si es necesario
+          context: ./front/Dockerfile  # Ajusta la ruta al directorio de tu aplicación Node.js
           push: true
           tags: ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
 
@@ -42,13 +41,13 @@ jobs:
         run: docker rm -f devbot_node
 
       - name: Docker pull Node.js image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/node-app:latest
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
 
       - name: Docker run Node.js image
         run: |
           docker run -d \
           --restart always \
-          --name node-app \
+          --name devbot_node \
           -e PHONE_NUMBER=51979838018 \
           -e USE_PAIRING_CODE=true \
           -e JWT_SECRET=${{secrets.JWT_SECRET}} \
