@@ -16,7 +16,7 @@
         <![CDATA[SELECT o.id_order, o.order_state, o.total, i.id_item, i.description, i.price, i.quantity
 FROM order_entity o
 INNER JOIN items_order_entity i ON o.id_order = i.id_order
-WHERE o.id_order = '5155c8b3-b091-4463-86eb-6a37244ce568']]>
+WHERE o.id_order = '2bd40579-d040-42bb-a1bd-254924a14ed7']]>
     </queryString>
     <field name="id_order" class="java.lang.String">
         <property name="com.jaspersoft.studio.field.name" value="id_order"/>
@@ -64,25 +64,25 @@ WHERE o.id_order = '5155c8b3-b091-4463-86eb-6a37244ce568']]>
             <textField>
                 <reportElement x="310" y="15" width="260" height="61" uuid="2dbfcab1-363e-4f98-8c1d-8744c7616732"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Arial"  size="16" isBold="true"/>
+                    <font size="16" isBold="true"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{id_order}]]></textFieldExpression>
             </textField>
             <staticText>
                 <reportElement x="184" y="24" width="170" height="50" uuid="ae6fa6b5-5f4e-4fc4-b35d-874d8e899995"/>
                 <textElement>
-                    <font fontName="Arial"  size="34"/>
+                    <font fontName="Eras Demi ITC" size="34"/>
                 </textElement>
                 <text><![CDATA[Order N°]]></text>
             </staticText>
             <image>
                 <reportElement x="40" y="19" width="70" height="74" uuid="9a50d40c-0107-471a-81da-acd69c0b62bb"/>
-                <imageExpression><![CDATA[""]]></imageExpression>
+                <imageExpression><![CDATA["C:/Users/Exe/Downloads/165.jpg"]]></imageExpression>
             </image>
             <staticText>
                 <reportElement x="0" y="0" width="190" height="38" uuid="619e1ab9-a352-427d-9628-f87a4082fc30"/>
                 <textElement>
-                    <font fontName="Arial"  size="22" isBold="true"/>
+                    <font fontName="Eras Demi ITC" size="22" isBold="true"/>
                 </textElement>
                 <text><![CDATA[Pizeria Cerati]]></text>
             </staticText>
@@ -105,28 +105,28 @@ WHERE o.id_order = '5155c8b3-b091-4463-86eb-6a37244ce568']]>
                     <rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
                 </box>
                 <textElement>
-                    <font fontName="Arial"  size="15"/>
+                    <font fontName="Eras Demi ITC" size="15"/>
                 </textElement>
                 <text><![CDATA[Detalles del pedido:]]></text>
             </staticText>
             <staticText>
                 <reportElement x="53" y="12" width="110" height="32" uuid="6734fc96-1927-4b9d-80ff-94bb4fdefe26"/>
                 <textElement>
-                    <font fontName="Arial"  size="14"/>
+                    <font fontName="Eras Demi ITC" size="14"/>
                 </textElement>
                 <text><![CDATA[Cantidad]]></text>
             </staticText>
             <staticText>
                 <reportElement x="220" y="12" width="110" height="32" uuid="a2b16dc7-79b5-46bf-b92d-d8d717555124"/>
                 <textElement>
-                    <font fontName="Arial"  size="14"/>
+                    <font fontName="Eras Demi ITC" size="14"/>
                 </textElement>
                 <text><![CDATA[Descripción]]></text>
             </staticText>
             <staticText>
                 <reportElement x="430" y="12" width="110" height="32" uuid="2ab32711-c043-4c09-9983-05773544d78d"/>
                 <textElement>
-                    <font fontName="Arial"  size="14"/>
+                    <font fontName="Eras Demi ITC" size="14"/>
                 </textElement>
                 <text><![CDATA[Precio]]></text>
             </staticText>
@@ -137,21 +137,21 @@ WHERE o.id_order = '5155c8b3-b091-4463-86eb-6a37244ce568']]>
             <textField>
                 <reportElement x="30" y="0" width="110" height="25" uuid="d4f7c098-29f1-4f09-a72f-293cbb161082"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Arial"  size="16"/>
+                    <font fontName="Eras Demi ITC" size="16"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="208" y="0" width="122" height="20" uuid="620d0ecf-c109-45fb-b273-4c47a763eefa"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Arial"  size="16"/>
+                    <font fontName="Eras Demi ITC" size="16"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
             </textField>
             <textField>
                 <reportElement x="390" y="2" width="130" height="20" uuid="951140d4-4f4c-4000-86e2-119c2b49ce5b"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Arial"  size="16"/>
+                    <font fontName="Eras Demi ITC" size="16"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
             </textField>
@@ -174,14 +174,14 @@ WHERE o.id_order = '5155c8b3-b091-4463-86eb-6a37244ce568']]>
             <staticText>
                 <reportElement x="334" y="41" width="80" height="18" uuid="0508408f-2dda-4acd-841b-757478938fc8"/>
                 <textElement>
-                    <font fontName="Arial"  size="14"/>
+                    <font fontName="Eras Demi ITC" size="14"/>
                 </textElement>
                 <text><![CDATA[Total]]></text>
             </staticText>
             <textField>
                 <reportElement x="386" y="33" width="111" height="31" uuid="3394a33a-b4fa-4d1b-ba26-64d679d80a2b"/>
                 <textElement textAlignment="Center" verticalAlignment="Middle">
-                    <font fontName="Arial"  size="16"/>
+                    <font size="16"/>
                 </textElement>
                 <textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
             </textField>
