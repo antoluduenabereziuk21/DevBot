@@ -8,15 +8,14 @@
 <!--	</field>-->
 	<field name="total" class="java.math.BigDecimal">
 	</field>
-
 <!--	<field name="idItem" class="java.lang.String">-->
 <!--	</field>-->
 	<field name="description" class="java.lang.String">
 	</field>
-<!--	<field name="price" class="java.math.BigDecimal">-->
-<!--	</field>-->
-<!--	<field name="quantity" class="java.math.BigDecimal">-->
-<!--	</field>-->
+	<field name="price" class="java.math.BigDecimal">
+	</field>
+	<field name="quantity" class="java.math.BigDecimal">
+	</field>
 <!--	<group name="idOrder">-->
 <!--		<groupExpression><![CDATA[$F{idOrder}]]></groupExpression>-->
 <!--	</group>-->
@@ -41,7 +40,7 @@
 			</staticText>
 			<image>
 				<reportElement x="40" y="19" width="70" height="74" uuid="9a50d40c-0107-471a-81da-acd69c0b62bb"/>
-				<imageExpression><![CDATA["C:/Users/Exe/Downloads/165.jpg"]]></imageExpression>
+				<imageExpression><![CDATA["classpath:/images/165.jpg"]]></imageExpression>
 			</image>
 			<staticText>
 				<reportElement x="0" y="0" width="190" height="38" uuid="619e1ab9-a352-427d-9628-f87a4082fc30"/>
@@ -103,10 +102,10 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Eras Demi ITC" size="16"/>
 				</textElement>
-<!--				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>-->
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="208" y="0" width="122" height="20" uuid="620d0ecf-c109-45fb-b273-4c47a763eefa"/>
+				<reportElement x="168" y="0" width="222" height="20" uuid="620d0ecf-c109-45fb-b273-4c47a763eefa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Eras Demi ITC" size="16"/>
 				</textElement>
@@ -117,7 +116,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font fontName="Eras Demi ITC" size="16"/>
 				</textElement>
-<!--				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>-->
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
 			</textField>
 			<line>
 				<reportElement x="30" y="31" width="471" height="1" forecolor="#5FE88A" backcolor="#5FE88A" uuid="71575b9b-aea1-44ef-9124-5b33d7b6ed84"/>

@@ -10,5 +10,7 @@ public class OrderResponseReport {
     private String idOrderWA;
     private BigDecimal total;
     private String description;
+    private BigDecimal quantity;
+    private BigDecimal price;
 
 }
