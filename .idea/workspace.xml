@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="refactor publish_node.yml for deploy app Node">
-      <change afterPath="$PROJECT_DIR$/front/.env.example" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="update proyect">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/configuration/SwaggerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/configuration/SwaggerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/service/impl/ReportServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/service/impl/ReportServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -208,7 +206,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709421218306</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="update proyect">
+      <option name="closed" value="true" />
+      <created>1709589821732</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1709589821732</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -232,6 +238,7 @@
     <MESSAGE value="solo para hacer deploy app Spring" />
     <MESSAGE value="create publish_node.yml for deploy app Node" />
     <MESSAGE value="refactor publish_node.yml for deploy app Node" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor publish_node.yml for deploy app Node" />
+    <MESSAGE value="update proyect" />
+    <option name="LAST_COMMIT_MESSAGE" value="update proyect" />
   </component>
 </project>

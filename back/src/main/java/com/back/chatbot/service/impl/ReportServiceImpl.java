@@ -78,7 +78,9 @@ public class ReportServiceImpl implements IReportService {
 
     @Override
     public byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException {
-        String path = "C:\\Users\\Exe\\Desktop\\Reportes\\";
+//        String path = "C:\\Users\\Exe\\Desktop\\Reportes\\";
+        String path = "src/main/resources/reports/ReportePedido.jrxml";
+
 
         OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow());
 
@@ -94,7 +96,9 @@ public class ReportServiceImpl implements IReportService {
             list.add(orderReport);
         }
 
-        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
+//        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
+        File file = ResourceUtils.getFile("src/main/resources/reports/ReportePedido.jrxml");
+
 
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
