@@ -4,12 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="refactor Dockerfile from front">
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="create publish_node.yml for deploy app Node">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/bot.otp.json" beforeDir="false" afterPath="$PROJECT_DIR$/front/bot.otp.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/shopping.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/shopping.flow.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/http/order.http.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/http/order.http.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/src/services/orderdetails.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/orderdetails.service.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/front/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -33,16 +31,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.front/Dockerfile.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "antonio",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot/back"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.front/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;antonio&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot&quot;
   }
-}]]></component>
+}</component>
   <component name="RunManager">
     <configuration default="true" type="docker-deploy" factoryName="dockerfile" temporary="true">
       <deployment type="dockerfile">
@@ -177,7 +175,31 @@
       <option name="project" value="LOCAL" />
       <updated>1709176573683</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="solo para hacer deploy app Spring">
+      <option name="closed" value="true" />
+      <created>1709417499681</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1709417499681</updated>
+    </task>
+    <task id="LOCAL-00015" summary="solo para hacer deploy app Spring">
+      <option name="closed" value="true" />
+      <created>1709418733480</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1709418733480</updated>
+    </task>
+    <task id="LOCAL-00016" summary="create publish_node.yml for deploy app Node">
+      <option name="closed" value="true" />
+      <created>1709420389695</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1709420389695</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -198,6 +220,8 @@
     <MESSAGE value="change version of Node for 18 on publish.yml" />
     <MESSAGE value="refactor publish.yml" />
     <MESSAGE value="refactor Dockerfile from front" />
-    <option name="LAST_COMMIT_MESSAGE" value="refactor Dockerfile from front" />
+    <MESSAGE value="solo para hacer deploy app Spring" />
+    <MESSAGE value="create publish_node.yml for deploy app Node" />
+    <option name="LAST_COMMIT_MESSAGE" value="create publish_node.yml for deploy app Node" />
   </component>
 </project>

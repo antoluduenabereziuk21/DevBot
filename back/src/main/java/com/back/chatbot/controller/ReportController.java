@@ -24,8 +24,14 @@ public class ReportController {
     private IReportService iReportService;
     @GetMapping(path = "/report/download")
     public ResponseEntity<Resource> download(@RequestParam Map<String, Object> params)
-
+    /*   order = orderService.getOrderBy(id)
+        param= order.id
+        set.
+     */
             throws JRException, IOException, SQLException {
+        //getOrderReport???? si no existe Entidad ni Ordenes guardadas
+        //tenemos que traer una orden y eso pasarlo como param, ya que es objeto y se va mapear
+
         ReportDTO dto = iReportService.getOrderReport(params);
 
         InputStreamResource streamResource = new InputStreamResource(dto.getStream());
