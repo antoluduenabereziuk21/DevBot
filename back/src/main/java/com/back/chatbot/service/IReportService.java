@@ -2,6 +2,8 @@ package com.back.chatbot.service;
 
 import com.back.chatbot.controller.dto.ReportDTO;
 import net.sf.jasperreports.engine.JRException;
+import org.springframework.core.io.Resource;
+import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -13,4 +15,6 @@ public interface IReportService {
             throws JRException, IOException, SQLException;
 
     String exportReport(String reportFormat) throws FileNotFoundException, JRException;
+
+    byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException;
 }
