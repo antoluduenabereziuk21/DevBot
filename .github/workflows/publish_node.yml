@@ -3,7 +3,7 @@ name: Build and Deploy Node.js app
 
 on:
   push:
-    branches: [dev, main,devBot_V1.0.0]
+    branches: [dev, main,devFront]
 
 jobs:
   build-docker:
@@ -51,11 +51,12 @@ jobs:
           --name devbot_node \
           -e PHONE_NUMBER=51979838018 \
           -e USE_PAIRING_CODE=true \
-          -e JWT_SECRET=${{secrets.JWT_SECRET}} \
-          -e SLACK_URL=${{secrets.SLACK_URL}} \
+          -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
+          -e "SLACK_URL=${{secrets.SLACK_URL}}" \
           -e "EMAIL_TO=${{secrets.EMAIL_TO}}" \
           -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
           -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
+          -e "API_URL=${{secrets.API_URL}}" \
           -p 3000:3000 \ 
           ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
