@@ -85,7 +85,7 @@ public class ReportServiceImpl implements IReportService {
     @Override
     public byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException {
         OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow(
-                () -> new NoSuchElementException("No se encontro el pedido")
+                ()-> new RuntimeException("Order not found")
         ));
 
         List<OrderResponseReport> list = new ArrayList<>();
@@ -100,8 +100,12 @@ public class ReportServiceImpl implements IReportService {
             list.add(orderReport);
         }
 
+        Path path = this.getPath("ReportePedido.jrxml");
+//        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
+        File file = ResourceUtils.getFile(path.toAbsolutePath().toString());
+        System.out.println(file.getAbsolutePath().toString());
 
-        JasperReport jasperReport = JasperCompileManager.compileReport("classpath:/reports/ReportePedido.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
         JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
 
