@@ -94,7 +94,7 @@ public class ReportServiceImpl implements IReportService {
             OrderResponseReport orderReport = new OrderResponseReport();
             orderReport.setIdOrderWA(order.getIdOrderWA());
             orderReport.setTotal(order.getTotal());
-            orderReport.setDescription(it.getDescription());
+            orderReport.setDescription(it.getName());
             orderReport.setQuantity(it.getQuantity());
             orderReport.setPrice(it.getPrice());
             list.add(orderReport);
