@@ -2,7 +2,7 @@ name: Build and Deploy Spring boot app
 
 on:
   push:
-    branches: [dev, main,devBot_V1.0.0]
+    branches: [dev, main,devBot_V1.0.0,test]
 
 jobs:
   build-docker:
