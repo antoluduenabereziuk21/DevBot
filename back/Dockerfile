@@ -1,5 +1,5 @@
 FROM amazoncorretto:17.0.9
-
+LABEL author=luis;exequiel;antonio
 COPY /target/devbot-app.jar /app/devbot-app.jar
 RUN mkdir -p /app/src/main/resources/reports
 RUN mkdir -p /app/src/main/resources/images
