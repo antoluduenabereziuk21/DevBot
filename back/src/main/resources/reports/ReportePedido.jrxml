@@ -34,7 +34,7 @@
 			<staticText>
 				<reportElement x="184" y="24" width="170" height="50" uuid="ae6fa6b5-5f4e-4fc4-b35d-874d8e899995"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="34"/>
+					<font fontName="DejaVu Sans" size="34"/>
 				</textElement>
 				<text><![CDATA[Order N°]]></text>
 			</staticText>
@@ -45,7 +45,7 @@
 			<staticText>
 				<reportElement x="0" y="0" width="190" height="38" uuid="619e1ab9-a352-427d-9628-f87a4082fc30"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="22" isBold="true"/>
+					<font fontName="DejaVu Sans" size="22" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Pizeria Cerati]]></text>
 			</staticText>
@@ -68,28 +68,28 @@
 					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
 				</box>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="15"/>
+					<font fontName="DejaVu Sans" size="15"/>
 				</textElement>
 				<text><![CDATA[Detalles del pedido:]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="53" y="12" width="110" height="32" uuid="6734fc96-1927-4b9d-80ff-94bb4fdefe26"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="14"/>
+					<font fontName="DejaVu Sans" size="14"/>
 				</textElement>
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="220" y="12" width="110" height="32" uuid="a2b16dc7-79b5-46bf-b92d-d8d717555124"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="14"/>
+					<font fontName="DejaVu Sans" size="14"/>
 				</textElement>
 				<text><![CDATA[Descripción]]></text>
 			</staticText>
 			<staticText>
 				<reportElement x="430" y="12" width="110" height="32" uuid="2ab32711-c043-4c09-9983-05773544d78d"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="14"/>
+					<font fontName="DejaVu Sans" size="14"/>
 				</textElement>
 				<text><![CDATA[Precio]]></text>
 			</staticText>
@@ -100,21 +100,21 @@
 			<textField>
 				<reportElement x="30" y="0" width="110" height="25" uuid="d4f7c098-29f1-4f09-a72f-293cbb161082"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Eras Demi ITC" size="16"/>
+					<font fontName="DejaVu Sans" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="168" y="0" width="222" height="20" uuid="620d0ecf-c109-45fb-b273-4c47a763eefa"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Eras Demi ITC" size="16"/>
+					<font fontName="DejaVu Sans" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
 			</textField>
 			<textField>
 				<reportElement x="390" y="2" width="130" height="20" uuid="951140d4-4f4c-4000-86e2-119c2b49ce5b"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font fontName="Eras Demi ITC" size="16"/>
+					<font fontName="DejaVu Sans" size="16"/>
 				</textElement>
 				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
 			</textField>
@@ -137,7 +137,7 @@
 			<staticText>
 				<reportElement x="334" y="41" width="80" height="18" uuid="0508408f-2dda-4acd-841b-757478938fc8"/>
 				<textElement>
-					<font fontName="Eras Demi ITC" size="14"/>
+					<font fontName="DejaVu Sans" size="14"/>
 				</textElement>
 				<text><![CDATA[Total]]></text>
 			</staticText>
