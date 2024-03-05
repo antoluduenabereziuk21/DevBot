@@ -17,6 +17,7 @@ const ENV = () => {
             "https://ik.imagekit.io/ljpa/Essalud/RobertPlant.png"
         ],
         URL_WHATSAPP: "https://wa.me/c/51971691067",
+        ENDPOINT_ORDER: "/order"
     }
 }
 

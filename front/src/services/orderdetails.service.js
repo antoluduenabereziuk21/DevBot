@@ -5,7 +5,7 @@ const getOrderWA = async (orderId, orderToken, provider, ctx) => {
         const customerJid = ctx?.key.remoteJid;
 
         let order = await provider.getOrder(orderId, orderToken);
-        console.log(order)
+
         const orderTotal = order.price.total / 1000;
         const total1000= order.price.total;
         const currency = order.price.currency;
@@ -22,14 +22,13 @@ const getOrderWA = async (orderId, orderToken, provider, ctx) => {
             console.log('la lista tiene '+GLOBAL_ORDER.itemsProducts.length+'productos')
             // Asignar el valor de id del producto a idItemWA
             GLOBAL_ORDER.itemsProducts[i].idItemWA = order.products[i].id;
+            GLOBAL_ORDER.itemsProducts[i].description = order.products[i].name;
             console.log('producto id '+order.products[i].id )
         }
         
         // Resultado final
         console.log(GLOBAL_ORDER);
-        console.log("orden enviada a API"+ orderData)
-
-
+        console.log("orden enviada a API"+ JSON.stringify(orderData));
 
         let nextData = orderData
             .map(({ name, price, quantity }) => `${name} x${quantity} @ PEN S/.${price / 1000}= S/${quantity*(price/1000)}`)
