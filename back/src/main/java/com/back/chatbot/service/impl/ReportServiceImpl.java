@@ -101,7 +101,7 @@ public class ReportServiceImpl implements IReportService {
         }
 
 
-        JasperReport jasperReport = JasperCompileManager.compileReport("classpath:/reports/ReportePedido.jrxml");
+        JasperReport jasperReport = JasperCompileManager.compileReport("app/back/src/main/resources/reports/ReportePedido.jrxml");
 
         JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
 
