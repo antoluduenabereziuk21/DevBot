@@ -102,7 +102,7 @@ public class ReportServiceImpl implements IReportService {
 //        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
         File file = ResourceUtils.getFile(path.toAbsolutePath().toString());
 
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
+        JasperReport jasperReport = JasperCompileManager.compileReport("app/src/main/resources/reports/ReportePedido.jrxml");
 
         JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
 
