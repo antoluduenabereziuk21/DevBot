@@ -1,24 +1,24 @@
-const axios = require('axios').default;
-const API_URL = process.env.API_URL;
+const {api} = require('./config');
+const ENV = require('../utils/enviroments.util');
+const {postSlack} = require("./slack.http");
+const chalk = require("chalk");
+const {ENDPOINT_ORDER} = ENV();
 
-console.log('api_url:'+API_URL);
+const createOrder = async (dataEntry)=>{
+    try{
 
-const createOrder = (dataEntry)=>{
-    var config = {
-        method: "post",    
-        url:API_URL,
-        headers: {
-            'Content-Type': 'application/json'
-          },
-        data: dataEntry,
-    };
-    axios(config)
-        .then(function(response){
-            console.log(JSON.stringify(response.data))
+        const response = await api.post(ENDPOINT_ORDER, dataEntry, {
+            headers: {
+                'Content-Type': 'application/json'
+            }
+        });
+        console.log(response.data)
+    }catch (error){
+        console.log(chalk.bgRed(error.message));
+        await postSlack({
+            text: `Error en el axios createOrder: ${error.message}`
         })
-        .catch(function(error){
-            console.log(error)
-        })
+    }
 }
 
 module.exports = {createOrder};

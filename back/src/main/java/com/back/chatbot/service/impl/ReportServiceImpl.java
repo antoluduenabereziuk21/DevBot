@@ -14,6 +14,7 @@ import net.sf.jasperreports.engine.*;
 
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.Resource;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
@@ -21,6 +22,8 @@ import org.springframework.util.ResourceUtils;
 
 import javax.sql.DataSource;
 import java.io.*;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 import java.sql.SQLException;
 import java.util.*;
 
@@ -36,6 +39,9 @@ public class ReportServiceImpl implements IReportService {
     private JasperReportManager reportManager;
     @Autowired
     private DataSource dataSource;
+
+    @Value("${file.upload.dir}")
+    private String DIRECTORIO_UPLOAD;
 
     @Override
     public ReportDTO getOrderReport(Map<String, Object> params)
@@ -78,10 +84,6 @@ public class ReportServiceImpl implements IReportService {
 
     @Override
     public byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException {
-//        String path = "C:\\Users\\Exe\\Desktop\\Reportes\\";
-        String path = "src/main/resources/reports/ReportePedido.jrxml";
-
-
         OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow());
 
         List<OrderResponseReport> list = new ArrayList<>();
@@ -96,9 +98,9 @@ public class ReportServiceImpl implements IReportService {
             list.add(orderReport);
         }
 
+        Path path = this.getPath("ReportePedido.jrxml");
 //        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
-        File file = ResourceUtils.getFile("src/main/resources/reports/ReportePedido.jrxml");
-
+        File file = ResourceUtils.getFile(path.toAbsolutePath().toString());
 
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
@@ -115,6 +117,10 @@ public class ReportServiceImpl implements IReportService {
         byte[] report = JasperExportManager.exportReportToPdf(jasperPrint);
 
         return report;
+    }
+
+    private Path getPath(String nombreArchivo) {
+        return Paths.get(DIRECTORIO_UPLOAD).resolve(nombreArchivo).toAbsolutePath();
     }
 
 }

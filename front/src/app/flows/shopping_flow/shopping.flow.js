@@ -21,12 +21,13 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
             const jid = ctx.key.remoteJid;
 
             const {orderConfirm, currency, total1000,GLOBAL_ORDER} = await getOrderWA(oId, oToken, provider, ctx);
-            createOrder(GLOBAL_ORDER);
+
             await extensions.utils.typing(provider, {
                 delay1: setRandomDelay(800, 500),
                 delay2: setRandomDelay(3000, 2500),
                 ctx
             });
+            await createOrder(GLOBAL_ORDER);
 
             await provider.paymentOrder(jid,currency,total1000,"No presione el botón de pago hasta que el bot lo indique.");
 

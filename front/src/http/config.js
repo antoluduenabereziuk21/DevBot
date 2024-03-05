@@ -1,10 +1,8 @@
 const axios = require('axios').default;
 const ENV = require('../utils/enviroments.util');
 
-const { URL_BASE } = ENV();
-
 const api = axios.create({
-    baseURL : URL_BASE
+    baseURL : process.env.API_URL
 });
 api.interceptors.request.use((config) => {
     config.headers = {
