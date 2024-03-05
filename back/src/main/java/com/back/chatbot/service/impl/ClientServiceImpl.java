@@ -1,6 +1,8 @@
 package com.back.chatbot.service.impl;
 
+import com.back.chatbot.controller.dto.response.ClientResponseDTO;
 import com.back.chatbot.persistance.entity.ClientEntity;
+import com.back.chatbot.persistance.mapper.ClientMapper;
 import com.back.chatbot.persistance.repository.IClientRepository;
 import com.back.chatbot.service.IClientService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,20 +15,25 @@ public class ClientServiceImpl implements IClientService {
 
     @Autowired
     private IClientRepository clientRepository;
+
+    @Autowired
+    private ClientMapper clientMapper;
+
     @Override
-    public List<ClientEntity> getAllClients() {
+    public List<ClientResponseDTO> getAllClients() {
 
-        List<ClientEntity> clientList = clientRepository.findAll();
+        return clientMapper.toGetListClientResponseDto(clientRepository.findAll());
 
-        return clientList;
     }
 
     @Override
-    public ClientEntity getClientById(String idClient) {
+    public ClientResponseDTO getClientById(String idClient) {
 
         ClientEntity client = clientRepository.findById(idClient).orElseThrow();
 
-        return client;
+        ClientResponseDTO clientResponseDTO = clientMapper.toClientResponseDto(client);
+
+        return clientResponseDTO;
     }
 
     @Override

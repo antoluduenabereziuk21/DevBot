@@ -1,0 +1,62 @@
+
+name: Build and Deploy Node.js app
+
+on:
+  push:
+    branches: [dev, main,devFront]
+
+jobs:
+  build-docker:
+    name: Build and deploy Node projects
+    runs-on: ubuntu-latest
+
+    steps:
+
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Login to Docker Hub
+        uses: docker/login-action@v3
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN_NODE }}
+          
+      - name: Listar contenido del directorio front
+        run: ls  
+
+      - name: Build and push Node.js Docker image
+        uses: docker/build-push-action@v5
+        with:
+          context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
+          dockerfile: Dockerfile
+          push: true
+          tags: ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
+
+  deploy:
+    name: Deploy to DonWeb
+    needs: build-docker
+    runs-on: self-hosted #ubuntu-latest
+
+    steps:
+      - name: Docker Instance Stop and remove
+        run: docker rm -f devbot_node
+
+      - name: Docker pull Node.js image
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
+
+      - name: Docker run Node.js image
+        run: |
+          docker run -d \
+          --restart always \
+          --name devbot_node \
+          -e PHONE_NUMBER=51979838018 \
+          -e USE_PAIRING_CODE=true \
+          -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
+          -e "SLACK_URL=${{secrets.SLACK_URL}}" \
+          -e "EMAIL_TO=${{secrets.EMAIL_TO}}" \
+          -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
+          -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
+          -e "API_URL=${{secrets.API_URL}}" \
+          -p 3000:3000 \ 
+          ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
+#docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33

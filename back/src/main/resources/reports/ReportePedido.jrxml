@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Created with Jaspersoft Studio version 6.21.0.final using JasperReports Library version 6.21.0-4f56c4f36cd19e17675219a9ac4692d5f0f13b06  -->
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportePedido" pageWidth="600" pageHeight="460" orientation="Landscape" columnWidth="560" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5f43c26-20ac-49a5-9cb2-9867841e3f88">
+
+	<field name="idOrderWA" class="java.lang.String">
+	</field>
+<!--	<field name="orderState" class="java.lang.String">-->
+<!--	</field>-->
+	<field name="total" class="java.math.BigDecimal">
+	</field>
+<!--	<field name="idItem" class="java.lang.String">-->
+<!--	</field>-->
+	<field name="description" class="java.lang.String">
+	</field>
+	<field name="price" class="java.math.BigDecimal">
+	</field>
+	<field name="quantity" class="java.math.BigDecimal">
+	</field>
+<!--	<group name="idOrder">-->
+<!--		<groupExpression><![CDATA[$F{idOrder}]]></groupExpression>-->
+<!--	</group>-->
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="101" splitType="Stretch">
+			<textField>
+				<reportElement x="310" y="15" width="260" height="61" uuid="2dbfcab1-363e-4f98-8c1d-8744c7616732"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{idOrderWA}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="184" y="24" width="170" height="50" uuid="ae6fa6b5-5f4e-4fc4-b35d-874d8e899995"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="34"/>
+				</textElement>
+				<text><![CDATA[Order N°]]></text>
+			</staticText>
+			<image>
+				<reportElement x="40" y="19" width="70" height="74" uuid="9a50d40c-0107-471a-81da-acd69c0b62bb"/>
+				<imageExpression><![CDATA["classpath:/images/165.jpg"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="0" y="0" width="190" height="38" uuid="619e1ab9-a352-427d-9628-f87a4082fc30"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="22" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Pizeria Cerati]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="44" splitType="Stretch">
+			<rectangle radius="7">
+				<reportElement x="10" y="6" width="530" height="30" backcolor="#5FE88A" uuid="51b9fcac-7c89-4c15-803e-14488d589a18"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="8" y="-26" width="170" height="35" uuid="44d27098-3fe1-472f-97ff-ce51e6c68607"/>
+				<box>
+					<topPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<leftPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<bottomPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+					<rightPen lineWidth="0.0" lineStyle="Solid" lineColor="#000000"/>
+				</box>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="15"/>
+				</textElement>
+				<text><![CDATA[Detalles del pedido:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="53" y="12" width="110" height="32" uuid="6734fc96-1927-4b9d-80ff-94bb4fdefe26"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="14"/>
+				</textElement>
+				<text><![CDATA[Cantidad]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="220" y="12" width="110" height="32" uuid="a2b16dc7-79b5-46bf-b92d-d8d717555124"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="14"/>
+				</textElement>
+				<text><![CDATA[Descripción]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="430" y="12" width="110" height="32" uuid="2ab32711-c043-4c09-9983-05773544d78d"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="14"/>
+				</textElement>
+				<text><![CDATA[Precio]]></text>
+			</staticText>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="38" splitType="Stretch">
+			<textField>
+				<reportElement x="30" y="0" width="110" height="25" uuid="d4f7c098-29f1-4f09-a72f-293cbb161082"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Eras Demi ITC" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="168" y="0" width="222" height="20" uuid="620d0ecf-c109-45fb-b273-4c47a763eefa"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Eras Demi ITC" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{description}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="390" y="2" width="130" height="20" uuid="951140d4-4f4c-4000-86e2-119c2b49ce5b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Eras Demi ITC" size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+			</textField>
+			<line>
+				<reportElement x="30" y="31" width="471" height="1" forecolor="#5FE88A" backcolor="#5FE88A" uuid="71575b9b-aea1-44ef-9124-5b33d7b6ed84"/>
+			</line>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="26" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="104" splitType="Stretch">
+			<rectangle radius="4">
+				<reportElement x="300" y="34" width="190" height="31" backcolor="#5FE88A" uuid="e8db7abd-e289-4a49-aa7d-4a2d55296bb0"/>
+				<graphicElement>
+					<pen lineWidth="1.0"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="334" y="41" width="80" height="18" uuid="0508408f-2dda-4acd-841b-757478938fc8"/>
+				<textElement>
+					<font fontName="Eras Demi ITC" size="14"/>
+				</textElement>
+				<text><![CDATA[Total]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="386" y="33" width="111" height="31" uuid="3394a33a-b4fa-4d1b-ba26-64d679d80a2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="16"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+			</textField>
+<!--			<componentElement>-->
+<!--				<reportElement x="90" y="10" width="95" height="69" uuid="13af67b1-e239-483e-9b1d-7f721396a57c"/>-->
+<!--				<jr:QRCode xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">-->
+<!--					<jr:codeExpression><![CDATA["123456789"]]></jr:codeExpression>-->
+<!--				</jr:QRCode>-->
+<!--			</componentElement>-->
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="18" splitType="Stretch"/>
+	</summary>
+</jasperReport>
