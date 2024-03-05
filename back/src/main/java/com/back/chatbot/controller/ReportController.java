@@ -10,6 +10,7 @@ import org.springframework.core.io.Resource;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.util.MimeType;
 import org.springframework.web.bind.annotation.*;
 
 import java.io.FileNotFoundException;
@@ -22,6 +23,7 @@ import java.util.Map;
 public class ReportController {
     @Autowired
     private IReportService iReportService;
+
     @GetMapping(path = "/report/download")
     public ResponseEntity<Resource> download(@RequestParam Map<String, Object> params)
     /*   order = orderService.getOrderBy(id)
@@ -40,19 +42,21 @@ public class ReportController {
         return ResponseEntity.ok().header("Content-Disposition", "attachment; filename=\"" + dto.getFileName() + "\"")
                 .contentLength(dto.getLength()).contentType(mediaType).body(streamResource);
     }
+
     @GetMapping("/report/{format}")
     public String generateReport(@PathVariable String format) throws JRException, FileNotFoundException {
         return iReportService.exportReport(format);
     }
-//commet for deploy
+
+    //commet for deploy
     @GetMapping("/orderReport/{idOrder}")
     public ResponseEntity<Resource> generateOrderReport(@PathVariable String idOrder) throws JRException, FileNotFoundException {
 
-        byte[] byteReport =  iReportService.exportReport2(idOrder);
+        byte[] byteReport = iReportService.exportReport2(idOrder);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_PDF)
-                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + idOrder + "\"")
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + idOrder.concat(".pdf") + "\"")
                 .body(new ByteArrayResource(byteReport));
     }
 }

@@ -11,12 +11,9 @@ import com.back.chatbot.persistance.repository.IOrderRepository;
 import com.back.chatbot.persistance.repository.IProductRepository;
 import com.back.chatbot.service.IReportService;
 import net.sf.jasperreports.engine.*;
-
 import net.sf.jasperreports.engine.data.JRBeanCollectionDataSource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.core.io.Resource;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
 
@@ -25,7 +22,10 @@ import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.sql.SQLException;
-import java.util.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class ReportServiceImpl implements IReportService {
@@ -45,20 +45,20 @@ public class ReportServiceImpl implements IReportService {
 
     @Override
     public ReportDTO getOrderReport(Map<String, Object> params)
-            throws JRException, IOException, SQLException{
-            String fileName = "ReportePedido";
-            ReportDTO dto = new ReportDTO();
+            throws JRException, IOException, SQLException {
+        String fileName = "ReportePedido";
+        ReportDTO dto = new ReportDTO();
 
-            dto.setFileName(fileName + ".pdf");
+        dto.setFileName(fileName + ".pdf");
 
-            ByteArrayOutputStream stream = reportManager.export(fileName, params, dataSource.getConnection());
+        ByteArrayOutputStream stream = reportManager.export(fileName, params, dataSource.getConnection());
 
-            byte[] bs = stream.toByteArray();
-            dto.setStream(new ByteArrayInputStream(bs));
-            dto.setLength(bs.length);
+        byte[] bs = stream.toByteArray();
+        dto.setStream(new ByteArrayInputStream(bs));
+        dto.setLength(bs.length);
 
-            return dto;
-        }
+        return dto;
+    }
 
     @Override
     public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
@@ -73,11 +73,11 @@ public class ReportServiceImpl implements IReportService {
         JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
 
         Map<String, Object> parameters = new HashMap<>();
-        parameters.put("Autor","Exe");
+        parameters.put("Autor", "Exe");
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource1);
 
-        JasperExportManager.exportReportToPdfFile(jasperPrint, path +"miReporte.pdf");
+        JasperExportManager.exportReportToPdfFile(jasperPrint, path + "miReporte.pdf");
 
         return "Reporte Generado";
     }
@@ -85,12 +85,12 @@ public class ReportServiceImpl implements IReportService {
     @Override
     public byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException {
         OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow(
-                ()-> new RuntimeException("Order not found")
+                () -> new RuntimeException("Order not found")
         ));
 
         List<OrderResponseReport> list = new ArrayList<>();
 
-        for (ItemsOrderRequestDto it: order.getItemsProducts()) {
+        for (ItemsOrderRequestDto it : order.getItemsProducts()) {
             OrderResponseReport orderReport = new OrderResponseReport();
             orderReport.setIdOrderWA(order.getIdOrderWA());
             orderReport.setTotal(order.getTotal());
@@ -111,7 +111,7 @@ public class ReportServiceImpl implements IReportService {
 
         HashMap<String, Object> parameters = new HashMap<>();
 
-        parameters.put("Autor","Exe");
+        parameters.put("Autor", "Exe");
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource1);
 

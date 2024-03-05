@@ -2,8 +2,6 @@ package com.back.chatbot.service;
 
 import com.back.chatbot.controller.dto.ReportDTO;
 import net.sf.jasperreports.engine.JRException;
-import org.springframework.core.io.Resource;
-import org.springframework.http.ResponseEntity;
 
 import java.io.FileNotFoundException;
 import java.io.IOException;
