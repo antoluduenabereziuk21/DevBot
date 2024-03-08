@@ -28,5 +28,4 @@ public class OrderEntity {
     private BigDecimal total;
 
 
-
 }

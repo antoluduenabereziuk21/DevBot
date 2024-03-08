@@ -21,6 +21,7 @@ public interface OrderMapper {
 //            }
 //    )
     OrderRequestDto toOrderRequestDto(OrderEntity orderEntity);
+
     List<OrderRequestDto> toOrderRequestDtoList(List<OrderEntity> orderEntityList);
 
     @InheritInverseConfiguration
