@@ -55,4 +55,6 @@ const captureAddressMiddleWare = async (field, ctx, ctxFn) =>{
     await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 }
 
+
+
 module.exports = {simulateTypingMiddleware, captureDataMiddleware,captureAddressMiddleWare}

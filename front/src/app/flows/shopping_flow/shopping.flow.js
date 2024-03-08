@@ -1,8 +1,7 @@
 const {addKeyword, EVENTS} = require('@bot-whatsapp/bot')
-const {getOrderWA} = require('../../../services/orderdetails.service');
+const {processOrderWA} = require('../../../services/orderdetails.service');
 const {setRandomDelay} = require('../../../utils/delay.util');
 const {postSlack} = require("../../../http/slack.http");
-const {createOrder} = require("../../../http/order.http")
 const userstateMiddleware = require("../../../middlewares/userstate.middleware");
 const strategy = require("./strategy/strategy.class");
 const {idleStart, idleReset} = require("../../../utils/idle.util");
@@ -14,27 +13,36 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
         await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "🤩"}});
     })
     .addAction(userstateMiddleware)
-    .addAction(async (ctx, {provider, flowDynamic, extensions}) => {
+    .addAction(async (ctx, {provider, flowDynamic, extensions, state}) => {
         try {
             let oId = ctx.message.orderMessage.orderId;
             let oToken = ctx.message.orderMessage.token;
             const jid = ctx.key.remoteJid;
-
-            const {orderConfirm, currency, total1000,GLOBAL_ORDER} = await getOrderWA(oId, oToken, provider, ctx);
+            const myState = state.getMyState();
+            
+            const {orderConfirm, currency, total1000} = await processOrderWA(oId, oToken, provider, ctx);
 
             await extensions.utils.typing(provider, {
-                delay1: setRandomDelay(800, 500),
-                delay2: setRandomDelay(3000, 2500),
+                delay1: setRandomDelay(800, 570),
+                delay2: setRandomDelay(3100, 2500),
                 ctx
             });
-            await createOrder(GLOBAL_ORDER);
 
-            await provider.paymentOrder(jid,currency,total1000,"No presione el botón de pago hasta que el bot lo indique.");
+            myState[ctx?.from]= {...myState[ctx?.from], order: {
+                idOrder:oId,
+                tokenOrder: oToken
+            }};
+            console.log("MY ESTADO ES: ",state.getMyState());
+           // await createOrder(GLOBAL_ORDER);
+            /*create order Habria que mandarlo luego de la seleccion de envio(retiro en local total === , envio a domicilio total +++ costo del envio)
+                costo del envio 
+                quentity =  1 description = delivery amount = 100
+            */
+            await provider.paymentOrder(jid,currency,total1000,
+                //"No presione el botón de pago hasta que el bot lo indique."
+                orderConfirm
+                );
 
-            await flowDynamic([{
-                body: orderConfirm,
-                delay: setRandomDelay(850, 550)
-            }])
             await provider.vendor.sendPresenceUpdate("paused", jid);
 
             await extensions.utils.typing(provider, {
@@ -81,7 +89,7 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
             }
 
             const strategyMethod = strategy[`case_${body}`] || strategy.default;
-            await strategyMethod(ctx, {gotoFlow,provider});
+            await strategyMethod(ctx, {gotoFlow,provider,extensions});
         }catch (e) {
             console.log("Error en el catalogFlow", e);
             await postSlack(e.message, "Error en el catalogFlow")

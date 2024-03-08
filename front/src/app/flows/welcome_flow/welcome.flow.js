@@ -62,23 +62,19 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
     .addAction(userstateMiddleware)
     .addAction(async (ctx, {gotoFlow, globalState,extensions,provider}) => {
       idleStart(ctx, gotoFlow, globalState.getMyState().timer);
-
       await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "✅"}});
+    })
+  .addAction(async (ctx, { provider, flowDynamic, extensions }) => {
       await extensions.utils.typing(provider, {
         delay1: setRandomDelay(800, 550),
-        delay2: setRandomDelay(2100, 1750),
+        delay2: setRandomDelay(2950, 1850),
         ctx
-      });
+      })
+       await flowDynamic([{
+        body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} , bienvenido a nuestro *restobar* \nPara pedir tus antojos 🍔 ,abre nuestro catalogo 😉`,
+        media: "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/ia6.jpg"
+      }]);
       await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
-    })
-  .addAnswer(
-    [
-      `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} , bienvenido a nuestro *restobar*`,
-      `Para pedir tus antojos 🍔 ,abre nuestro catalogo 😉`,
-    ],
-    { media: "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/ia6.jpg"},
-    async (ctx, { provider }) => {
-      return provider.vendor.readMessages([ctx.key]);
     }
   )
   .addAction(async (ctx, { provider, extensions, gotoFlow, globalState }) => {
