@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="resolved conflic on path url jasperReport">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added secrets for deploy">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/back/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/persistance/mapper/ItemsOrderMapper.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/persistance/mapper/ItemsOrderMapper.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -245,7 +243,15 @@
       <option name="project" value="LOCAL" />
       <updated>1709657212601</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added secrets for deploy">
+      <option name="closed" value="true" />
+      <created>1709669835097</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1709669835097</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -271,6 +277,7 @@
     <MESSAGE value="refactor publish_node.yml for deploy app Node" />
     <MESSAGE value="update proyect" />
     <MESSAGE value="resolved conflic on path url jasperReport" />
-    <option name="LAST_COMMIT_MESSAGE" value="resolved conflic on path url jasperReport" />
+    <MESSAGE value="added secrets for deploy" />
+    <option name="LAST_COMMIT_MESSAGE" value="added secrets for deploy" />
   </component>
 </project>
