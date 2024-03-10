@@ -1,5 +1,10 @@
-const {idleStart, idleReset} = require("../utils/idle.util");
+const {idleStart, idleReset, idleStop} = require("../utils/idle.util");
 const {setRandomDelay} = require("../utils/delay.util");
+const createOrderWA = require("../services/orderCreate.service");
+const {createOrder} = require("../http/order.http");
+const chalk = require("chalk");
+const { postSlack } = require("../http/slack.http");
+
 
 let intents = 2;
 const simulateTypingMiddleware = async (ctx, {provider, gotoFlow, globalState, extensions}) => {
@@ -55,4 +60,39 @@ const captureAddressMiddleWare = async (field, ctx, ctxFn) =>{
     await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
 }
 
-module.exports = {simulateTypingMiddleware, captureDataMiddleware,captureAddressMiddleWare}
+/**
+ * Despues de que el usuario confirma su pedido, se procede a crear el pedido en la api 
+ *
+ * @param {Object} ctx
+ * @param {Object} ctxFn
+ * @param {Boolean} delivery
+ */
+const orderWAMiddleware = async (ctx, ctxFn, delivery= false) => {
+
+    //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
+    let myState = ctxFn.state.getMyState();
+    try{ 
+        const {order} = await ctxFn.state.get(ctx?.from)
+        const reponseCarWa = await createOrderWA(order.idOrder,order.tokenOrder,ctxFn.provider,delivery)
+        console.log(chalk.blue("reponseCarWa"),reponseCarWa);
+        const responseApi = await createOrder(reponseCarWa);
+        //nos debe retornar el pdf la api
+        //const bytePdf= await createOrder(GLOBAL_ORDER);
+        console.log(chalk.blue("responseApi"),responseApi.status);
+        idleStop(ctx);
+        return ctxFn.endFlow("Gracias por su compra, recuerda si deseas pedir algo más, no dudes en escribir *#empezar*. 😊")
+    }catch (error){
+        console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
+        await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
+    }finally {
+        await ctxFn.state.clear(ctx?.from);
+        myState = Object.assign({}, myState);
+    }
+}
+
+module.exports = {
+    simulateTypingMiddleware, 
+    captureDataMiddleware,
+    captureAddressMiddleWare,
+    orderWAMiddleware
+}

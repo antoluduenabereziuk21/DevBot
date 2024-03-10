@@ -1,7 +1,7 @@
-/** 
-* NO TOCAR ESTE ARCHIVO: Es generado automaticamente, si sabes lo que haces adelante ;)
-* de lo contrario mejor ir a la documentacion o al servidor de discord link.codigoencasa.com/DISCORD
-*/
+/**
+ * NO TOCAR ESTE ARCHIVO: Es generado automaticamente, si sabes lo que haces adelante ;)
+ * de lo contrario mejor ir a la documentacion o al servidor de discord link.codigoencasa.com/DISCORD
+ */
 'use strict';
 
 var require$$0$4 = require('@bot-whatsapp/bot');
@@ -22,7 +22,7 @@ var require$$0$3 = require('fluent-ffmpeg');
 var require$$1$2 = require('@ffmpeg-installer/ffmpeg');
 
 const sharp = require$$0;
-const { readFile } = require$$1;
+const {readFile} = require$$1;
 
 /**
  * Agregar un borde alrededor para mejorar la lectura de QR
@@ -49,7 +49,7 @@ const cleanImage$1 = async (FROM = null) => {
                 bottom: 15,
                 left: 15,
                 right: 15,
-                background: { r: 255, g: 255, b: 255, alpha: 1 },
+                background: {r: 255, g: 255, b: 255, alpha: 1},
             })
             .toFile(FROM, (err) => {
                 if (err) reject(err);
@@ -58,10 +58,10 @@ const cleanImage$1 = async (FROM = null) => {
     })
 };
 
-var cleanImage_1 = { cleanImage: cleanImage$1 };
+var cleanImage_1 = {cleanImage: cleanImage$1};
 
-const { createWriteStream: createWriteStream$2 } = require$$1;
-const { cleanImage } = cleanImage_1;
+const {createWriteStream: createWriteStream$2} = require$$1;
+const {cleanImage} = cleanImage_1;
 const qr = require$$2;
 
 const baileyCleanNumber$1 = (number, full = false) => {
@@ -76,7 +76,7 @@ const baileyCleanNumber$1 = (number, full = false) => {
  */
 const baileyGenerateImage$1 = async (base64, name = 'qr.png') => {
     const PATH_QR = `${process.cwd()}/${name}`;
-    let qr_svg = qr.image(base64, { type: 'png', margin: 4 });
+    let qr_svg = qr.image(base64, {type: 'png', margin: 4});
 
     const writeFilePromise = () =>
         new Promise((resolve, reject) => {
@@ -102,11 +102,11 @@ var utils = {
 };
 
 const mimeDep = require$$0$1;
-const { tmpdir } = require$$1$1;
+const {tmpdir} = require$$1$1;
 const http = require$$2$1.http;
 const https = require$$2$1.https;
-const { rename, createWriteStream: createWriteStream$1, existsSync: existsSync$1 } = require$$1;
-const { extname, basename, parse } = require$$4;
+const {rename, createWriteStream: createWriteStream$1, existsSync: existsSync$1} = require$$1;
+const {extname, basename, parse} = require$$4;
 
 /**
  * Extrar el mimetype from buffer
@@ -148,7 +148,7 @@ const generalDownload$1 = async (url) => {
                         'content-type': mimeDep.contentType(extname(url)),
                     },
                 };
-                res({ response, fullPath: url });
+                res({response, fullPath: url});
             })
         } else {
             /**
@@ -159,7 +159,7 @@ const generalDownload$1 = async (url) => {
                     response.pipe(file);
                     file.on('finish', async function () {
                         file.close();
-                        res({ response, fullPath });
+                        res({response, fullPath});
                     });
                     file.on('error', function () {
                         file.close();
@@ -180,13 +180,13 @@ const generalDownload$1 = async (url) => {
         });
 
     const httpResponse = await handleDownload();
-    const { ext } = await fileTypeFromFile(httpResponse.response);
+    const {ext} = await fileTypeFromFile(httpResponse.response);
     const getPath = await handleFile(httpResponse.fullPath, ext);
 
     return getPath
 };
 
-var download = { generalDownload: generalDownload$1 };
+var download = {generalDownload: generalDownload$1};
 
 const crypto = require$$0$2;
 
@@ -234,7 +234,7 @@ const decryptData = (encryptedData) => {
     }
 };
 
-var hash = { generateRefprovider: generateRefprovider$1, encryptData, decryptData };
+var hash = {generateRefprovider: generateRefprovider$1, encryptData, decryptData};
 
 const ffmpeg = require$$0$3;
 const ffmpegInstaller = require$$1$2;
@@ -274,16 +274,16 @@ const convertAudio$1 = async (filePath = null, format = 'opus') => {
     return opusFilePath
 };
 
-var convertAudio_1 = { convertAudio: convertAudio$1 };
+var convertAudio_1 = {convertAudio: convertAudio$1};
 
-const { ProviderClass } = require$$0$4;
-const { Sticker } = require$$1$3;
+const {ProviderClass} = require$$0$4;
+const {Sticker} = require$$1$3;
 const pino = require$$2$2;
 const rimraf = require$$3;
 const mime = require$$0$1;
-const { join } = require$$4;
-const { createWriteStream, readFileSync, existsSync } = require$$1;
-const { Console } = require$$7;
+const {join} = require$$4;
+const {createWriteStream, readFileSync, existsSync} = require$$1;
+const {Console} = require$$7;
 
 const {
     default: makeWASocket,
@@ -296,11 +296,11 @@ const {
     getAggregateVotesInPollMessage,
 } = require$$8;
 
-const { baileyGenerateImage, baileyCleanNumber, baileyIsValidNumber } = utils;
+const {baileyGenerateImage, baileyCleanNumber, baileyIsValidNumber} = utils;
 
-const { generalDownload } = download;
-const { generateRefprovider } = hash;
-const { convertAudio } = convertAudio_1;
+const {generalDownload} = download;
+const {generateRefprovider} = hash;
+const {convertAudio} = convertAudio_1;
 
 const logger = new Console({
     stdout: createWriteStream(`${process.cwd()}/baileys.log`),
@@ -312,14 +312,15 @@ const logger = new Console({
  * https://github.com/whiskeysockets/Baileys
  */
 class BaileysProvider extends ProviderClass {
-    globalVendorArgs = { name: `bot`, gifPlayback: false, usePairingCode: false, phoneNumber: null, enabledCalls: true}
+    globalVendorArgs = {name: `bot`, gifPlayback: false, usePairingCode: false, phoneNumber: null, enabledCalls: true}
     vendor
     store
     saveCredsGlobal = null
+
     constructor(args) {
         super();
         this.store = null;
-        this.globalVendorArgs = { ...this.globalVendorArgs, ...args };
+        this.globalVendorArgs = {...this.globalVendorArgs, ...args};
         this.initBailey().then();
     }
 
@@ -328,19 +329,18 @@ class BaileysProvider extends ProviderClass {
      */
     initBailey = async () => {
         const NAME_DIR_SESSION = `${this.globalVendorArgs.name}_sessions`;
-        const { state, saveCreds } = await useMultiFileAuthState(NAME_DIR_SESSION);
-        const loggerBaileys = pino({ level: 'fatal' });
+        const {state, saveCreds} = await useMultiFileAuthState(NAME_DIR_SESSION);
+        const loggerBaileys = pino({level: 'fatal'});
 
         this.saveCredsGlobal = saveCreds;
 
-        this.store = makeInMemoryStore({ loggerBaileys });
-        this.store.readFromFile(`${NAME_DIR_SESSION}/baileys_store.json`);
-        setInterval(() => {
-            const path = `${NAME_DIR_SESSION}/baileys_store.json`;
-            if (existsSync(NAME_DIR_SESSION)) {
-                this.store.writeToFile(path);
-            }
-        }, 10_000);
+        if (this.globalVendorArgs.useBaileysStore) {
+            this.store = makeInMemoryStore({loggerBaileys});
+            this.store?.readFromFile(`${NAME_DIR_SESSION}/baileys_store.json`);
+            setInterval(() => {
+                this.store?.writeToFile(`${NAME_DIR_SESSION}/baileys_store.json`);
+            }, 10_000);
+        }
 
         try {
             const sock = makeWASocket({
@@ -350,7 +350,7 @@ class BaileysProvider extends ProviderClass {
                     creds: state.creds,
                     keys: makeCacheableSignalKeyStore(state.keys, loggerBaileys),
                 },
-                browser: [ "Ubuntu", "Chrome", "20.0.04" ],
+                browser: ["Ubuntu", "Chrome", "20.0.04"],
                 syncFullHistory: false,
                 //todo linea para que no se agote el tiempo de espera
                 defaultQueryTimeoutMs: undefined,
@@ -385,9 +385,9 @@ class BaileysProvider extends ProviderClass {
             sock.ev.on('call', async (callEvent) => {
                 // Verificar si la funcionalidad está activada
                 if (!this.globalVendorArgs.enabledCalls) return;
-                
+
                 const [callData] = callEvent;
-                const { from, id, status } = callData;      
+                const {from, id, status} = callData;
 
                 if (status !== "offer") return;
                 const instance = {
@@ -409,17 +409,17 @@ class BaileysProvider extends ProviderClass {
                         },
                     ],
                 };
-                
+
                 await sock.query(instance);
-                
+
                 if (callEvent[0].status == 'offer') {
-                    return this.vendor.sendMessage(callEvent[0].from, {text:"¿Me estás llamando? Sólo recuerda, ¡Soy un robot!"})
+                    return this.vendor.sendMessage(callEvent[0].from, {text: "¿Me estás llamando? Sólo recuerda, ¡Soy un robot!"})
                 }
-                    
+
             });
 
             sock.ev.on('connection.update', async (update) => {
-                const { connection, lastDisconnect, qr } = update;
+                const {connection, lastDisconnect, qr} = update;
 
                 const statusCode = lastDisconnect?.error?.output?.statusCode;
 
@@ -442,12 +442,12 @@ class BaileysProvider extends ProviderClass {
                 /** Conexion abierta correctamente */
                 if (connection === 'open') {
                     const parseNumber = `${sock?.user?.id}`.split(':').shift();
-                    const host = { ...sock?.user, phone: parseNumber };
+                    const host = {...sock?.user, phone: parseNumber};
                     this.emit('ready', true);
                     this.emit('host', host);
                     this.initBusEvents(sock);
                 }
-            
+
                 //todo para mostrar el qr y pairing code quita el !
                 /** QR Code */
                 if (qr && !this.globalVendorArgs.usePairingCode) {
@@ -485,7 +485,7 @@ class BaileysProvider extends ProviderClass {
     busEvents = () => [
         {
             event: 'messages.upsert',
-            func: async ({ messages, type }) => {
+            func: async ({messages, type}) => {
                 if (type !== 'notify') return
                 const [messageCtx] = messages;
 
@@ -500,64 +500,64 @@ class BaileysProvider extends ProviderClass {
 
                 //Detectar location
                 if (messageCtx.message?.locationMessage) {
-                    const { degreesLatitude, degreesLongitude } = messageCtx.message.locationMessage;
+                    const {degreesLatitude, degreesLongitude} = messageCtx.message.locationMessage;
                     if (typeof degreesLatitude === 'number' && typeof degreesLongitude === 'number') {
-                        payload = { ...payload, body: generateRefprovider('_event_location_') };
+                        payload = {...payload, body: generateRefprovider('_event_location_')};
                     }
                 }
 
                 //Detectar video
                 if (messageCtx.message?.videoMessage) {
-                    payload = { ...payload, body: generateRefprovider('_event_media_') };
+                    payload = {...payload, body: generateRefprovider('_event_media_')};
                 }
 
                 //Detectar Sticker
                 if (messageCtx.message?.stickerMessage) {
-                    payload = { ...payload, body: generateRefprovider('_event_media_') };
+                    payload = {...payload, body: generateRefprovider('_event_media_')};
                 }
 
                 //Detectar media
                 if (messageCtx.message?.imageMessage) {
-                    payload = { ...payload, body: generateRefprovider('_event_media_') };
+                    payload = {...payload, body: generateRefprovider('_event_media_')};
                 }
 
                 //Detectar file
                 if (messageCtx.message?.documentMessage) {
-                    payload = { ...payload, body: generateRefprovider('_event_document_') };
+                    payload = {...payload, body: generateRefprovider('_event_document_')};
                 }
 
                 //Detectar voice note
                 if (messageCtx.message?.audioMessage) {
-                    payload = { ...payload, body: generateRefprovider('_event_voice_note_') };
+                    payload = {...payload, body: generateRefprovider('_event_voice_note_')};
                 }
 
                 //todo detectar si envia un vcard
                 if (messageCtx.message?.contactMessage) {
-                    const nameCard= messageCtx.message?.contactMessage?.displayName;
-                    const vcard= messageCtx.message?.contactMessage?.vcard;
+                    const nameCard = messageCtx.message?.contactMessage?.displayName;
+                    const vcard = messageCtx.message?.contactMessage?.vcard;
                     const regex = /waid=(\d+)/gm;
                     const match = regex.exec(vcard);
                     if (match && match.length > 1) {
-                     const waid = match[1];
-                     const details={
-                         contact:{
-                            nameCard,
-                            waid
+                        const waid = match[1];
+                        const details = {
+                            contact: {
+                                nameCard,
+                                waid
                             }
                         };
-                     payload = { ...payload, body: generateRefprovider('_event_contact_'),details };
+                        payload = {...payload, body: generateRefprovider('_event_contact_'), details};
                     }
                 }
- 
-                 //AUMENTO COMO DETECTAR CARRITO DE COMPRAS
+
+                //AUMENTO COMO DETECTAR CARRITO DE COMPRAS
                 if (messageCtx.message?.orderMessage) {
-                 
-                     const orderId = messageCtx.message.orderMessage?.orderId;
-                     const ordertoken= messageCtx.message.orderMessage.token;
-                     const details= await this.vendor.getOrderDetails(orderId, ordertoken);
-                     if (orderId && ordertoken) {
-                         payload = {...payload,body: generateRefprovider('_event_order_'),details };
-                     }
+
+                    const orderId = messageCtx.message.orderMessage?.orderId;
+                    const ordertoken = messageCtx.message.orderMessage.token;
+                    const details = await this.vendor.getOrderDetails(orderId, ordertoken);
+                    if (orderId && ordertoken) {
+                        payload = {...payload, body: generateRefprovider('_event_order_'), details};
+                    }
                 }
 
                 if (payload.from === 'status@broadcast') return
@@ -581,7 +581,7 @@ class BaileysProvider extends ProviderClass {
         {
             event: 'messages.update',
             func: async (message) => {
-                for (const { key, update } of message) {
+                for (const {key, update} of message) {
                     if (update.pollUpdates) {
                         const pollCreation = await this.getMessage(key);
                         if (pollCreation) {
@@ -619,7 +619,7 @@ class BaileysProvider extends ProviderClass {
         this.vendor = _sock;
         const listEvents = this.busEvents();
 
-        for (const { event, func } of listEvents) {
+        for (const {event, func} of listEvents) {
             this.vendor.ev.on(event, func);
         }
     }
@@ -699,7 +699,7 @@ class BaileysProvider extends ProviderClass {
 
     sendAudio = async (number, audioUrl) => {
         return this.vendor.sendMessage(number, {
-            audio: { url: audioUrl },
+            audio: {url: audioUrl},
             ptt: true,
         })
     }
@@ -711,7 +711,7 @@ class BaileysProvider extends ProviderClass {
      * @returns
      */
     sendText = async (number, message) => {
-        return this.vendor.sendMessage(number, { text: message })
+        return this.vendor.sendMessage(number, {text: message})
     }
 
     /**
@@ -725,7 +725,7 @@ class BaileysProvider extends ProviderClass {
         const mimeType = mime.lookup(filePath);
         const fileName = filePath.split('/').pop();
         return this.vendor.sendMessage(number, {
-            document: { url: filePath },
+            document: {url: filePath},
             mimetype: mimeType,
             fileName: fileName,
         })
@@ -752,7 +752,7 @@ class BaileysProvider extends ProviderClass {
 
         const templateButtons = buttons.map((btn, i) => ({
             buttonId: `id-btn-${i}`,
-            buttonText: { displayText: btn.body },
+            buttonText: {displayText: btn.body},
             type: 1,
         }));
 
@@ -786,7 +786,7 @@ class BaileysProvider extends ProviderClass {
             selectableCount: poll?.multiselect === undefined ? 1 : poll?.multiselect ? 1 : 0,
         };
 
-        return this.vendor.sendMessage(numberClean, { poll: pollMessage })
+        return this.vendor.sendMessage(numberClean, {poll: pollMessage})
     }
 
     /**
@@ -797,14 +797,14 @@ class BaileysProvider extends ProviderClass {
      * @example await sendMessage('+XXXXXXXXXXX', 'Hello World')
      */
 
-    sendMessage = async (numberIn, message, { options }) => {
+    sendMessage = async (numberIn, message, {options}) => {
         const number = baileyCleanNumber(numberIn);
 
         //SE CAMBIA LOS BOTONES POR EL POLL DE OPCIONES
         if (options?.buttons?.length) {
             return this.sendPoll(number, message, {
                 options: options.buttons.map((btn, i) => (btn.body)) ?? [],
-            }) 
+            })
         }
         if (options?.media) return this.sendMedia(number, options.media, message)
         return this.sendText(number, message)
@@ -827,10 +827,10 @@ class BaileysProvider extends ProviderClass {
                     degreesLongitude: longitude,
                 },
             },
-            { quoted: messages }
+            {quoted: messages}
         );
 
-        return { status: 'success' }
+        return {status: 'success'}
     }
 
     /**
@@ -858,24 +858,37 @@ class BaileysProvider extends ProviderClass {
             {
                 contacts: {
                     displayName: 'XD',
-                    contacts: [{ vcard }],
+                    contacts: [{vcard}],
                 },
             },
-            { quoted: messages }
+            {quoted: messages}
         );
 
-        return { status: 'success' }
+        return {status: 'success'}
     }
 
     /**
-     * 
+     *
      * @param {string} remoteJid id del chat
      * @param {object} data datos del contacto, es un objeto
      * @param {string} messages mensaje del vcard, iria en el footer
      * @returns string
      */
     sendExtendContact = async (remoteJid, data, messages = null) => {
-        const { contactNumberCell, contactNumberHome, name, displayName, birthday, orgName, address, email, URLWork, URLHome,nickname, note } = data;
+        const {
+            contactNumberCell,
+            contactNumberHome,
+            name,
+            displayName,
+            birthday,
+            orgName,
+            address,
+            email,
+            URLWork,
+            URLHome,
+            nickname,
+            note
+        } = data;
         const cleanContactNumberCell = contactNumberCell ? contactNumberCell.replaceAll(' ', '') : '';
         const waidCell = contactNumberCell ? cleanContactNumberCell.replace('+', '') : '';
         const cleanContactNumberHome = contactNumberHome ? contactNumberHome.replaceAll(' ', '') : '';
@@ -909,19 +922,19 @@ class BaileysProvider extends ProviderClass {
             noteField +
             'END:VCARD';
 
-            await this.vendor.sendMessage(
-                remoteJid,
-                {
-                    contacts: {
-                        displayName: 'XD',
-                        contacts: [{ vcard }],
-                    },
+        await this.vendor.sendMessage(
+            remoteJid,
+            {
+                contacts: {
+                    displayName: 'XD',
+                    contacts: [{vcard}],
                 },
-                { quoted: messages }
-            );
-    
-            return { status: 'success' };
-        
+            },
+            {quoted: messages}
+        );
+
+        return {status: 'success'};
+
     }
 
     /**
@@ -950,7 +963,7 @@ class BaileysProvider extends ProviderClass {
 
         const buffer = await sticker.toMessage();
 
-        await this.vendor.sendMessage(remoteJid, buffer, { quoted: messages });
+        await this.vendor.sendMessage(remoteJid, buffer, {quoted: messages});
     }
 
     /**
@@ -964,94 +977,94 @@ class BaileysProvider extends ProviderClass {
     }
 
     /**
-     * 
-     * @param {string} jid 
-     * @param {number} amount 
-     * @param {string} message 
-     * @returns 
+     *
+     * @param {string} jid
+     * @param {number} amount
+     * @param {string} message
+     * @returns
      */
-    //todo se visualiza en web y en el celular
-    paymentOrder= async (jid, currency ,amount,message) => {
-        
-        const template= generateWAMessageFromContent(jid,proto.Message.fromObject({
+        //todo se visualiza en web y en el celular
+    paymentOrder = async (jid, currency, amount, message) => {
+
+        const template = generateWAMessageFromContent(jid, proto.Message.fromObject({
             requestPaymentMessage: {
                 currencyCodeIso4217: currency,
                 noteMessage: {
-                    extendedTextMessage:{
+                    extendedTextMessage: {
                         text: message
                     }
                 },
-                amount1000: parseInt(amount), 
-                requestFrom :jid,
-                amount:{
-                    value:parseInt(amount),   
+                amount1000: parseInt(amount),
+                requestFrom: jid,
+                amount: {
+                    value: parseInt(amount),
                     currencyCode: currency,
                     offset: 1000
                 },
-                expiryTimestamp: new Date(Date.now()+ 60 * 60 * 1000).getTime(),
+                expiryTimestamp: new Date(Date.now() + 60 * 60 * 1000).getTime(),
             }
-        }),{})
-        return this.vendor.relayMessage(jid,template.message,{messageId:template.key.id});
+        }), {})
+        return this.vendor.relayMessage(jid, template.message, {messageId: template.key.id});
     }
 
     //todo solo se visualiza en web
     getProductCatalog = async (jid) => {
-        const template= generateWAMessageFromContent(jid,proto.Message.fromObject({
+        const template = generateWAMessageFromContent(jid, proto.Message.fromObject({
             productMessage: {
-                body : "Pizza Americana",
+                body: "Pizza Americana",
                 businessOwnerJid: '51968036430@s.whatsapp.net',
-                footer : 'derechos reservados',
-                product:{
+                footer: 'derechos reservados',
+                product: {
                     currencyCode: "PEN",
-                    description : "Pizza con jamón, queso y salsa de tomate",
-                    firstImageId : "idImg",
-                    priceAmount1000 : parseInt(30000),
-                    productId : "7404964492869270",
+                    description: "Pizza con jamón, queso y salsa de tomate",
+                    firstImageId: "idImg",
+                    priceAmount1000: parseInt(30000),
+                    productId: "7404964492869270",
                     productImage: {
                         url: "https://ik.imagekit.io/ljpa/zephyr-cygnus/products/pizza/pizza-americana.jpg",
                         caption: "Presioname para ver mas detalles"
                     },
-                    productImageCount : parseInt(1),
-                    retailerId : parseInt(1),
-                    salePriceAmount1000 : parseInt(12000),
-                    title : "Zephyr Cygnus"
-                    }
+                    productImageCount: parseInt(1),
+                    retailerId: parseInt(1),
+                    salePriceAmount1000: parseInt(12000),
+                    title: "Zephyr Cygnus"
                 }
-                
-            }),{});
-        return this.vendor.relayMessage(jid,template.message,{messageId:template.key.id});
-    
+            }
+
+        }), {});
+        return this.vendor.relayMessage(jid, template.message, {messageId: template.key.id});
+
     }
 
-    shopMessageWA= async (jid) => {
-        const template= generateWAMessageFromContent(jid,proto.Message.fromObject({
-            interactiveMessage:{
-            shopMessage: {
-                id: jid,
-                surface: 1,
-                messageVersion: parseInt(1),
+    shopMessageWA = async (jid) => {
+        const template = generateWAMessageFromContent(jid, proto.Message.fromObject({
+            interactiveMessage: {
+                shopMessage: {
+                    id: jid,
+                    surface: 1,
+                    messageVersion: parseInt(1),
+                }
             }
-        }
-        }),{});
-        return this.vendor.relayMessage(jid,template.message,{messageId:template.key.id});
+        }), {});
+        return this.vendor.relayMessage(jid, template.message, {messageId: template.key.id});
     }
 
     // todo solo funciona en grupos
     scheduledCall = async (jid, ms) => {
-        
-        const template= generateWAMessageFromContent(jid,proto.Message.fromObject({
+
+        const template = generateWAMessageFromContent(jid, proto.Message.fromObject({
             scheduledCallCreationMessage: {
-                scheduledTimestampMs: new Date(Date.now()+  20 * 1000).getTime(),
+                scheduledTimestampMs: new Date(Date.now() + 20 * 1000).getTime(),
                 callType: "VOICE",
-                title : "Llamada programada"
+                title: "Llamada programada"
             }
-        }),{});
+        }), {});
         console.log(template);
-        return this.vendor.relayMessage(jid,template.message,{messageId:template.key.id});
+        return this.vendor.relayMessage(jid, template.message, {messageId: template.key.id});
     }
 
     sendTest = async (jid, number) => {
-        
+
         /*const template=generateWAMessageContent({
             forward:{
                 webMessageInfo:{
@@ -1076,24 +1089,24 @@ class BaileysProvider extends ProviderClass {
             {
                 text: "This is a list",
                 footer: "nice footer, link: https://google.com",
-                forward :{
+                forward: {
                     amount1000: parseInt(15500),
                     receiverJid: jid,
                     status: "PROCESSING",
                     transactionTimestamp: Date.now(),
                     expiryTimestamp: new Date(Date.now() + 2 * 60 * 1000).getTime(),
                     currency: "PEN",
-                    primaryAmount : {
-                      value: parseInt(15500),
-                      offset: parseInt(1000),
-                      currencyCode: "PEN",
+                    primaryAmount: {
+                        value: parseInt(15500),
+                        offset: parseInt(1000),
+                        currencyCode: "PEN",
                     },
-                }         
+                }
             }
         );
         console.log(collection);
     }
-    sendTest2= (from)=>{
+    sendTest2 = (from) => {
         const messageContent = {
             "interactiveMessage": {
                 "header": {
@@ -1135,9 +1148,9 @@ class BaileysProvider extends ProviderClass {
                 }
             }
         };
-    
-        const template = generateWAMessageFromContent(from, proto.Message.fromObject(messageContent),{});
-        return this.vendor.relayMessage(from, template.message, { messageId: template.key.id });
+
+        const template = generateWAMessageFromContent(from, proto.Message.fromObject(messageContent), {});
+        return this.vendor.relayMessage(from, template.message, {messageId: template.key.id});
     }
 }
 

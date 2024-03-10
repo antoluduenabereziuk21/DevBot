@@ -2,7 +2,7 @@ name: Build and Deploy Spring boot app
 
 on:
   push:
-    branches: [dev,main]
+    branches: [dev, main,devBot_V1.0.0,test]
 
 jobs:
   build-docker:
@@ -44,16 +44,19 @@ jobs:
     steps:
 
       - name: Docker Instance Stop and remove
-        run: sudo docker rm -f devbot
+        run: docker rm -f devbot
 
       - name: Docker pull image
-        run: sudo docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
+        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
 
       - name: Docker run image
         run: |
-          sudo docker run -d \
+          docker run -d \
           --restart always \
           --name devbot \
+          -e "DB_URL=${{secrets.DB_URL}}" \
+          -e "DB_USER=${{secrets.DB_USER}}" \
+          -e "DB_PASS=${{secrets.DB_PASS}}" \
           -p9698:9698 \
           ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33

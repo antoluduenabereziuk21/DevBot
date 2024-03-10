@@ -1,6 +1,7 @@
 const { Resend } = require ('resend');
 const htmlTemplateEmail = require('../services/template');
 
+
 const resend = new Resend(process.env.RESEND_API_KEY);
 const sendEmail = async (code) => {
     const { data, error } = await resend.emails.send({

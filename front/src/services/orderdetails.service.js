@@ -1,29 +1,37 @@
-const getOrderWA = async (orderId, orderToken, provider, ctx) => {
-    try {
-        const orderToken = ctx?.message?.orderMessage.token;
-        const orderNumber = ctx?.message?.orderMessage.orderId;
-        const customerJid = ctx?.key.remoteJid;
+const ORDEN = require('../utils/constants.util');
 
+/**
+ * @description Procesar la orden para enviarla por WhatsApp en un template
+ * @param {string} orderId
+ * @param {string} orderToken
+ * @param {Provider} provider
+ * @param {Context} ctx
+ * @param {boolean} delivery
+ */
+const processOrderWA = async (orderId, orderToken, provider, ctx, delivery=false) => {
+    //delivery sea un booleano
+    try {
         let order = await provider.getOrder(orderId, orderToken);
-        console.log(order)
-        const orderTotal = order.price.total / 1000;
+
+        const orderTotal = delivery ? order.price.total / 1000 + ORDEN.DELIVERY_COST :order.price.total / 1000;
         const total1000= order.price.total;
         const currency = order.price.currency;
         const orderData = order.products;
-        
+      
         let nextData = orderData
-            .map(({ name, price, quantity }) => `${name} x${quantity} @ PEN S/.${price / 1000}= S/${quantity*(price/1000)}`)
+        //ordernar los puntos entre la modea y el simbolo de $
+            .map(({ name, price, quantity }) => `${name} x${quantity} ${currency}  $. ${price / 1000}= ${currency} $. ${quantity*(price/1000)}`)
             .join("\n");
 
-        let orderConfirm = `*Order Number:* ${orderId}\n\n*Order Details:* \n${nextData} \n\n*Order Total:* *PEN= S/.${orderTotal}*`;
+        let orderConfirm = `*Order Number:* ${orderId}\n\n*Order Detalles:* \n${nextData} \n\n*Order Total:* *${currency} $. ${orderTotal}*`;
 
-        return { orderConfirm, orderToken, orderNumber, customerJid, nextData, orderTotal,currency , total1000};
+        return { orderConfirm,currency , total1000};
     } catch (error) {
         return 'FAIL: obtener detalles orden';
     }
 };
 
-module.exports = { getOrderWA };
+module.exports = { processOrderWA };
 
 /*const orderCount= ctx?.message?.orderMessage.itemCount;
   const totalx1000= ctx?.message?.orderMessage.totalAmount1000;
