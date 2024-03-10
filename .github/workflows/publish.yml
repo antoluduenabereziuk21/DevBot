@@ -54,9 +54,9 @@ jobs:
           docker run -d \
           --restart always \
           --name devbot \
-          -e "DB_URL=${{secrets.DB_URL}}" \
-          -e "DB_USER=${{secrets.DB_USER}}" \
-          -e "DB_PASS=${{secrets.DB_PASS}}" \
+          -e "DATASOURCE_URL=${{secrets.DATASOURCE_URL}}" \
+          -e "DATASOURCE_USERNAME=${{secrets.DATASOURCE_USERNAME}}" \
+          -e "DATASOURCE_PASSWORD=${{secrets.DATASOURCE_PASSWORD}}" \
           -p9698:9698 \
           ${{ secrets.DOCKERHUB_USERNAME }}/devbot:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
