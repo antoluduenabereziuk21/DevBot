@@ -7,12 +7,12 @@ const {ENDPOINT_ORDER} = ENV();
 const createOrder = async (dataEntry)=>{
     try{
 
-        const response = await api.post(ENDPOINT_ORDER, dataEntry, {
+        const response = await api.post(ENDPOINT_ORDER, JSON.stringify(dataEntry), {
             headers: {
                 'Content-Type': 'application/json'
             }
         });
-        console.log(response.data)
+        return response;
     }catch (error){
         console.log(chalk.bgRed(error.message));
         await postSlack({

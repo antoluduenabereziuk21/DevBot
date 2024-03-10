@@ -2,13 +2,20 @@ const {setRandomDelay} = require("../../../utils/delay.util");
 const {captureDataMiddleware, captureAddressMiddleWare} = require("../../../middlewares/order.middleware");
 const {addKeyword, EVENTS} = require('@bot-whatsapp/bot')
 const chalk = require("chalk");
-const {processOrderWA} = require("../../../services/orderdetails.service");
-const { createOrder } = require("../../../http/order.http");
-const { idleStop } = require("../../../utils/idle.util");
-const { postSlack } = require("../../../http/slack.http");
+const {orderWAMiddleware} = require("../../../middlewares/order.middleware");
+const ORDEN = require('../../../utils/constants.util');
 
 const REGEX_KEYWORD = "/Directo a mi casa/g"; 
 const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
+.addAction(async (ctx, {provider,flowDynamic, extensions}) => {
+    await extensions.utils.typing(provider, {
+        delay1: setRandomDelay(800, 550),
+        delay2: setRandomDelay(2500, 1850),
+        ctx
+    });
+    await flowDynamic([{body: `😀 Perfecto, el _servicio de delivery_ tendra un costo adicional de *$ ${ORDEN.DELIVERY_COST}* 💁🏻‍♀️`}]);
+    await provider.vendor.sendPresenceUpdate("paused", ctx.key.remoteJid);
+})
 .addAnswer([
         `🚀 Perfecto, para *continuar* con su *pedido*, necesitaré que me proporciones tu información 💁🏻‍♀️`]
     , {delay: setRandomDelay(850, 500)}
@@ -44,22 +51,8 @@ const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
     })
     .addAction(async (ctx, {provider, extensions,state,endFlow}) => {
         //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
-        let myState = state.getMyState();
-        try{ 
-            const {order} = await state.get(ctx?.from)
-            const {GLOBAL_ORDER} = await processOrderWA(order.idOrder,order.tokenOrder,provider,ctx, true);
-            //nos debe retornar el pdf la api
-            const bytePdf= await createOrder(GLOBAL_ORDER);
-            console.log(chalk.blue("Pdf y orden generados"),bytePdf);
-            idleStop(ctx);
-            return endFlow("Gracias por su compra, recuerda si deseas pedir algo más, no dudes en escribir *#empezar*. 😊")
-        }catch (error){
-            console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
-            await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
-        }finally {
-            await state.clear(ctx?.from);
-            myState = Object.assign({}, myState);
-        }
+        const response =await orderWAMiddleware(ctx, {provider, endFlow, state}, true);
+        console.log(response);
     });
 
 module.exports = deliveryFlow;

@@ -37,12 +37,12 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
             /*create order Habria que mandarlo luego de la seleccion de envio(retiro en local total === , envio a domicilio total +++ costo del envio)
                 costo del envio 
                 quentity =  1 description = delivery amount = 100
-            */
+               */ 
             await provider.paymentOrder(jid,currency,total1000,
                 //"No presione el botón de pago hasta que el bot lo indique."
                 orderConfirm
                 );
-
+            
             await provider.vendor.sendPresenceUpdate("paused", jid);
 
             await extensions.utils.typing(provider, {

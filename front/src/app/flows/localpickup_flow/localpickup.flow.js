@@ -1,11 +1,13 @@
 const {addKeyword} = require('@bot-whatsapp/bot')
-const {idleStart} = require("../../../utils/idle.util");
+const {idleStart, idleStop} = require("../../../utils/idle.util");
 const {setRandomDelay} = require("../../../utils/delay.util");
 const chalk = require('chalk');
 const {postSlack} = require("../../../http/slack.http");
 const { processOrderWA } = require('../../../services/orderdetails.service');
 const { createOrder } = require('../../../http/order.http');
+const createOrderWA = require('../../../services/orderCreate.service');
 const REGEX_KEYWORD = "/Recojo en tienda/g";
+
 
 const localpickupFlow = addKeyword(REGEX_KEYWORD, {regex: true})
     .addAction(async (ctx, {globalState, gotoFlow, provider}) => {
@@ -38,17 +40,20 @@ const localpickupFlow = addKeyword(REGEX_KEYWORD, {regex: true})
     )
     .addAction(async (ctx, {provider, extensions, endFlow, state}) => {
         //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
+        let myState = state.getMyState();
+        
         try{ 
-            const myState = state.getMyState();
             const {order} = await state.get(ctx?.from)
-            const {getOrderWa} = await processOrderWA(order.idOrder,order.tokenOrder,provider,ctx)
+            const reponseCarWa = await createOrderWA(order.idOrder,order.tokenOrder,provider)
+            console.log(chalk.blue("reponseCarWa"),reponseCarWa);
+            const responseApi = await createOrder(reponseCarWa);
             //nos debe retornar el pdf la api
-            const bytePdf= await createOrder(getOrderWa.GLOBAL_ORDER);
-            console.log(chalk.blue("Pdf y orden generados"),bytePdf);
+            //const bytePdf= await createOrder(GLOBAL_ORDER);
+            console.log(chalk.blue("responseApi"),responseApi);
             idleStop(ctx);
             return endFlow("Gracias por su compra, recuerda si deseas pedir algo más, no dudes en escribir *#empezar*. 😊")
         }catch (error){
-            console.error(bgRed("ERROR FLUJO localpickupFlow"), error);
+            console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
             await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
         }finally {
             await state.clear(ctx?.from);
