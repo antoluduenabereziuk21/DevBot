@@ -1,9 +1,6 @@
 package com.back.chatbot.controller.dto.request;
 
-import com.back.chatbot.enums.OrderState;
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -12,26 +9,19 @@ import java.util.List;
 @Data
 public class OrderRequestDto {
 
-    @NotEmpty(message = "Numero de celular del cliente")
-    @NotBlank(message = "no debe consistir solo en espacios en blanco")
-    @Schema(description = "Celular del cliente ", example = "codigo pais ej:+54 9 ,codigo de area o region ej:351 , numero de telefono sim el 15 : 2548798")
-    private String cellPhone;
+    @Schema(description = "Objeto Cliente")
+    private ClientRequestDTO client;
 
-    @NotEmpty(message = "Este ID es enviado desde WA")
-    @NotBlank(message = "no debe consistir solo en espacios en blanco")
     @Schema(description = "ID WA", example = "9854896326")
     private String idOrderWA;
 
-    @NotEmpty(message = "Listado de Items Cantidad/Precio/Descripcion")
-    @NotBlank(message = "no debe consistir solo en espacios en blanco")
-    @Schema(description = "Listado Items", example = "idItemWA: a2sd13a1s3e,name: Hamburguesa Americana, quantity: 1, " +
-                                                    "price: 300, description: Hamburguesa Americana")
+    @Schema(description = "Listado Items", example = "idItemWA: a2sd13a1s3e,name: Hamburguesa Americana, quantity: 1, " + "price: 300, description: Hamburguesa Americana")
     private List<ItemsOrderRequestDto> itemsProducts;
 
-    @NotEmpty(message = "Total De La Orden")
-    @NotBlank(message = "no debe consistir solo en espacios en blanco")
     @Schema(description = "Toltal Orden", example = "45986.00")
     private BigDecimal total;
+
+    private boolean delivery;
 
     public OrderRequestDto(){
     itemsProducts = new ArrayList<>();

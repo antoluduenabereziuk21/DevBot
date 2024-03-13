@@ -11,7 +11,7 @@ public class OrderResponseReportDTO {
     private String idOrderWA;
     private BigDecimal total;
     private String name;
-    private BigDecimal quantity;
+    private Integer quantity;
     private BigDecimal price;
 
     private String nameClient;

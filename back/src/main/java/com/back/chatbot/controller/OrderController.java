@@ -50,7 +50,7 @@ public class OrderController {
                 .body(new ByteArrayResource(orderPdf));
     }
 
-    @GetMapping()
+    @GetMapping
     public ResponseEntity<?> getAllOrders(){
 
         List<OrderRequestDto> orderList = orderService.getAllOrders();

@@ -31,7 +31,7 @@
 		</box>
 	</style>
 	<field name="name" class="java.lang.String"/>
-	<field name="quantity" class="java.math.BigDecimal"/>
+	<field name="quantity" class="java.lang.Integer"/>
 	<field name="price" class="java.math.BigDecimal"/>
 	<field name="total" class="java.math.BigDecimal"/>
 	<field name="idOrderWA" class="java.lang.String"/>
