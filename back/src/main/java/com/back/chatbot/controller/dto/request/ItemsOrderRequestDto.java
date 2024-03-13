@@ -27,10 +27,8 @@ public class ItemsOrderRequestDto implements Serializable {
     @Schema(description = "Nombre Del Producto", example = "Pizza ala Napolitana")
     private String name;
 
-    @NotEmpty(message = "Debe Ingresar La Cantidad de Items")
-    @NotBlank(message = "no debe consistir solo en espacios en blanco")
     @Schema(description = "Cantidad de Items Solcitados", example = "2")
-    private BigDecimal quantity;
+    private Integer quantity;
 
     @Min(value = 0, message = "El monto debe ser mayor a 0")
     @Schema(description = "Monto a individual del Items", example = "150.5")

@@ -1,14 +1,16 @@
 package com.back.chatbot.controller.dto.request;
 
 import io.swagger.v3.oas.annotations.media.Schema;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.NotEmpty;
 import lombok.Builder;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.io.Serial;
 import java.io.Serializable;
 
-@Builder
+
+@Getter
+@NoArgsConstructor
 public class ClientRequestDTO implements Serializable {
     @Serial
     private static final long serialVersionUID = 1L;
