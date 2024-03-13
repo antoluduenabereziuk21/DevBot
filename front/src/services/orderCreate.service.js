@@ -5,20 +5,32 @@ const ORDEN = require('../utils/constants.util');
  * @Description Función para crear un pedido en WhatsApp en base al carrito de compras 
  * @param {String} orderId - ID del pedido
  * @param {String} orderToken - Token del pedido
- * @param {Object} provider - Instancia del proveedor
+ * @param {Object} provider - Instancia del proveedor//traer el ctxFn en vez de provider
  * @param {Boolean} delivery - Indica si el pedido tiene costo de envío
  */
-const createOrderWA = async(orderId,orderToken,provider, delivery=false)=>{
+const createOrderWA = async(orderId,orderToken,ctxFn, delivery=false)=>{
 
-    let order = await provider.getOrder(orderId, orderToken)
+    let order = await ctxFn.provider.getOrder(orderId, orderToken)
 
     const orderTotal = delivery ? order.price.total / 1000 + ORDEN.DELIVERY_COST :order.price.total / 1000;
     const total1000= order.price.total;
     const currency = order.price.currency;
     const orderData = order.products;
-
+    //agregar ctx.jId
+    /**
+     * ademas name :"",
+     *      address:"",
+     * 
+     * let Global_client= {
+     *  cellPhone: ctx,
+     * name ,lastaname, address ..... "  "
+     * Global_client.name === ctx.body
+     * 
+     * }
+     */
         let GLOBAL_ORDER = {
             "idOrderWA": orderId,
+            "cellPhone": ctxFn.from,
             "itemsProducts": [], // Inicializar como un array vacío
             "total": orderTotal
         }

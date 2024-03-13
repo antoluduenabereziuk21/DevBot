@@ -15,29 +15,31 @@ public class ClientEntity {
     @UuidGenerator
     private String idClient;
 
-    @Column(name = "name", nullable = false, length = 85)
+    @Column(name = "name", nullable = true, length = 85)
     private String name;
 
-    @Column(name = "last_name", nullable = false, length = 85)
+    @Column(name = "last_name", nullable = true, length = 85)
     private String last_name;
 
-    @Column(name = "cel_phone", nullable = false, length = 85)
+    @Column(name = "cel_phone", nullable = true, length = 85)
     private String cel_phone;
 
-    @Column(name = "address", nullable = false, length = 85)
+    @Column(name = "address", nullable = true, length = 85)
     private String address;
 
-    @Column(name = "reference", nullable = false, length = 150)
+    @Column(name = "reference", nullable = true, length = 150)
     private String reference;
 
-    @Column(name = "locality", nullable = false, length = 85)
+    @Column(name = "locality", nullable = true, length = 85)
     private String locality;
 
     @Column(name = "email", nullable =true, length = 85)
     private String email;
 }
 /*
-
+//post create cliente cell .....nulll, cliente:{
+name:"",
+}
 nombre
 apellido
 celular

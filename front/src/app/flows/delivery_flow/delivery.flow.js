@@ -34,25 +34,35 @@ const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
         await provider.vendor.sendPresenceUpdate("paused", ctx.key.remoteJid);
     })
     .addAction({capture: true}, async (ctx, ctxFn) => {
+        const myState = ctxFn.state.getMyState();
+        //se realiza la validacion para que no sea espacio en blanco
         await captureDataMiddleware("name", ctx, ctxFn);
+        myState[ctx?.from] = {...myState[ctx?.from], data: {name: ctx.from}};
     })
     .addAnswer("📌 Ahora proporcioname tu apellido\n📋 *Apellido Completo*: Ejemplo: _Peña Vilchez_",null,null)
     .addAction({capture: true}, async (ctx, ctxFn) =>{
+        const myState = ctxFn.state.getMyState();
         await captureDataMiddleware("last_name", ctx, ctxFn);
+        myState[ctx?.from] = {...myState[ctx?.from], data: {last_name: ctx.from}};
     })
     .addAnswer("🏡 Ahora por favor proporcioname tu dirección\n📌 *Dirección*: Ejemplo: _Av. Los Pinos 123_",null,null)
     .addAction({capture:true},async (ctx, ctxFn) => {
+        const myState = ctxFn.state.getMyState();
         await captureAddressMiddleWare("address", ctx, ctxFn);
+        myState[ctx?.from] = {...myState[ctx?.from], data: {cel_phone: ctx.from}};
     })
     .addAnswer("🏤 Por último, indicame alguna referencia de su dirección\n📌*Referencia*: Ejemplo: _Frente a la tienda de la esquina_",null,null)
     .addAction({capture:true},async (ctx, ctxFn) => {
+        const myState = ctxFn.state.getMyState();
         await captureAddressMiddleWare("reference", ctx, ctxFn);
-        
+        myState[ctx?.from] = {...myState[ctx?.from], data: {cel_phone: ctx.from}};   
     })
     .addAction(async (ctx, {provider, extensions,state,endFlow}) => {
         //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
+        //antes de mandar la order hacer un 
         const response =await orderWAMiddleware(ctx, {provider, endFlow, state}, true);
+
+        //post put/update cellPhone{cliente }
         console.log(response);
     });
-
 module.exports = deliveryFlow;

@@ -4,6 +4,8 @@ const createOrderWA = require("../services/orderCreate.service");
 const {createOrder} = require("../http/order.http");
 const chalk = require("chalk");
 const { postSlack } = require("../http/slack.http");
+const { createClient } = require("../http/client.http");
+const createClientWA = require("../services/clientCreate.service");
 
 
 let intents = 2;
@@ -73,8 +75,9 @@ const orderWAMiddleware = async (ctx, ctxFn, delivery= false) => {
     let myState = ctxFn.state.getMyState();
     try{ 
         const {order} = await ctxFn.state.get(ctx?.from)
-        const reponseCarWa = await createOrderWA(order.idOrder,order.tokenOrder,ctxFn.provider,delivery)
+        const reponseCarWa = await createOrderWA(order.idOrder,order.tokenOrder,ctxFn,delivery)
         console.log(chalk.blue("reponseCarWa"),reponseCarWa);
+        //await create cliente,seter los datosCliente -> s
         const responseApi = await createOrder(reponseCarWa);
         //nos debe retornar el pdf la api
         //const bytePdf= await createOrder(GLOBAL_ORDER);
@@ -88,6 +91,18 @@ const orderWAMiddleware = async (ctx, ctxFn, delivery= false) => {
         await ctxFn.state.clear(ctx?.from);
         myState = Object.assign({}, myState);
     }
+}
+
+const clientMiddleware = async(ctxFn,delivery=false)=>{
+   try {
+    const resposeClientWa = await createClientWA(ctxFn,delivery=fasle);
+    console.log(chalk.blue("reponseClientWA"),resposeClientWa);
+   } catch (error) {
+    
+   }
+    
+
+
 }
 
 module.exports = {

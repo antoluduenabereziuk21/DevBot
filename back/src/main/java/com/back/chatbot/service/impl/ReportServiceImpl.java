@@ -23,6 +23,7 @@ import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class ReportServiceImpl implements IReportService {
@@ -45,6 +46,7 @@ public class ReportServiceImpl implements IReportService {
         OrderEntity order = orderRepository.findById(idOrder).orElseThrow(
                 () -> new RuntimeException("Order not found")
         );
+        //TODO Condicionar en caso de que cliente no Existe en DB....
 
         ClientEntity client = clientRepository.findClientByCellPhone(cellPhone);
 
