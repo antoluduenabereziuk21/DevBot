@@ -5,7 +5,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added secrets for deploy">
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Merge_at_28_2_24_19_02__Changes_.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/back/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/localpickup_flow/localpickup.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/localpickup_flow/localpickup.flow.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
