@@ -62,7 +62,7 @@ const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
         //antes de mandar la order hacer un 
         const response =await orderWAMiddleware(ctx, {provider, endFlow, state}, true);
 
-        //post put/update cellPhone{cliente }
+        //post put/update cellPhone{ cliente }
         console.log(response);
     });
 module.exports = deliveryFlow;

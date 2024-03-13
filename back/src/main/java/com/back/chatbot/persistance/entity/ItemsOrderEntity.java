@@ -24,7 +24,7 @@ public class ItemsOrderEntity {
 
     private String name;
 
-    private BigDecimal quantity;
+    private Integer quantity;
 
     private BigDecimal price;
 
