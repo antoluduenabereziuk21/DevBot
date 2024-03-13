@@ -6,8 +6,12 @@ RUN mkdir -p /app/src/main/resources/images
 #RUN mkdir -p /app/src/main/resources/fonts
 # RUN mkdir -p /app/src/main/resources/static/qr
 #
-COPY /src/main/resources/images/165.jpg /app/src/main/resources/images/165.jpg
-COPY /src/main/resources/reports/ReportePedido.jrxml /app/src/main/resources/reports/ReportePedido.jrxml
+COPY /src/main/resources/images/check.png /app/src/main/resources/images/check.png
+COPY /src/main/resources/images/cygnus.png /app/src/main/resources/images/cygnus.png
+COPY /src/main/resources/images/lightbulb.png /app/src/main/resources/images/lightbulb.png
+COPY /src/main/resources/images/Logo.png /app/src/main/resources/images/Logo.png
+COPY /src/main/resources/images/wha.png /app/src/main/resources/images/wha.png
+COPY /src/main/resources/reports/Voucher.jrxml /app/src/main/resources/reports/Voucher.jrxml
 #COPY /src/main/resources/fonts/erasdemi.ttf  /app/src/main/resources/fonts/erasdemi.ttf
 #COPY /src/main/resources/fonts/erasdemiitc.ttf  /app/src/main/resources/fonts/erasdemiitc.ttf
 WORKDIR /app
