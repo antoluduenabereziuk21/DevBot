@@ -2,15 +2,16 @@ package com.back.chatbot.controller;
 
 
 import com.back.chatbot.controller.dto.request.OrderRequestDto;
-import com.back.chatbot.persistance.entity.OrderEntity;
-import com.back.chatbot.persistance.entity.ProductEntity;
 import com.back.chatbot.service.IOrderService;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.media.Content;
 import io.swagger.v3.oas.annotations.media.Schema;
 import io.swagger.v3.oas.annotations.responses.ApiResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.core.io.ByteArrayResource;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -38,14 +39,15 @@ public class OrderController {
                     )
             }
     )
-    @PostMapping()
+    //, @RequestBody ClientRequestDTO clientRequestDTO)
+    @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody OrderRequestDto orderRequestDto){
         System.out.println(orderRequestDto);
-
-        OrderRequestDto order = orderService.createOrder(orderRequestDto);
-
-
-        return ResponseEntity.status(HttpStatus.CREATED).body(order);
+        byte[] orderPdf = orderService.createOrder(orderRequestDto);
+        return ResponseEntity.ok()
+                .contentType(MediaType.APPLICATION_PDF)
+                .header(HttpHeaders.CONTENT_DISPOSITION, "inline; filename=\"" + orderRequestDto.getIdOrderWA().concat(".pdf") + "\"")
+                .body(new ByteArrayResource(orderPdf));
     }
 
     @GetMapping()
