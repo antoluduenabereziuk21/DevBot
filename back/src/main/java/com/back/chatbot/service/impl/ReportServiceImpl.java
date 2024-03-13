@@ -1,12 +1,11 @@
 package com.back.chatbot.service.impl;
 
-import com.back.chatbot.commons.JasperReportManager;
-import com.back.chatbot.controller.dto.ReportDTO;
-import com.back.chatbot.controller.dto.request.ItemsOrderRequestDto;
-import com.back.chatbot.controller.dto.request.OrderRequestDto;
-import com.back.chatbot.controller.dto.response.OrderResponseReport;
-import com.back.chatbot.persistance.entity.ProductEntity;
+import com.back.chatbot.controller.dto.response.OrderResponseReportDTO;
+import com.back.chatbot.persistance.entity.ClientEntity;
+import com.back.chatbot.persistance.entity.ItemsOrderEntity;
+import com.back.chatbot.persistance.entity.OrderEntity;
 import com.back.chatbot.persistance.mapper.OrderMapper;
+import com.back.chatbot.persistance.repository.IClientRepository;
 import com.back.chatbot.persistance.repository.IOrderRepository;
 import com.back.chatbot.persistance.repository.IProductRepository;
 import com.back.chatbot.service.IReportService;
@@ -16,19 +15,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.util.ResourceUtils;
-
 import javax.sql.DataSource;
 import java.io.*;
 import java.nio.file.Path;
 import java.nio.file.Paths;
-import java.sql.SQLException;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
-import java.util.Map;
+import java.util.Optional;
 
 @Service
 public class ReportServiceImpl implements IReportService {
+    @Autowired
+    private IClientRepository clientRepository;
     @Autowired
     private IProductRepository productRepository;
     @Autowired
@@ -36,74 +36,40 @@ public class ReportServiceImpl implements IReportService {
     @Autowired
     private OrderMapper orderMapper;
     @Autowired
-    private JasperReportManager reportManager;
-    @Autowired
     private DataSource dataSource;
-
     @Value("${file.upload.dir}")
     private String DIRECTORIO_UPLOAD;
 
     @Override
-    public ReportDTO getOrderReport(Map<String, Object> params)
-            throws JRException, IOException, SQLException {
-        String fileName = "ReportePedido";
-        ReportDTO dto = new ReportDTO();
+    public byte[] exportReport(String idOrder, String cellPhone) throws FileNotFoundException, JRException {
 
-        dto.setFileName(fileName + ".pdf");
-
-        ByteArrayOutputStream stream = reportManager.export(fileName, params, dataSource.getConnection());
-
-        byte[] bs = stream.toByteArray();
-        dto.setStream(new ByteArrayInputStream(bs));
-        dto.setLength(bs.length);
-
-        return dto;
-    }
-
-    @Override
-    public String exportReport(String reportFormat) throws FileNotFoundException, JRException {
-
-        String path = "C:\\Users\\Exe\\Desktop\\Reportes";
-        List<ProductEntity> list = productRepository.findAll();
-
-        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\reporte1.jrxml");
-
-        JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
-
-        JRBeanCollectionDataSource dataSource1 = new JRBeanCollectionDataSource(list);
-
-        Map<String, Object> parameters = new HashMap<>();
-        parameters.put("Autor", "Exe");
-
-        JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, parameters, dataSource1);
-
-        JasperExportManager.exportReportToPdfFile(jasperPrint, path + "miReporte.pdf");
-
-        return "Reporte Generado";
-    }
-
-    @Override
-    public byte[] exportReport2(String idOrder) throws FileNotFoundException, JRException {
-        OrderRequestDto order = orderMapper.toOrderRequestDto(orderRepository.findById(idOrder).orElseThrow(
+        OrderEntity order = orderRepository.findById(idOrder).orElseThrow(
                 () -> new RuntimeException("Order not found")
-        ));
+        );
+        //TODO Condicionar en caso de que cliente no Existe en DB....
 
-        List<OrderResponseReport> list = new ArrayList<>();
+        ClientEntity client = clientRepository.findClientByCellPhone(cellPhone);
 
-        for (ItemsOrderRequestDto it : order.getItemsProducts()) {
-            OrderResponseReport orderReport = new OrderResponseReport();
+        List<OrderResponseReportDTO> list = new ArrayList<>();
+
+        for (ItemsOrderEntity it : order.getItemsProducts()) {
+
+            OrderResponseReportDTO orderReport = new OrderResponseReportDTO();
             orderReport.setIdOrderWA(order.getIdOrderWA());
             orderReport.setTotal(order.getTotal());
-            orderReport.setDescription(it.getName());
+            orderReport.setName(it.getName());
             orderReport.setQuantity(it.getQuantity());
             orderReport.setPrice(it.getPrice());
+            orderReport.setNameClient(client.getName() + " " + client.getLast_name());
+            orderReport.setAddress(client.getAddress());
+            orderReport.setCellPhone(cellPhone);
+
             list.add(orderReport);
         }
 
-        Path path = this.getPath("ReportePedido.jrxml");
-//        File file = ResourceUtils.getFile("C:\\Users\\Exe\\IdeaProjects\\DevBot\\back\\src\\main\\resources\\reports\\ReportePedido.jrxml");
+        Path path = this.getPath("Voucher.jrxml");
+
         File file = ResourceUtils.getFile(path.toAbsolutePath().toString());
-        System.out.println(file.getAbsolutePath().toString());
 
         JasperReport jasperReport = JasperCompileManager.compileReport(file.getAbsolutePath());
 
@@ -111,7 +77,7 @@ public class ReportServiceImpl implements IReportService {
 
         HashMap<String, Object> parameters = new HashMap<>();
 
-        parameters.put("Autor", "Exe");
+        parameters.put("Report", "Report");
 
         JasperPrint jasperPrint = JasperFillManager.fillReport(jasperReport, null, dataSource1);
 

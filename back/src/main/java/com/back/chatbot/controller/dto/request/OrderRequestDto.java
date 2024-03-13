@@ -12,6 +12,11 @@ import java.util.List;
 @Data
 public class OrderRequestDto {
 
+    @NotEmpty(message = "Numero de celular del cliente")
+    @NotBlank(message = "no debe consistir solo en espacios en blanco")
+    @Schema(description = "Celular del cliente ", example = "codigo pais ej:+54 9 ,codigo de area o region ej:351 , numero de telefono sim el 15 : 2548798")
+    private String cellPhone;
+
     @NotEmpty(message = "Este ID es enviado desde WA")
     @NotBlank(message = "no debe consistir solo en espacios en blanco")
     @Schema(description = "ID WA", example = "9854896326")

@@ -57,7 +57,7 @@ const onFlow = addKeyword(REGEX_KEYWORD, {regex: true})
       }
     });
 
-
+//flujos....addkeyword("hola",["hola",holis,""],events.hola,si llega carrito comp ).addAnswer(respuesta ,{c,diley,},async()=>{consulta api })addActions()
 const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
     .addAction(userstateMiddleware)
     .addAction(async (ctx, {gotoFlow, globalState,extensions,provider}) => {
