@@ -1,9 +1,8 @@
-
 name: Build and Deploy Node.js app
 
 on:
   push:
-    branches: [dev, main,devFront]
+    branches: [dev, main]
 
 jobs:
   build-docker:
@@ -22,7 +21,7 @@ jobs:
           password: ${{secrets.DOCKERHUB_TOKEN_NODE}}
           
       - name: Listar contenido del directorio front
-        run: ls  
+        run: ls
 
       - name: Build and push Node.js Docker image
         uses: docker/build-push-action@v5
@@ -30,7 +29,7 @@ jobs:
           context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
           dockerfile: Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/devbot_node:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
 
   deploy:
     name: Deploy to DonWeb
@@ -39,16 +38,16 @@ jobs:
 
     steps:
       - name: Docker Instance Stop and remove
-        run: docker rm -f node
+        run: docker rm -f nodeappbot
 
       - name: Docker pull Node.js image
-        run: docker pull ${{secrets.DOCKERHUB_USERNAME}}/devbot_node:latest
+        run: docker pull ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
 
       - name: Docker run Node.js image
         run: |
           docker run -d \
           --restart always \
-          --name node \
+          --name nodeappbot \
           -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
           -e USE_PAIRING_CODE=true \
           -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
@@ -57,6 +56,6 @@ jobs:
           -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
           -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
           -e "API_URL=${{secrets.API_URL}}" \
-          -p 3000:3000 \ 
-          ${{secrets.DOCKERHUB_USERNAME}}/devbot_node:latest
+          -p 3000:3000 \
+          ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
