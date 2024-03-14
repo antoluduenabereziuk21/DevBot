@@ -4,7 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="refactor dockerFile backend" />
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="refactor dockerFile backend">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/delivery_flow/delivery.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/delivery_flow/delivery.flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/localpickup_flow/localpickup.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/localpickup_flow/localpickup.flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/order_flow/order.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/order_flow/order.flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/shopping.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/shopping.flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/strategy/strategy.class.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/shopping_flow/strategy/strategy.class.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/app/flows/welcome_flow/welcome.flow.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/app/flows/welcome_flow/welcome.flow.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/http/order.http.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/http/order.http.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/middlewares/order.middleware.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/middlewares/order.middleware.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/front/src/services/orderCreate.service.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/src/services/orderCreate.service.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />

@@ -10,7 +10,8 @@ const createOrder = async (dataEntry)=>{
         const response = await api.post(ENDPOINT_ORDER, JSON.stringify(dataEntry), {
             headers: {
                 'Content-Type': 'application/json'
-            }
+            },
+            responseType: 'arraybuffer'
         });
         return response;
     }catch (error){

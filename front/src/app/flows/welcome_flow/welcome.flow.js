@@ -57,7 +57,9 @@ const onFlow = addKeyword(REGEX_KEYWORD, {regex: true})
       }
     });
 
-//flujos....addkeyword("hola",["hola",holis,""],events.hola,si llega carrito comp ).addAnswer(respuesta ,{c,diley,},async()=>{consulta api })addActions()
+/**
+ * 1° Se ejecuta el flujo principal
+ */
 const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
     .addAction(userstateMiddleware)
     .addAction(async (ctx, {gotoFlow, globalState,extensions,provider}) => {
@@ -79,7 +81,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
   )
   .addAction(async (ctx, { provider, extensions, gotoFlow, globalState }) => {
     try {
-      idleReset(ctx, gotoFlow, globalState.getMyState().timer);
+      //idleReset(ctx, gotoFlow, globalState.getMyState().timer);
       const jid = ctx?.key?.remoteJid;
 
       await extensions.utils.typing(provider, {

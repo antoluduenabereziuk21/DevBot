@@ -4,11 +4,15 @@ const simulateTypingMiddleware = require("../../../middlewares/order.middleware"
 const {idleReset, idleStart, idleStop} = require("../../../utils/idle.util");
 const {captureDataMiddleware, captureAddressMiddleWare} = require("../../../middlewares/order.middleware");
 const pollMiddleware = require("../../../middlewares/poll.middleware");
-let intents = 2;
 
 const orderFlow = addKeyword(EVENTS.ACTION, {})
+    .addAction(async (ctx, {state}) => {
+        //CAPTURO SU NUMERO DE CELULAR
+        const myState = state.getMyState();
+        myState[ctx?.from] = {...myState[ctx?.from], data: {cel_phone: ctx.from}};
+        await state.update(myState);
+    })
     .addAction(async (ctx, {globalState, gotoFlow}) => {
-        idleStop(ctx);
       idleStart(ctx, gotoFlow, globalState.getMyState().timer);
     })
     .addAction(simulateTypingMiddleware)
@@ -16,7 +20,7 @@ const orderFlow = addKeyword(EVENTS.ACTION, {})
         ,{
             capture: true,
             delay: setRandomDelay(950, 850),
-            buttons: [{"body": "*Recojo en tienda*"}, {"body": "*Directo a mi casa*"}, {"body": "❌Cancelar pedido"}]
+            buttons: [{"body": "*Recojo en tienda*"}, {"body": "*Directo a mi casa adicional 200*"}, {"body": "❌Cancelar pedido"}]
         }
         ,pollMiddleware);
 

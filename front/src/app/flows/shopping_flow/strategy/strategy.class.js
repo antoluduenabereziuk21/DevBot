@@ -30,6 +30,7 @@ class Strategy{
     }
 
     default= ()=> {
+        idleStop(ctx);
         console.error("Error en menuOptions");
         throw new OptionNotValidException("Opción no válida");
     }

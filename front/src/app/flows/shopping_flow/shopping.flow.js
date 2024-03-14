@@ -4,10 +4,13 @@ const {setRandomDelay} = require('../../../utils/delay.util');
 const {postSlack} = require("../../../http/slack.http");
 const userstateMiddleware = require("../../../middlewares/userstate.middleware");
 const strategy = require("./strategy/strategy.class");
-const {idleStart, idleReset} = require("../../../utils/idle.util");
-
-let intents = 2;
+const {idleStart, idleReset,idleStop} = require("../../../utils/idle.util");
+//TODO reveer bug de intentos , intentos debe estar asociado a cada usario, ahora esta como global
+let intents = 5;
 const catalogFlow = addKeyword(EVENTS.ORDER, {})
+.addAction(async (ctx, {provider, flowDynamic}) => {
+    idleStop(ctx);
+})
     .addAction(async (ctx, {globalState, gotoFlow,provider}) => {
         idleStart(ctx, gotoFlow, globalState.getMyState().timer);
         await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "🤩"}});
@@ -30,8 +33,9 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
 
             myState[ctx?.from]= {...myState[ctx?.from], order: {
                 idOrder:oId,
-                tokenOrder: oToken
-            }};
+                tokenOrder: oToken,
+            },
+            };
             console.log("MY ESTADO ES: ",state.getMyState());
            // await createOrder(GLOBAL_ORDER);
             /*create order Habria que mandarlo luego de la seleccion de envio(retiro en local total === , envio a domicilio total +++ costo del envio)
