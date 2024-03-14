@@ -39,7 +39,7 @@ public class OrderController {
             }
     )
 
-    @PostMapping
+    @PostMapping("/")
     public ResponseEntity<?> createOrder(@RequestBody OrderRequestDto orderRequestDto){
         System.out.println(orderRequestDto);
         byte[] orderPdf = orderService.createOrder(orderRequestDto);
