@@ -45,7 +45,7 @@ jobs:
 
       - name: Docker run Node.js image
         run: |
-          docker run -d \
+          docker run -v /home/cashier/zephyr/bot_sessions:/app/bot_sessions -d \
           --restart always \
           --name nodeappbot \
           -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
