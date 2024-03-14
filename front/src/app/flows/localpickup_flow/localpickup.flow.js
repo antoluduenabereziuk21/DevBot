@@ -11,8 +11,10 @@ const {orderWAMiddleware} = require("../../../middlewares/order.middleware");
 
 
 const localpickupFlow = addKeyword(REGEX_KEYWORD, {regex: true})
+.addAction(async (ctx, {globalState, gotoFlow, provider}) => {
+    idleStop(ctx);
+})
     .addAction(async (ctx, {globalState, gotoFlow, provider}) => {
-        idleStart(ctx, gotoFlow, globalState.getMyState().timer);
         await provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "🤩"}});
     })
     .addAnswer("😉 Sirvase pasar a nuestro local, inmediatamente le enviaremos nuestra *dirección 🏠 y su comprobante 📄* 💁🏻‍♀️"
@@ -42,6 +44,7 @@ const localpickupFlow = addKeyword(REGEX_KEYWORD, {regex: true})
     .addAction(async (ctx, ctxFn) => {
         //No quiere delivery por ello va false
         await orderWAMiddleware(ctx, ctxFn,false);
+        return ctxFn.endFlow();
     })
 
 module.exports = localpickupFlow

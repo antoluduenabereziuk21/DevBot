@@ -6,9 +6,10 @@ const chalk = require("chalk");
 const { postSlack } = require("../http/slack.http");
 const { createClient } = require("../http/client.http");
 const createClientWA = require("../services/clientCreate.service");
+const fs = require('fs');
 
 
-let intents = 2;
+let intents = 5;
 const simulateTypingMiddleware = async (ctx, {provider, gotoFlow, globalState, extensions}) => {
     idleStart(ctx, gotoFlow, globalState.getMyState().timer);
     await extensions.utils.typing(provider, {
@@ -34,13 +35,13 @@ const captureDataMiddleware = async (field, ctx, ctxFn) => {
         return
     }
     //todo resetear intents
-    intents = 2;
+    intents = 5;
     myState[ctx?.from] = {...myState[ctx?.from], data: {...myState[ctx?.from].data,[field]: body}};
     await ctxFn.state.update(myState);
     await ctxFn.provider.vendor.sendMessage(ctx?.key?.remoteJid, {react: {key: ctx?.key, text: "👍"}});
     await ctxFn.extensions.utils.typing(ctxFn.provider, {
         delay1: setRandomDelay(750, 550),
-        delay2: setRandomDelay(2500, 1800),
+        delay2: setRandomDelay(2750, 1950),
         ctx
     });
     await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
@@ -56,7 +57,7 @@ const captureAddressMiddleWare = async (field, ctx, ctxFn) =>{
     await ctxFn.state.update(myState);
     await ctxFn.extensions.utils.typing(ctxFn.provider, {
         delay1: setRandomDelay(650, 500),
-        delay2: setRandomDelay(2600, 1850),
+        delay2: setRandomDelay(2850, 2000),
         ctx
     });
     await ctxFn.provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
@@ -69,21 +70,39 @@ const captureAddressMiddleWare = async (field, ctx, ctxFn) =>{
  * @param {Object} ctxFn
  * @param {Boolean} delivery
  */
-const orderWAMiddleware = async (ctx, ctxFn, delivery= false) => {
+const orderWAMiddleware = async (ctx, ctxFn, delivery=false) => {
 
     //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
     let myState = ctxFn.state.getMyState();
+    const orderWa= {};
     try{ 
         const {order} = await ctxFn.state.get(ctx?.from)
+        const jid = ctx?.key?.remoteJid;
         const reponseCarWa = await createOrderWA(order.idOrder,order.tokenOrder,ctxFn,delivery)
-        console.log(chalk.blue("reponseCarWa"),reponseCarWa);
-        //await create cliente,seter los datosCliente -> s
-        const responseApi = await createOrder(reponseCarWa);
-        //nos debe retornar el pdf la api
-        //const bytePdf= await createOrder(GLOBAL_ORDER);
-        console.log(chalk.blue("responseApi"),responseApi.status);
+        const templateClient= await createClientWA(ctx,ctxFn,delivery);
+        Object.assign(orderWa, reponseCarWa,templateClient);
+        console.log(chalk.blue("OBJETO FINAL"),orderWa);
+
+        const responseApi = await createOrder(orderWa);
+        await ctxFn.extensions.utils.typing(ctxFn.provider, {
+            delay1: setRandomDelay(800, 550),
+            delay2: setRandomDelay(2000, 1550),
+            ctx
+        })
+
+        const nameOrder = new Date().getTime();
+        
+        await ctxFn.provider.vendor.sendMessage(jid, {
+            document: Buffer.from(responseApi.data),
+            mimetype: "application/pdf",
+            fileName: nameOrder+".pdf",
+            caption: "Perfecto tu orden ha sido registrada 📄"
+        });
+
+        await ctxFn.provider.vendor.sendPresenceUpdate("paused",jid);
         idleStop(ctx);
-        return ctxFn.endFlow("Gracias por su compra, recuerda si deseas pedir algo más, no dudes en escribir *#empezar*. 😊")
+        await ctxFn.extensions.utils.wait(setRandomDelay(950, 750));
+        return ctxFn.endFlow("🚀 Perfecto, tu orden ha sido registrada, en breve nos comunicaremos contigo para coordinar la entrega 🚚");
     }catch (error){
         console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
         await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
@@ -97,11 +116,13 @@ const clientMiddleware = async(ctxFn,delivery=false)=>{
    try {
     const resposeClientWa = await createClientWA(ctxFn,delivery=fasle);
     console.log(chalk.blue("reponseClientWA"),resposeClientWa);
-   } catch (error) {
-    
-   }
-    
-
+   }catch (error){
+    console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
+    await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
+}finally {
+    await ctxFn.state.clear(ctx?.from);
+    myState = Object.assign({}, myState);
+}
 
 }
 
