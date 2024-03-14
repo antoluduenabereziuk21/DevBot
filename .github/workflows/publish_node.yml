@@ -29,7 +29,7 @@ jobs:
           context: ./front  # Ajusta la ruta al directorio de tu aplicación Node.js
           dockerfile: Dockerfile
           push: true
-          tags: ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
+          tags: ${{secrets.DOCKERHUB_USERNAME}}/nodeapp:latest
 
   deploy:
     name: Deploy to DonWeb
@@ -41,7 +41,7 @@ jobs:
         run: docker rm -f nodeappbot
 
       - name: Docker pull Node.js image
-        run: docker pull ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
+        run: docker pull ${{secrets.DOCKERHUB_USERNAME}}/nodeapp:latest
 
       - name: Docker run Node.js image
         run: |
@@ -57,5 +57,5 @@ jobs:
           -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
           -e "API_URL=${{secrets.API_URL}}" \
           -p 3000:3000 \
-          ${{secrets.DOCKERHUB_USERNAME}}/${{secrets.DOCKERHUB_PROJECT_NODE}}:latest
+          ${{secrets.DOCKERHUB_USERNAME}}/nodeapp:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
