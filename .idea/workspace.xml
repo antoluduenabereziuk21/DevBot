@@ -4,11 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="deploy appNode for production add appSprign too">
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added @bootWhatsapp folder">
+      <change afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/configuration/CorsConfig.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/flow.class.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/flow.class.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/toSerialize.js" beforeDir="false" afterPath="$PROJECT_DIR$/front/@bot-whatsapp/bot/io/methods/toSerialize.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/baileys/index.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/front/@bot-whatsapp/provider/lib/baileys/index.cjs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/controller/OrderController.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -39,11 +38,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "antonio",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot/front"
+    "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot/back/src/main/java/com/back/chatbot/configuration"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/configuration" />
       <recent name="$PROJECT_DIR$/front" />
       <recent name="$PROJECT_DIR$/back/src/main/resources/fonts" />
     </key>
@@ -326,7 +326,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710442894808</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="added @bootWhatsapp folder">
+      <option name="closed" value="true" />
+      <created>1710455772904</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1710455772904</updated>
+    </task>
+    <option name="localTasksCounter" value="33" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -355,6 +363,7 @@
     <MESSAGE value="added secrets for deploy" />
     <MESSAGE value="refactor dockerFile backend" />
     <MESSAGE value="deploy appNode for production add appSprign too" />
-    <option name="LAST_COMMIT_MESSAGE" value="deploy appNode for production add appSprign too" />
+    <MESSAGE value="added @bootWhatsapp folder" />
+    <option name="LAST_COMMIT_MESSAGE" value="added @bootWhatsapp folder" />
   </component>
 </project>
