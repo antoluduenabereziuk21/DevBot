@@ -17,7 +17,7 @@ const HTTP_PORT = process.env.PORT || 3000;
 const QR_FILE = process.env.QR_FILE ?? "bot";
 const PUBLIC_URL =
   process.env.PUBLIC_URL ??
-  process.env.RAILWAY_STATIC_URL ??
+  process.env.WEB_SERVICE_URL ??
   "http://localhost";
 
 const dir = [join(__dirname, "dist"), join(__dirname, "..", "dist")].find((i) =>
