@@ -19,7 +19,6 @@ import java.util.List;
 
 @RestController
 @RequestMapping("v1/api/order")
-@CrossOrigin(value = "http://localhost:3000")
 public class OrderController {
     @Autowired
     private IOrderService orderService;
@@ -39,7 +38,7 @@ public class OrderController {
                     )
             }
     )
-    //, @RequestBody ClientRequestDTO clientRequestDTO)
+
     @PostMapping
     public ResponseEntity<?> createOrder(@RequestBody OrderRequestDto orderRequestDto){
         System.out.println(orderRequestDto);
