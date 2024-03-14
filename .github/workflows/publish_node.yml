@@ -49,7 +49,7 @@ jobs:
           docker run -d \
           --restart always \
           --name devbot_node \
-          -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
+          -e PHONE_NUMBER=51971691067 \
           -e USE_PAIRING_CODE=true \
           -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
           -e "SLACK_URL=${{secrets.SLACK_URL}}" \
