@@ -1,4 +1,4 @@
-const { generateRefSerialize } = require('../../utils/hash')
+const { generateRefSerialize } = require('@bot-whatsapp/bot/utils/hash')
 
 /**
  * Crear referencia serializada

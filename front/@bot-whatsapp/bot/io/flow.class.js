@@ -1,5 +1,5 @@
-const { toSerialize } = require('./methods/toSerialize')
-const { flatObject } = require('../utils/flattener')
+const { toSerialize } = require('@bot-whatsapp/bot/io/methods/toSerialize')
+const { flatObject } = require('@bot-whatsapp/bot/utils/flattener')
 
 /**
  * Esta clas se encarga de manera la manipulacion de los flows
