@@ -39,7 +39,7 @@ jobs:
 
     steps:
       - name: Docker Instance Stop and remove
-        run: docker rm -f devbot_node
+        run: docker rm -f node_bot
 
       - name: Docker pull Node.js image
         run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/devbot_node:latest
@@ -48,8 +48,8 @@ jobs:
         run: |
           docker run -d \
           --restart always \
-          --name devbot_node \
-          -e PHONE_NUMBER=51971691067 \
+          --name node_bot \
+          -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
           -e USE_PAIRING_CODE=true \
           -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
           -e "SLACK_URL=${{secrets.SLACK_URL}}" \
