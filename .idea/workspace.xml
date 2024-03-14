@@ -5,9 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="deploy appNode for production add appSprign too">
-      <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/front/packages/portalQR/lib/portal.http.cjs" beforeDir="false" afterPath="$PROJECT_DIR$/front/packages/portalQR/lib/portal.http.cjs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -276,7 +274,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710379003098</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="deploy appNode for production add appSprign too">
+      <option name="closed" value="true" />
+      <created>1710379572526</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1710379572526</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
