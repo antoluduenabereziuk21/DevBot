@@ -4,7 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="added @bootWhatsapp folder">
+    <list default="true" id="cf0917fe-7e93-47d4-ad54-d2bb183496a4" name="Changes" comment="changes on publish_node">
+      <change beforePath="$PROJECT_DIR$/.github/workflows/publish.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
@@ -328,7 +329,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710455772904</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="changes on publish_node">
+      <option name="closed" value="true" />
+      <created>1710543370973</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1710543370973</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -358,6 +367,7 @@
     <MESSAGE value="refactor dockerFile backend" />
     <MESSAGE value="deploy appNode for production add appSprign too" />
     <MESSAGE value="added @bootWhatsapp folder" />
-    <option name="LAST_COMMIT_MESSAGE" value="added @bootWhatsapp folder" />
+    <MESSAGE value="changes on publish_node" />
+    <option name="LAST_COMMIT_MESSAGE" value="changes on publish_node" />
   </component>
 </project>

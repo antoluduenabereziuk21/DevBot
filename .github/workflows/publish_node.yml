@@ -32,9 +32,9 @@ jobs:
           tags: ${{secrets.DOCKERHUB_USERNAME_NODE}}/nodeappbot:latest
 
   deploy:
-    name: Deploy to DonWeb
+    name: Deploy to DonWeb NodeApp
     needs: build-docker
-    runs-on: devbot #ubuntu-latest
+    runs-on: devbot
 
     steps:
       - name: Docker Instance Stop and remove

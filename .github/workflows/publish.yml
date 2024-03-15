@@ -37,9 +37,9 @@ jobs:
 
 
   deploy:
-    name: Deploy to DonWeb
+    name: Deploy to DonWeb SpringApp
     needs: build-docker
-    runs-on: apichatdev #ubuntu-latest
+    runs-on: apichatdev
     
     
 
