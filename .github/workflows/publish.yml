@@ -39,8 +39,7 @@ jobs:
   deploy:
     name: Deploy to DonWeb SpringApp
     needs: build-docker
-    runs-on: self-hosted
-    if: runner.labels contains 'apichatdev'
+    runs-on: 'apichatdev'
     
     
 
