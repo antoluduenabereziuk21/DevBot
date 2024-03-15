@@ -34,7 +34,7 @@ jobs:
   deploy:
     name: Deploy to DonWeb
     needs: build-docker
-    runs-on: self-hosted #ubuntu-latest
+    runs-on: devbot #ubuntu-latest
 
     steps:
       - name: Docker Instance Stop and remove
