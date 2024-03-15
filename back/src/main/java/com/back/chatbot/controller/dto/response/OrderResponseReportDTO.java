@@ -5,6 +5,7 @@ import lombok.Data;
 
 import java.math.BigDecimal;
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @Data
 public class OrderResponseReportDTO {
@@ -17,6 +18,15 @@ public class OrderResponseReportDTO {
     private String nameClient;
     private String cellPhone;
     private String address;
-    //private LocalDateTime dateReport = LocalDateTime.now();
+    private String dateReport;
 
+    public OrderResponseReportDTO() {
+
+        LocalDateTime lDate = LocalDateTime.now();
+
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd-MM-yyyy HH:mm");
+
+        dateReport = lDate.format(formatter);
+
+    }
 }
