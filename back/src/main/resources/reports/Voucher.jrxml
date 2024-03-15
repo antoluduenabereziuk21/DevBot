@@ -38,7 +38,7 @@
 	<field name="cellPhone" class="java.lang.String"/>
 	<field name="nameClient" class="java.lang.String"/>
 	<field name="address" class="java.lang.String"/>
-<!--	<field name="dateReport" class="java.lang.String"/>-->
+	<field name="dateReport" class="java.lang.String"/>
 	<background>
 		<band splitType="Stretch"/>
 	</background>
@@ -93,29 +93,22 @@
 				</textElement>
 				<text><![CDATA[Comprobante No.]]></text>
 			</staticText>
-			<textField>
-				<reportElement x="85" y="40" width="136" height="24" uuid="36e6119b-0c20-4b15-9744-e32c541edb02"/>
-				<textElement>
-					<font size="13"/>
-				</textElement>
-<!--				<textFieldExpression><![CDATA[$F{dateReport}]]></textFieldExpression>-->
-			</textField>
 			<staticText>
-				<reportElement x="25" y="40" width="60" height="20" uuid="9cbbaeac-4c8b-417d-ac19-39a582f1f48e"/>
+				<reportElement x="25" y="37" width="60" height="20" uuid="9cbbaeac-4c8b-417d-ac19-39a582f1f48e"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Fecha:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="25" y="63" width="60" height="20" uuid="f1b3a5a5-4536-486e-999a-3912254452a1"/>
+				<reportElement x="25" y="62" width="60" height="20" uuid="f1b3a5a5-4536-486e-999a-3912254452a1"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
 				<text><![CDATA[Celular:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="40" width="60" height="20" uuid="27b4ab86-1936-409c-89e2-4c4a847423a5"/>
+				<reportElement x="228" y="37" width="60" height="20" uuid="27b4ab86-1936-409c-89e2-4c4a847423a5"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
@@ -129,19 +122,38 @@
 				<text><![CDATA[Dirección:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="269" y="9" width="100" height="30" uuid="54c78ceb-3a87-473a-b044-236ed59aa236"/>
+				<reportElement x="256" y="12" width="100" height="30" uuid="54c78ceb-3a87-473a-b044-236ed59aa236"/>
+				<textElement>
+					<font size="12" isBold="false"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{idOrderWA}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="87" y="65" width="100" height="17" uuid="f330fdfc-b434-4588-8624-9f939a5f992f"/>
+				<reportElement x="85" y="40" width="136" height="20" uuid="36e6119b-0c20-4b15-9744-e32c541edb02"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{dateReport}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="85" y="65" width="100" height="20" uuid="f330fdfc-b434-4588-8624-9f939a5f992f"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{cellPhone}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="42" width="100" height="30" uuid="273b68a1-ba22-417f-a32d-9cd0be5e13d5"/>
+				<reportElement x="300" y="40" width="100" height="20" uuid="273b68a1-ba22-417f-a32d-9cd0be5e13d5"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{nameClient}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="63" width="100" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
+				<reportElement x="300" y="65" width="100" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
+				<textElement>
+					<font size="10" isBold="false"/>
+				</textElement>
 				<textFieldExpression><![CDATA[$F{address}]]></textFieldExpression>
 			</textField>
 			<staticText>
@@ -184,12 +196,12 @@
 		<band height="28" splitType="Stretch">
 			<textField>
 				<reportElement x="68" y="10" width="100" height="18" uuid="59875e96-d18b-4771-9081-348b46b1d7c8">
-										<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7bf4746-787d-428b-b067-fc0e985b5adb"/>
+				<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="a7bf4746-787d-428b-b067-fc0e985b5adb"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="235" y="10" width="100" height="18" uuid="ec76596a-2ca5-4381-9349-693db75bebf6">
+				<reportElement x="235" y="10" width="150" height="18" uuid="ec76596a-2ca5-4381-9349-693db75bebf6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b31252a8-698d-46ab-92b8-ba51e94b2c06"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
@@ -198,7 +210,7 @@
 				<reportElement x="410" y="10" width="100" height="18" uuid="bc3186a2-c133-40c6-ac95-03290d0c74de">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d2ac748-472c-4bae-962b-35e620d3bbb6"/>
 				</reportElement>
-				<textFieldExpression><![CDATA[$F{price}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ "+$F{price}]]></textFieldExpression>
 			</textField>
 
 			<line>
@@ -220,7 +232,7 @@
 				<textElement textAlignment="Center" verticalAlignment="Middle">
 					<font size="11"/>
 				</textElement>
-				<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				<textFieldExpression><![CDATA["$ "+$F{total}]]></textFieldExpression>
 			</textField>
 			<staticText>
 				<reportElement x="15" y="10" width="164" height="20" uuid="48b5f708-1d4c-4cfe-9028-8b627de3e9c3"/>
