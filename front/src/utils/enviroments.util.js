@@ -8,7 +8,8 @@ const ENV = () => {
             "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/Papiko21.jpg",
         "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/IA7.jpg"],
         URL_WHATSAPP: "https://wa.me/c/51971691067",
-        ENDPOINT_ORDER: "/order",
+        API_URL: "http://200.58.106.155:9698/v1/api",
+        ENDPOINT_ORDER: "/order/",
         ENDPOINT_CLIENT:"/client"
     }
 }
