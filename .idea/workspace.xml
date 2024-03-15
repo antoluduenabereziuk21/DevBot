@@ -9,6 +9,7 @@
       <change beforePath="$PROJECT_DIR$/.github/workflows/publish_node.yml" beforeDir="false" afterPath="$PROJECT_DIR$/.github/workflows/publish_node.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
+    <list id="55fbef12-505a-4aff-b7c0-7b372748d965" name="Changes by ROMULO" comment="" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -31,16 +32,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "Docker.front/Dockerfile.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "antonio",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot/back/src/main/java/com/back/chatbot/configuration"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Docker.front/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;antonio&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/antolube/Escritorio/Proyectos/cahierGroupBackEnd/DevBot/back/src/main/java/com/back/chatbot/configuration&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/back/src/main/java/com/back/chatbot/configuration" />
@@ -337,7 +338,15 @@
       <option name="project" value="LOCAL" />
       <updated>1710543370973</updated>
     </task>
-    <option name="localTasksCounter" value="34" />
+    <task id="LOCAL-00034" summary="changes on publish_node">
+      <option name="closed" value="true" />
+      <created>1710543774668</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1710543774668</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
