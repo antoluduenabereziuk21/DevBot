@@ -39,26 +39,36 @@ jobs:
   deploy:
     name: Deploy to DonWeb SpringApp
     needs: build-docker
-    runs-on: 'apichatdev'
-    
-    
-
+    runs-on: ubuntu-latest
     steps:
+      - name: install ssh pass
+        run: sudo apt-get install -y sshpass
 
-      - name: Docker Instance Stop and remove
-        run: docker rm -f apichatdev2024
-
-      - name: Docker pull image
-        run: docker pull ${{ secrets.DOCKERHUB_USERNAME }}/apichatdev2024:latest
-
-      - name: Docker run image
+      - name: SSH INTO DON WEB SERVER - DEPLOY
         run: |
-          docker run -d \
-          --restart always \
-          --name apichatdev2024 \
-          -e "DATASOURCE_URL=${{secrets.DATASOURCE_URL}}" \
-          -e "DATASOURCE_USERNAME=${{secrets.DATASOURCE_USERNAME}}" \
-          -e "DATASOURCE_PASSWORD=${{secrets.DATASOURCE_PASSWORD}}" \
-          -p9698:9698 \
-          ${{ secrets.DOCKERHUB_USERNAME }}/apichatdev2024:latest
+              sshpass -p ${{ secrets.VPS_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
+          
+                docker rm -f springapibot  
+                docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
+                docker pull ${{ secrets.DOCKERHUB_USERNAME }}/apichatdev2024:latest
+                docker run -d \
+                  --restart always \
+                  --name springapibot \
+                  -e "DATASOURCE_URL=${{secrets.DATASOURCE_URL}}" \
+                  -e "DATASOURCE_USERNAME=${{secrets.DATASOURCE_USERNAME}}" \
+                  -e "DATASOURCE_PASSWORD=${{secrets.DATASOURCE_PASSWORD}}" \
+                  -p9698:9698 \
+                  ${{ secrets.DOCKERHUB_USERNAME }}/apichatdev2024:latest
+              EOF
+
+#      - name: Docker run image
+#        run: |
+#          docker run -d \
+#          --restart always \
+#          --name apichatdev2024 \
+#          -e "DATASOURCE_URL=${{secrets.DATASOURCE_URL}}" \
+#          -e "DATASOURCE_USERNAME=${{secrets.DATASOURCE_USERNAME}}" \
+#          -e "DATASOURCE_PASSWORD=${{secrets.DATASOURCE_PASSWORD}}" \
+#          -p9698:9698 \
+#          ${{ secrets.DOCKERHUB_USERNAME }}/apichatdev2024:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33

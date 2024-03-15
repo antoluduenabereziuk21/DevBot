@@ -34,7 +34,7 @@ jobs:
   deploy:
     name: Deploy to DonWeb NodeApp
     needs: build-docker
-    runs-on: self-hosted
+    runs-on: devbot
 
     steps:
       - name: Docker Instance Stop and remove
