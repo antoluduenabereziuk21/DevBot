@@ -89,7 +89,7 @@ const orderWAMiddleware = async (ctx, ctxFn, delivery=false) => {
             delay2: setRandomDelay(2000, 1550),
             ctx
         })
-
+        console.log(chalk.red("responseApi.data"),responseApi.data);
         const nameOrder = new Date().getTime();
         
         await ctxFn.provider.vendor.sendMessage(jid, {
