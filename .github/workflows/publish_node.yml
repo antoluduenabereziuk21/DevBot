@@ -2,7 +2,7 @@ name: Build and Deploy Node.js app
 
 on:
   push:
-    branches: [dev, main]
+    branches: [node]
 
 jobs:
   build-docker:
