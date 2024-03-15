@@ -39,7 +39,7 @@ jobs:
   deploy:
     name: Deploy to DonWeb
     needs: build-docker
-    runs-on: devbot #ubuntu-latest
+    runs-on: apichatdev #ubuntu-latest
     
     
 
