@@ -2,7 +2,7 @@ name: Build and Deploy Node.js app
 
 on:
   push:
-    branches: [node]
+    branches: [main,node]
 
 jobs:
   build-docker:
@@ -34,20 +34,20 @@ jobs:
   deploy:
     name: Deploy to DonWeb NodeApp
     needs: build-docker
-    runs-on: devbot
-
+    runs-on: ubuntu-latest
     steps:
-      - name: Docker Instance Stop and remove
-        run: docker rm -f nodeappbot
+      - name: install ssh pass
+        run: sudo apt-get install -y sshpass
 
-      - name: Docker pull Node.js image
-        run: docker pull ${{secrets.DOCKERHUB_USERNAME_NODE}}/nodeappbot:latest
-
-      - name: Docker run Node.js image
+      - name: SSH INTO DON WEB SERVER - DEPLOY NODEBOT
         run: |
-          docker run -v /home/cashier/zephyr/bot_sessions:/app/bot_sessions -d \
+          sshpass -p ${{ secrets.VPS_PASSWORD_ANTONIO }} ssh -p 5355 -o StrictHostKeyChecking=no ${{ secrets.VPS_USER_ANTONIO }}@${{ secrets.VPS_HOST_ANTONIO }} << EOF
+          docker rm -f nodebot  
+          docker login -u ${{ secrets.DOCKERHUB_USERNAME_NODE }} -p ${{ secrets.DOCKERHUB_TOKEN_NODE }}
+          docker pull ${{ secrets.DOCKERHUB_USERNAME_NODE }}/nodeappbot2024:latest
+          docker run -d \
           --restart always \
-          --name nodeappbot \
+          --name nodebot \
           -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
           -e USE_PAIRING_CODE=true \
           -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
@@ -57,5 +57,19 @@ jobs:
           -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
           -e "API_URL=${{secrets.API_URL}}" \
           -p 3000:3000 \
-          ${{secrets.DOCKERHUB_USERNAME}}/nodeappbot:latest
+          ${{secrets.DOCKERHUB_USERNAME_NODE}}/nodeappbot:latest
+          EOF
+#          docker run -v /home/cashier/zephyr/bot_sessions:/app/bot_sessions -d \
+#          --restart always \
+#          --name nodeappbot \
+#          -e "PHONE_NUMBER=${{secrets.PHONE_NUMBER}}" \
+#          -e USE_PAIRING_CODE=true \
+#          -e "JWT_SECRET=${{secrets.JWT_SECRET}}" \
+#          -e "SLACK_URL=${{secrets.SLACK_URL}}" \
+#          -e "EMAIL_TO=${{secrets.EMAIL_TO}}" \
+#          -e "RESEND_API_KEY=${{secrets.RESEND_API_KEY}}" \
+#          -e "WEB_SERVICE_URL=${{secrets.WEB_SERVICE_URL}}" \
+#          -e "API_URL=${{secrets.API_URL}}" \
+#          -p 3000:3000 \
+#          ${{secrets.DOCKERHUB_USERNAME}}/nodeappbot:latest
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
