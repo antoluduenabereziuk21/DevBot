@@ -6,5 +6,5 @@ import java.io.FileNotFoundException;
 
 public interface IReportService {
 
-    byte[] exportReport(String idOrder, String cellPhone) throws FileNotFoundException, JRException;
+    byte[] exportReport(String idOrder, String cellPhone, Boolean delivery) throws FileNotFoundException, JRException;
 }

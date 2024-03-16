@@ -42,6 +42,9 @@ public class OrderServiceImpl implements IOrderService {
     @Override
     public byte[] createOrder(OrderRequestDto orderRequestDto) {
         System.out.println(orderRequestDto);
+
+        Boolean delivery = orderRequestDto.isDelivery();
+
         var clientDto=orderRequestDto.getClient();
         OrderEntity orderEntity = orderMapper.toOrderEntity(orderRequestDto);
         ClientEntity client = clientMapper.toClientEntity(clientDto);
@@ -82,7 +85,7 @@ public class OrderServiceImpl implements IOrderService {
 //        }
 
 
-        return reportService.exportReport(order.getIdOrder(),client.getCel_phone());
+        return reportService.exportReport(order.getIdOrder(),client.getCel_phone(), delivery);
     }
 
     @Override
