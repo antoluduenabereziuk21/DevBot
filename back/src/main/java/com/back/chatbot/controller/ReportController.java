@@ -21,10 +21,11 @@ public class ReportController {
     //commet for deploy
     @GetMapping("/orderReport")
     public ResponseEntity<Resource> generateOrderReport(@RequestParam String idOrder,
-                                                        @RequestParam String cellPhone)
+                                                        @RequestParam String cellPhone,
+                                                        @RequestParam Boolean delivery)
                                                                 throws JRException, FileNotFoundException {
 
-        byte[] byteReport = iReportService.exportReport(idOrder, cellPhone);
+        byte[] byteReport = iReportService.exportReport(idOrder, cellPhone, delivery);
 
         return ResponseEntity.ok()
                 .contentType(MediaType.APPLICATION_PDF)

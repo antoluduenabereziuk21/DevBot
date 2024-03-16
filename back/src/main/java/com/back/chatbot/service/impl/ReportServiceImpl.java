@@ -19,6 +19,7 @@ import org.springframework.util.ResourceUtils;
 import javax.sql.DataSource;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.math.BigDecimal;
 import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.ArrayList;
@@ -41,7 +42,7 @@ public class ReportServiceImpl implements IReportService {
     private String DIRECTORIO_UPLOAD;
 
     @Override
-    public byte[] exportReport(String idOrder, String cellPhone) throws FileNotFoundException, JRException {
+    public byte[] exportReport(String idOrder, String cellPhone, Boolean delivery) throws FileNotFoundException, JRException {
 
         OrderEntity order = orderRepository.findById(idOrder).orElseThrow(
                 () -> new RuntimeException("Order not found")
@@ -60,6 +61,20 @@ public class ReportServiceImpl implements IReportService {
             orderReport.setName(it.getName());
             orderReport.setQuantity(it.getQuantity());
             orderReport.setPrice(it.getPrice());
+            orderReport.setNameClient(client.getName() + " " + client.getLast_name());
+            orderReport.setAddress(client.getAddress());
+            orderReport.setCellPhone(cellPhone);
+
+            list.add(orderReport);
+        }
+
+        if(delivery){
+            OrderResponseReportDTO orderReport = new OrderResponseReportDTO();
+            orderReport.setPrice(BigDecimal.valueOf(200));
+            orderReport.setName("Delivery");
+            orderReport.setQuantity(1);
+            orderReport.setIdOrderWA(order.getIdOrderWA());
+            orderReport.setTotal(order.getTotal());
             orderReport.setNameClient(client.getName() + " " + client.getLast_name());
             orderReport.setAddress(client.getAddress());
             orderReport.setCellPhone(cellPhone);
