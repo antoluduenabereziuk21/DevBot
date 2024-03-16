@@ -150,7 +150,7 @@
 				<textFieldExpression><![CDATA[$F{nameClient}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="65" width="100" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
+				<reportElement x="304" y="66" width="100" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
@@ -230,7 +230,7 @@
 			<textField>
 				<reportElement x="429" y="51" width="73" height="30" uuid="db747388-8c8e-41a3-8af3-55dac57a04b4"/>
 				<textElement textAlignment="Center" verticalAlignment="Middle">
-					<font size="11"/>
+					<font size="16" isBold="true"/>
 				</textElement>
 				<textFieldExpression><![CDATA["$ "+$F{total}]]></textFieldExpression>
 			</textField>
