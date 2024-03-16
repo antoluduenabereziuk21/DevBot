@@ -46,7 +46,7 @@ jobs:
 
       - name: SSH INTO DON WEB SERVER - DEPLOY
         run: |
-              sshpass -p ${{ secrets.VPS_PASSWORD }} ssh -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
+              sshpass -p ${{ secrets.VPS_PASSWORD }} ssh -p 5003 -o StrictHostKeyChecking=no ${{ secrets.VPS_USER }}@${{ secrets.VPS_HOST }} << EOF
           
                 docker rm -f springapibot  
                 docker login -u ${{ secrets.DOCKERHUB_USERNAME }} -p ${{ secrets.DOCKERHUB_TOKEN }}
