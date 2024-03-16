@@ -20,10 +20,10 @@ const processOrderWA = async (orderId, orderToken, provider, ctx, delivery=false
       
         let nextData = orderData
         //ordernar los puntos entre la modea y el simbolo de $
-            .map(({ name, price, quantity }) => `${name} x${quantity} ${currency}  $. ${price / 1000}= ${currency} $. ${quantity*(price/1000)}`)
+            .map(({ name, price, quantity }) => `${name} x${quantity} $ ${price / 1000}= ${currency} $ ${quantity*(price/1000)}`)
             .join("\n");
 
-        let orderConfirm = `*Order Number:* ${orderId}\n\n*Order Detalles:* \n${nextData} \n\n*Order Total:* *${currency} $. ${orderTotal}*`;
+        let orderConfirm = `*Order Number:* ${orderId}\n\n*Order Detalles:* \n${nextData} \n\n*Order Total:* *$ ${orderTotal}*`;
 
         return { orderConfirm,currency , total1000};
     } catch (error) {

@@ -12,23 +12,12 @@ const createClientWA = require('./clientCreate.service');
 const createOrderWA = async(orderId,orderToken,ctxFn, delivery=false)=>{
 
     let order = await ctxFn.provider.getOrder(orderId, orderToken)
-
+  
     const orderTotal = delivery ? order.price.total / 1000 + ORDEN.DELIVERY_COST :order.price.total / 1000;
     const total1000= order.price.total;
     const currency = order.price.currency;
     const orderData = order.products;
-    //agregar ctx.jId
-    /**
-     * ademas name :"",
-     *      address:"",
-     * 
-     * let Global_client= {
-     *  cellPhone: ctx,
-     * name ,lastaname, address ..... "  "
-     * Global_client.name === ctx.body
-     * 
-     * }
-     */
+  
         let GLOBAL_ORDER = {
             "idOrderWA": orderId,
             "itemsProducts": [], // Inicializar como un array vacío
@@ -44,7 +33,8 @@ const createOrderWA = async(orderId,orderToken,ctxFn, delivery=false)=>{
                 "description": orderData[i].name,
                 "name": orderData[i].name,
                 "quantity": orderData[i].quantity,
-                "price": orderData[i].price
+                //TODO priceFinal = (orderData[i].price) /1000
+                "price": (orderData[i].price)/1000
             }
 
             // Agregar el nuevo objeto al array itemsProducts
