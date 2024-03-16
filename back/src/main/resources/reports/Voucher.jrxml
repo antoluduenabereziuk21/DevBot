@@ -115,7 +115,7 @@
 				<text><![CDATA[Cliente:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="62" width="66" height="20" uuid="0bcab287-22fc-461e-8a88-73030dc323c4"/>
+				<reportElement x="228" y="62" width="70" height="20" uuid="0bcab287-22fc-461e-8a88-73030dc323c4"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
@@ -150,7 +150,7 @@
 				<textFieldExpression><![CDATA[$F{nameClient}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="300" y="66" width="106" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
+				<reportElement x="300" y="66" width="100" height="20" uuid="afd75ebe-6424-42f6-9a59-0e5bce2a9de5"/>
 				<textElement>
 					<font size="10" isBold="false"/>
 				</textElement>
