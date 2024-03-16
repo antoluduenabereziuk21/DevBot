@@ -73,7 +73,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
         ctx
       })
        await flowDynamic([{
-        body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} , bienvenido a nuestro *restobar* \nPara pedir tus antojos 🍔 ,abre nuestro catalogo 😉`,
+        body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]}.\Soy Wot , bienvenido a nuestro *restobar* \n🤖 *Recuerda, que soy un chatbot en entrenamiento*`,
         media: URL_IMAGE_BOT[0],
       }]);
       await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
@@ -91,7 +91,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
       });
 
       await provider.vendor.sendMessage(jid, {
-        text: "Ingresa a nuestro catalogo 🍔 ",
+        text: "Para pedir tus antojos 🍔, abre nuestro catalogo 😉",
         contextInfo: {
           externalAdReply: {
             title: "Catalogo Zephyr Cygnus",
@@ -114,3 +114,4 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
   });
 
 module.exports = {flowPrincipal, onFlow, offFlow};
+Recuer
