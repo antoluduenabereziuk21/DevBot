@@ -73,7 +73,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
         ctx
       })
        await flowDynamic([{
-        body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]}.\Soy Wot , bienvenido a nuestro *restobar* \n🤖 *Recuerda, que soy un chatbot en entrenamiento*`,
+        body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]}.Soy Wot, bienvenido a nuestro *restobar* \n🤖*Recuerda, que soy un chatbot en entrenamiento*`,
         media: URL_IMAGE_BOT[0],
       }]);
       await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
