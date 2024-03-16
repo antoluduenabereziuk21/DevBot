@@ -55,7 +55,7 @@ const catalogFlow = addKeyword(EVENTS.ORDER, {})
                 ctx
             });
             await flowDynamic([{
-                body: `📌 Desea continuar con el pedido?\nPor favor digite una opción\n╠1️⃣ _Si, continuar_\n╙2️⃣ _No, cancelar_`,
+                body: `📌 Desea continuar con el pedido?\nPor favor digite una opción\n╠1️⃣ _Continuar_\n╙2️⃣ _Cancelar_`,
             }]);
             await provider.vendor.sendPresenceUpdate("paused", jid);
         } catch (e) {

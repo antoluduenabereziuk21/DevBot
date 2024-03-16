@@ -18,11 +18,11 @@ const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
         delay2: setRandomDelay(2500, 1850),
         ctx
     });
-    await flowDynamic([{body: `😀 Perfecto, continuemos 💁🏻‍♀️`}]);
+    await flowDynamic([{body: `😀 Genial!!!!!! 💁🏻‍♀️`}]);
     await provider.vendor.sendPresenceUpdate("paused", ctx.key.remoteJid);
 })
 .addAnswer([
-        `🚀 Perfecto, para *continuar* con su *pedido*, necesitaré que me proporciones tu información 💁🏻‍♀️`]
+        `🚀 ......Para *continuar* con su *pedido*, necesitaré que me proporciones tu información 💁🏻‍♀️`]
     , {delay: setRandomDelay(850, 500)}
     , async (ctx, {flowDynamic, provider, extensions,state}) => {
         
@@ -68,7 +68,7 @@ const deliveryFlow = addKeyword(REGEX_KEYWORD, {regex: true})
         myState[ctx?.from] = {...myState[ctx?.from], data: {reference: body}};   
     })
     .addAction(async (ctx, ctxFn) => {
-        await ctxFn.flowDynamic([{body: "📝 Perfecto, ya tengo toda tu información para continuar con tu pedido"}]);
+        await ctxFn.flowDynamic([{body: "📝 Listo, ya tengo toda tu información para continuar"}]);
         //AQUI GENERAMOS EL COMPROBANTE DE COMPRA Y LO ENVIAMOS AL USUARIO
         //antes de mandar la order hacer un 
         await orderWAMiddleware(ctx, ctxFn,true);        

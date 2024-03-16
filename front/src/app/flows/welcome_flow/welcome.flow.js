@@ -11,7 +11,7 @@ const userstateMiddleware = require("../../../middlewares/userstate.middleware")
 const REGEX_ADVISOR = "/^#(asesor)$/";
 const REGEX_KEYWORD = "/^#(empezar)$/";
 
-const {URL_WHATSAPP}= ENV();
+const {URL_WHATSAPP,URL_IMAGE_BOT}= ENV();
 const greeting = randomGreeting();
 
 //2° Dependiedo lo que escriba el usuario dentro de las palabras claves se ejecuta un flujo (#empezar o #asesor)
@@ -74,7 +74,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
       })
        await flowDynamic([{
         body: `💬 ${greeting[Math.floor(Math.random() * greeting.length)]} , bienvenido a nuestro *restobar* \nPara pedir tus antojos 🍔 ,abre nuestro catalogo 😉`,
-        media: "https://ik.imagekit.io/ljpa/zephyr-cygnus/imgBot/ia6.jpg"
+        media: URL_IMAGE_BOT[0],
       }]);
       await provider.vendor.sendPresenceUpdate("paused", ctx?.key?.remoteJid);
     }
@@ -91,7 +91,7 @@ const flowPrincipal = addKeyword(EVENTS.WELCOME, {})
       });
 
       await provider.vendor.sendMessage(jid, {
-        text: "Presioname 👇🏼",
+        text: "Ingresa a nuestro catalogo 🍔 ",
         contextInfo: {
           externalAdReply: {
             title: "Catalogo Zephyr Cygnus",

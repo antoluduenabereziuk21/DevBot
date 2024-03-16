@@ -96,13 +96,13 @@ const orderWAMiddleware = async (ctx, ctxFn, delivery=false) => {
             document: Buffer.from(responseApi.data),
             mimetype: "application/pdf",
             fileName: nameOrder+".pdf",
-            caption: "Perfecto tu orden ha sido registrada 📄"
+            caption: "Aqui tienes el detalle de tu pedido 📄"
         });
 
         await ctxFn.provider.vendor.sendPresenceUpdate("paused",jid);
         idleStop(ctx);
         await ctxFn.extensions.utils.wait(setRandomDelay(950, 750));
-        return ctxFn.endFlow("🚀 Perfecto, tu orden ha sido registrada, en breve nos comunicaremos contigo para coordinar la entrega 🚚");
+        return ctxFn.endFlow("Gracias por tu compra 😊 ");
     }catch (error){
         console.error(chalk.bgRed("ERROR FLUJO localpickupFlow"), error);
         await postSlack({text: `[ERROR FLUJO localpickupFlow:]` + error})
