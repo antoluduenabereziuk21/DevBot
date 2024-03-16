@@ -49,7 +49,7 @@
 				<textElement textAlignment="Center">
 					<font fontName="SansSerif" size="30" isBold="true"/>
 				</textElement>
-				<text><![CDATA[¡Comprobante de Pago!]]></text>
+				<text><![CDATA[¡Comprobante de tu Pedido!]]></text>
 			</staticText>
 			<image>
 				<reportElement x="252" y="60" width="67" height="60" uuid="070e6f09-943c-40f2-81ea-9b89aab06dda"/>
@@ -122,7 +122,7 @@
 				<text><![CDATA[Dirección:]]></text>
 			</staticText>
 			<textField>
-				<reportElement x="256" y="12" width="100" height="30" uuid="54c78ceb-3a87-473a-b044-236ed59aa236"/>
+				<reportElement x="256" y="12" width="150" height="30" uuid="54c78ceb-3a87-473a-b044-236ed59aa236"/>
 				<textElement>
 					<font size="12" isBold="false"/>
 				</textElement>
@@ -173,7 +173,7 @@
 				<text><![CDATA[Cantidad]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="230" y="142" width="100" height="18" uuid="24521124-0238-4365-9405-eda573cea529">
+				<reportElement x="200" y="142" width="100" height="18" uuid="24521124-0238-4365-9405-eda573cea529">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b31252a8-698d-46ab-92b8-ba51e94b2c06"/>
 				</reportElement>
 				<textElement>
@@ -182,13 +182,13 @@
 				<text><![CDATA[Descripción]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="410" y="142" width="100" height="18" uuid="ac41527d-4383-4617-b658-601dce3f5f3f">
+				<reportElement x="410" y="140" width="100" height="18" uuid="ac41527d-4383-4617-b658-601dce3f5f3f">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="0d2ac748-472c-4bae-962b-35e620d3bbb6"/>
 				</reportElement>
 				<textElement>
 					<font size="12" isBold="true"/>
 				</textElement>
-				<text><![CDATA[Precio]]></text>
+				<text><![CDATA[Precio U.]]></text>
 			</staticText>
 		</band>
 	</columnHeader>
@@ -201,7 +201,7 @@
 				<textFieldExpression><![CDATA[$F{quantity}]]></textFieldExpression>
 			</textField>
 			<textField>
-				<reportElement x="235" y="10" width="150" height="18" uuid="ec76596a-2ca5-4381-9349-693db75bebf6">
+				<reportElement x="205" y="10" width="150" height="18" uuid="ec76596a-2ca5-4381-9349-693db75bebf6">
 					<property name="com.jaspersoft.studio.spreadsheet.connectionID" value="b31252a8-698d-46ab-92b8-ba51e94b2c06"/>
 				</reportElement>
 				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
