@@ -72,4 +72,5 @@ jobs:
 #          -e "API_URL=${{secrets.API_URL}}" \
 #          -p 3000:3000 \
 #          ${{secrets.DOCKERHUB_USERNAME}}/nodeappbot:latest
+#
 #docker run -p 3323:3306 --name mysql_trucking --network spring-mysql-network --restart always -v /root/backend/app:/var/lib/mysql -e  MYSQL_DATABASE=db_trucking -e MYSQL_ROOT_PASSWORD=trucking2023  -d  mysql:8.0.33
