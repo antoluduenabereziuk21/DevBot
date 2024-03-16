@@ -115,7 +115,7 @@
 				<text><![CDATA[Cliente:]]></text>
 			</staticText>
 			<staticText>
-				<reportElement x="228" y="62" width="72" height="20" uuid="0bcab287-22fc-461e-8a88-73030dc323c4"/>
+				<reportElement x="228" y="62" width="74" height="20" uuid="0bcab287-22fc-461e-8a88-73030dc323c4"/>
 				<textElement>
 					<font size="13" isBold="true"/>
 				</textElement>
