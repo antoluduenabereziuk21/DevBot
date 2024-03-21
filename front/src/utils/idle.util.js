@@ -23,6 +23,7 @@ function idleStart(ctx, gotoFlow, time) {
  * @param time
  */
 function idleReset(ctx, gotoFlow, time) {
+    idleStop(ctx)
     if (timers[ctx.from]) {
         console.log(chalk.cyan.bold(`[REINICIAMOS] cuenta atrás para el usuario ${ctx.from}!`));
         clearTimeout(timers[ctx.from]);
