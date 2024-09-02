@@ -18,7 +18,7 @@
         "@gilmour-plant/portal-qr": "file:packages/portalQR",
         "@google/generative-ai": "^0.2.1",
         "@whiskeysockets/baileys": "6.6.0",
-        "axios": "^1.6.7",
+        "axios": "^1.7.4",
         "boxen": "^7.1.1",
         "cache-manager": "5.2.4",
         "chalk": "^4.1.2",
